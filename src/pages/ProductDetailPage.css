@@ -1,0 +1,292 @@
+/* ProductDetailPage.css */
+
+.product-detail-page {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+
+/* Breadcrumb */
+.pd-breadcrumb {
+  background-color: #f9fafb;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.pd-breadcrumb span {
+  margin: 0 0.5rem;
+  color: #ccc;
+}
+
+.pd-breadcrumb a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pd-breadcrumb a:hover {
+  color: #c8a96a;
+}
+
+/* Main Layout */
+.pd-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 992px) {
+  .pd-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Gallery */
+.pd-gallery {
+  position: sticky;
+  top: 2rem;
+}
+
+.pd-gallery__main {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: #f5f5f5;
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.pd-gallery__placeholder {
+  color: #ccc;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.pd-gallery__thumbs {
+  display: flex;
+  gap: 1rem;
+}
+
+.pd-gallery__thumb {
+  width: 80px;
+  height: 80px;
+  background-color: #f5f5f5;
+  border: 1px solid #eee;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.pd-gallery__thumb:hover,
+.pd-gallery__thumb.active {
+  border-color: #c8a96a;
+}
+
+/* Info */
+.pd-info__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.pd-info__price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #c8a96a;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.pd-info__desc {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 2rem;
+}
+
+.pd-meta {
+  margin-bottom: 2rem;
+}
+
+.pd-meta__item {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.pd-meta__label {
+  font-weight: 700;
+  color: #333;
+  margin-right: 0.5rem;
+}
+
+.pd-customize-note {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-left: 3px solid #c8a96a;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.pd-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.pd-specs-table th,
+.pd-specs-table td {
+  border: 1px solid #eee;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.pd-specs-table th {
+  background-color: #f9f9f9;
+  width: 30%;
+  color: #333;
+}
+
+.pd-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.pd-quantity {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.pd-quantity__btn {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.pd-quantity__input {
+  width: 50px;
+  text-align: center;
+  border: none;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  padding: 0.5rem 0;
+  font-weight: 600;
+}
+
+.pd-btn {
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pd-btn--primary {
+  background-color: #c8a96a;
+  color: white;
+  border: none;
+}
+
+.pd-btn--primary:hover {
+  background-color: #b09158;
+}
+
+.pd-btn--outline {
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.pd-btn--outline:hover {
+  border-color: #c8a96a;
+  color: #c8a96a;
+}
+
+/* Tabs */
+.pd-tabs {
+  margin-bottom: 4rem;
+}
+
+.pd-tabs__header {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 2rem;
+}
+
+.pd-tab-btn {
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #999;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.pd-tab-btn.active {
+  color: #1a1a1a;
+}
+
+.pd-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #c8a96a;
+}
+
+.pd-tab-content {
+  color: #666;
+  line-height: 1.8;
+}
+
+/* Related Products */
+.pd-related {
+  margin-bottom: 4rem;
+}
+
+.pd-related__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Reuse existing contact styles or simplified version */
+.pd-contact {
+  background-color: #f9f9f9;
+  padding: 4rem 0;
+}
+

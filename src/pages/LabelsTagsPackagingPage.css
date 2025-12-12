@@ -1,0 +1,151 @@
+/* LabelsTagsPackagingPage.css */
+
+.ltp-page {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+/* Hero Section */
+.ltp-hero {
+  position: relative;
+  height: 50vh;
+  min-height: 400px;
+  background-image: url('https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Packaging/Branding vibe */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.ltp-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.ltp-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.ltp-hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.ltp-hero__desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+}
+
+.ltp-hero__btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.ltp-hero__btn--primary {
+  background-color: #c8a96a;
+  color: #fff;
+}
+
+.ltp-hero__btn--primary:hover {
+  background-color: #b09358;
+}
+
+/* Section General */
+.ltp-section {
+  padding: 5rem 0;
+}
+
+.ltp-section__title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.ltp-section__title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #c8a96a;
+  margin: 1rem auto 0;
+}
+
+/* Grid */
+.ltp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.ltp-card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.ltp-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  border-color: #c8a96a;
+}
+
+.ltp-card__icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.ltp-card__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.ltp-card__desc {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.ltp-cta-section {
+  background: #c8a96a;
+  color: #fff;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ltp-hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .ltp-section {
+    padding: 3rem 0;
+  }
+  
+  .ltp-section__title {
+    font-size: 2rem;
+  }
+}
+

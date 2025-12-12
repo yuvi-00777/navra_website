@@ -1,0 +1,252 @@
+/* AboutPage.css - Minimal Premium Blue Theme */
+
+.about-page {
+  font-family: 'Inter', sans-serif;
+  color: #334155;
+  background-color: #ffffff;
+}
+
+/* Hero Section */
+.about-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 500px;
+  background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.about-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7); /* Dark Slate Overlay */
+}
+
+.about-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.about-hero__title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.about-hero__desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.about-hero__btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.about-hero__btn--primary {
+  background-color: #3b82f6;
+  color: #fff;
+  border: 2px solid #3b82f6;
+}
+
+.about-hero__btn--primary:hover {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* Sections General */
+.about-section {
+  padding: 80px 0;
+}
+
+.about-section__title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  position: relative;
+  color: #0f172a;
+  font-family: 'Playfair Display', serif;
+}
+
+.about-section__title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #3b82f6;
+  margin: 1rem auto 0;
+}
+
+/* Timeline/History */
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 2px solid #e2e8f0;
+  padding-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  border-left-color: transparent;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #3b82f6;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.timeline-year {
+  font-weight: 700;
+  color: #3b82f6;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Team Section */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.team-card {
+  text-align: center;
+  padding: 2rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid #f1f5f9;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  background: #ffffff;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  border-color: #e2e8f0;
+}
+
+.team-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #64748b;
+}
+
+.team-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.team-role {
+  color: #3b82f6;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Values Grid */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.value-card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.value-icon {
+  font-size: 3rem;
+  color: #3b82f6;
+  margin-bottom: 1.5rem;
+}
+
+.value-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.value-desc {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Stats */
+.about-stats {
+  background: #3b82f6;
+  color: #fff;
+  padding: 80px 0;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.stat-label {
+  font-size: 1rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .about-section {
+    padding: 3rem 0;
+  }
+  
+  .about-section__title {
+    font-size: 2rem;
+  }
+}

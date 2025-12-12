@@ -1,0 +1,228 @@
+/* ContactUsPage.css */
+
+.contact-page {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+/* Hero Section */
+.contact-hero {
+  position: relative;
+  height: 40vh;
+  min-height: 300px;
+  background: linear-gradient(135deg, #111827, #1f2937, #111827);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding-top: 8rem;
+}
+
+.contact-hero__overlay {
+  position: absolute;
+  inset: 0;
+  /* background: rgba(0, 0, 0, 0.7); Removed overlay */
+}
+
+.contact-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 2rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.contact-hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.contact-hero__desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ==================== CONTACT SECTION (From HomePage) ==================== */
+.contact {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.contact__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .contact__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact__info h2 {
+  font-size: 36px;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .contact__info h2 {
+    font-size: 42px;
+  }
+}
+
+.contact__info h2 span {
+  color: #e8b923;
+}
+
+.contact__info p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 35px;
+  line-height: 1.7;
+}
+
+.contact__details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact__detail-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.contact__detail-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(232, 185, 35, 0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact__detail-icon svg {
+  width: 22px;
+  height: 22px;
+  color: #e8b923;
+}
+
+.contact__detail-text {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+/* Contact Form */
+.contact__form-wrapper {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.contact__form-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 25px;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact__form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .contact__form-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.contact__form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.contact__form-input,
+.contact__form-select,
+.contact__form-textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.contact__form-input:focus,
+.contact__form-select:focus,
+.contact__form-textarea:focus {
+  outline: none;
+  border-color: #e8b923;
+  box-shadow: 0 0 0 3px rgba(232, 185, 35, 0.15);
+}
+
+.contact__form-textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.contact__form-submit {
+  width: 100%;
+  padding: 16px 30px;
+  background: linear-gradient(135deg, #e8b923 0%, #d4a520 100%);
+  color: #000000;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact__form-submit:hover {
+  background: linear-gradient(135deg, #f5d547 0%, #e8b923 100%);
+  box-shadow: 0 10px 30px rgba(232, 185, 35, 0.4);
+}
+
+/* ==================== TEAM SECTION ==================== */
+.team-section {
+  padding: 80px 0;
+  background: #f9f9f9;
+}
+
+.team-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #1a1a1a;
+}

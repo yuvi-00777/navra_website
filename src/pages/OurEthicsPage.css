@@ -1,0 +1,77 @@
+/* OurEthicsPage.css */
+
+.ethics-page {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+/* Hero Section */
+.ethics-hero {
+  position: relative;
+  height: 40vh;
+  min-height: 300px;
+  background: linear-gradient(135deg, #111827, #1f2937, #111827);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding-top: 8rem;
+}
+
+.ethics-hero__overlay {
+  position: absolute;
+  inset: 0;
+  /* background: rgba(0, 0, 0, 0.6); Removed overlay */
+}
+
+.ethics-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 2rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ethics-hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.ethics-hero__desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Section General */
+.ethics-section {
+  padding: 5rem 0;
+}
+
+.ethics-section__title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative;
+  color: #c8a96a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ethics-hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .ethics-section {
+    padding: 3rem 0;
+  }
+  
+  .ethics-section__title {
+    font-size: 1.75rem;
+  }
+}
+

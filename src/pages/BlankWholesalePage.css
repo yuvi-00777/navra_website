@@ -1,0 +1,254 @@
+/* BlankWholesalePage Styles */
+
+.blank-wholesale-page {
+  padding-top: 0;
+}
+
+/* Hero Section */
+.bw-hero {
+  position: relative;
+  background: linear-gradient(135deg, #111827, #1f2937, #111827);
+  padding-top: 10rem;
+  padding-bottom: 6rem;
+  color: white;
+  text-align: center;
+}
+
+.bw-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(200, 169, 106, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.bw-hero__content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bw-hero__title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1.5rem;
+}
+
+.bw-hero__desc {
+  font-size: 1.25rem;
+  color: #d1d5db;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.bw-hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.bw-hero__btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.bw-hero__btn--primary {
+  background: linear-gradient(135deg, #c8a96a, #d4af37);
+  color: white;
+  box-shadow: 0 4px 15px rgba(200, 169, 106, 0.3);
+}
+
+.bw-hero__btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(200, 169, 106, 0.4);
+}
+
+/* Quick Access */
+.bw-quick-access {
+  background: #f3f4f6;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.bw-quick-access .container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.bw-quick-access__label {
+  font-weight: bold;
+  color: #111827;
+  padding-right: 1.5rem;
+  border-right: 2px solid #d1d5db;
+}
+
+.bw-quick-access__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.bw-quick-access__list span {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.bw-quick-access__list span:hover {
+  color: #c8a96a;
+}
+
+/* Common Section Styles */
+.bw-section {
+  padding: 5rem 0;
+}
+
+.bw-section__title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  color: #111827;
+  margin-bottom: 3rem;
+}
+
+/* Custom Product Series */
+.bw-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.bw-product-card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.bw-product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.bw-product-card__image {
+  aspect-ratio: 1;
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bw-product-card__title {
+  padding: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Features */
+.bw-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.bw-feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.bw-feature-card__icon {
+  width: 4rem;
+  height: 4rem;
+  background: rgba(200, 169, 106, 0.1);
+  color: #c8a96a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.bw-feature-card__title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.bw-feature-card__desc {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.bw-btn-outline {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border: 2px solid #c8a96a;
+  color: #c8a96a;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.bw-btn-outline:hover {
+  background: #c8a96a;
+  color: white;
+}
+
+/* Tips / Guide */
+.bw-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.bw-tip-card {
+  background: #f9fafb;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+}
+
+.bw-tip-card__num {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgba(200, 169, 106, 0.3);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.bw-tip-card__title {
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.bw-tip-card__text {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* CTA Bottom */
+.bw-cta-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #111827, #1f2937);
+  color: white;
+  text-align: center;
+}
+

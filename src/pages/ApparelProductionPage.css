@@ -1,0 +1,166 @@
+/* ApparelProductionPage.css */
+
+.production-page {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+/* Hero Section */
+.production-hero {
+  position: relative;
+  height: 50vh;
+  min-height: 400px;
+  background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Factory/Production vibe */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.production-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.production-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.production-hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.production-hero__desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+}
+
+.production-hero__btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.production-hero__btn--primary {
+  background-color: #c8a96a;
+  color: #fff;
+}
+
+.production-hero__btn--primary:hover {
+  background-color: #b09358;
+}
+
+/* Sections General */
+.production-section {
+  padding: 5rem 0;
+}
+
+.production-section__title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.production-section__title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #c8a96a;
+  margin: 1rem auto 0;
+}
+
+.production-section__title.text-left {
+  text-align: left;
+}
+.production-section__title.text-left::after {
+  margin: 1rem 0 0;
+}
+
+/* Process Cards */
+.production-process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.production-process-card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.production-process-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.production-process-card__num {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #f3f3f3;
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  line-height: 1;
+}
+
+.production-process-card__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  color: #333;
+}
+
+.production-process-card__desc {
+  color: #666;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* CTA Section */
+.production-cta-section {
+  background: #c8a96a;
+  color: #fff;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .production-hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .production-section {
+    padding: 3rem 0;
+  }
+  
+  .production-section__title {
+    font-size: 2rem;
+  }
+}
+

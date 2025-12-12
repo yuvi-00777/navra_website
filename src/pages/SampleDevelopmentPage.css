@@ -1,0 +1,202 @@
+/* SampleDevelopmentPage.css */
+
+.sample-dev-page {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+/* Hero Section */
+.sample-dev-hero {
+  position: relative;
+  height: 50vh;
+  min-height: 400px;
+  background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Sample/Sewing vibe */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.sample-dev-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.sample-dev-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.sample-dev-hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.sample-dev-hero__desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+}
+
+.sample-dev-hero__btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.sample-dev-hero__btn--primary {
+  background-color: #c8a96a;
+  color: #fff;
+}
+
+.sample-dev-hero__btn--primary:hover {
+  background-color: #b09358;
+}
+
+/* Sections General */
+.sample-dev-section {
+  padding: 5rem 0;
+}
+
+.sample-dev-section__title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.sample-dev-section__title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #c8a96a;
+  margin: 1rem auto 0;
+}
+
+.sample-dev-section__title.text-left {
+  text-align: left;
+}
+.sample-dev-section__title.text-left::after {
+  margin: 1rem 0 0;
+}
+
+/* Timetable Cards */
+.sample-dev-time-card {
+  background: #fff;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sample-dev-time-card:hover {
+  border-color: #c8a96a;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(200, 169, 106, 0.1);
+}
+
+.sample-dev-time-card__num {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #eee;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.sample-dev-time-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.sample-dev-time-card__time {
+  color: #c8a96a;
+  font-weight: 600;
+}
+
+/* Process Cards */
+.sample-dev-process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.sample-dev-process-card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.sample-dev-process-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.sample-dev-process-card__num {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #f3f3f3;
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  line-height: 1;
+}
+
+.sample-dev-process-card__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  color: #333;
+}
+
+.sample-dev-process-card__desc {
+  color: #666;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* CTA Section */
+.sample-dev-cta-section {
+  background: #c8a96a;
+  color: #fff;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sample-dev-hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .sample-dev-section {
+    padding: 3rem 0;
+  }
+  
+  .sample-dev-section__title {
+    font-size: 2rem;
+  }
+}
+

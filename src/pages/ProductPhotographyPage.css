@@ -1,0 +1,118 @@
+/* ProductPhotographyPage.css */
+
+.photo-page {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+/* Hero Section */
+.photo-hero {
+  position: relative;
+  height: 50vh;
+  min-height: 400px;
+  background-image: url('https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Photography studio vibe */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.photo-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.photo-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.photo-hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.photo-hero__desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+}
+
+.photo-hero__btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.photo-hero__btn--primary {
+  background-color: #c8a96a;
+  color: #fff;
+}
+
+.photo-hero__btn--primary:hover {
+  background-color: #b09358;
+}
+
+/* Section General */
+.photo-section {
+  padding: 5rem 0;
+}
+
+.photo-section__title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.photo-section__title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #c8a96a;
+  margin: 1rem auto 0;
+}
+
+.photo-section__title.text-left {
+  text-align: left;
+}
+.photo-section__title.text-left::after {
+  margin: 1rem 0 0;
+}
+
+/* CTA Section */
+.photo-cta-section {
+  background: #c8a96a;
+  color: #fff;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .photo-hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .photo-section {
+    padding: 3rem 0;
+  }
+  
+  .photo-section__title {
+    font-size: 2rem;
+  }
+}
+

@@ -1,0 +1,88 @@
+/* Global Variables */
+:root {
+  /* Minimal Premium Color Palette */
+  --color-primary: #000000;       /* Deep Black for text/headings */
+  --color-secondary: #f0f4f8;     /* Very Light Blue/Grey for backgrounds */
+  --color-accent: #3b82f6;        /* Premium Light Blue for buttons/highlights */
+  --color-accent-hover: #2563eb;  /* Darker Blue for hover states */
+  --color-text: #334155;          /* Slate Grey for body text */
+  --color-text-light: #64748b;    /* Lighter Grey for secondary text */
+  --color-white: #ffffff;         /* Pure White */
+  --color-border: #e2e8f0;        /* Light Border Color */
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Playfair Display', serif; /* Keep serif for premium feel */
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Common Utility Classes */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Update gold/yellow accents to blue */
+.text-\[\#c8a96a\] {
+  color: var(--color-accent) !important;
+}
+
+.bg-\[\#c8a96a\] {
+  background-color: var(--color-accent) !important;
+}
+
+.border-\[\#c8a96a\] {
+  border-color: var(--color-accent) !important;
+}
+
+.hover\:bg-\[\#b09358\]:hover {
+  background-color: var(--color-accent-hover) !important;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
