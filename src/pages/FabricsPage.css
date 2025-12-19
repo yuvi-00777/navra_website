@@ -1,224 +1,237 @@
-/* FabricsPage Styles */
+/* FabricsPage.css */
 
-/* Hero Banner */
+.fabrics-page {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+  }
+
+  /* Hero Banner */
 .fabrics-hero {
   position: relative;
-  background: linear-gradient(135deg, #111827, #1f2937, #111827);
-  padding-top: 8rem;
-  padding-bottom: 5rem;
-  text-align: center;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    background: linear-gradient(135deg, #111827, #1f2937, #111827);
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .fabrics-hero__decorations {
+    position: absolute;
+    inset: 0;
+  overflow: hidden;
 }
 
-.fabrics-hero__decorations {
+  .fabrics-hero__decoration {
   position: absolute;
-  inset: 0;
-  opacity: 0.1;
-  pointer-events: none;
-}
-
-.fabrics-hero__decoration {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 24rem;
-  height: 24rem;
-  background-color: #c8a96a;
-  border-radius: 50%;
-  filter: blur(64px);
+    top: -50%;
+    right: -20%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(200, 169, 106, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
 }
 
 .fabrics-hero__content {
   position: relative;
   z-index: 10;
+    text-align: center;
 }
 
-.fabrics-hero__badge {
-  display: inline-block;
-  padding: 0.25rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #c8a96a;
-  background-color: rgba(200, 169, 106, 0.1);
-  border-radius: 9999px;
-  margin-bottom: 1rem;
+  .fabrics-hero__badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(200, 169, 106, 0.2);
+    border: 1px solid rgba(200, 169, 106, 0.5);
+    border-radius: 20px;
+    color: #001F3F;
+    font-size: 0.9rem;
+    font-weight: 600;
+  margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.fabrics-hero__title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: white;
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 1rem;
-}
-
-@media (min-width: 768px) {
   .fabrics-hero__title {
     font-size: 4rem;
-  }
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #fff, #e5e7eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .fabrics-hero__subtitle {
   font-size: 1.25rem;
-  color: #d1d5db;
-  max-width: 42rem;
-  margin: 0 auto;
+    color: #9ca3af;
+  max-width: 600px;
+    margin: 0 auto;
   line-height: 1.6;
 }
 
 .fabrics-hero__cta {
-  display: inline-block;
+    display: inline-block;
+    background: #001F3F;
+    color: #fff;
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #c8a96a, #d4af37);
-  color: white;
+    border-radius: 50px;
   font-weight: 600;
-  border-radius: 9999px;
-  text-decoration: none;
   transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .fabrics-hero__cta:hover {
-  box-shadow: 0 10px 25px rgba(200, 169, 106, 0.4);
+    background: #003366;
   transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(200, 169, 106, 0.3);
 }
 
-/* Fabrics Content */
-.fabrics-content {
-  padding: 5rem 0;
-  background-color: #f9fafb;
+  /* Content Section */
+  .fabrics-content {
+    padding: 6rem 0;
+    background: #f9fafb;
 }
 
-.fabrics-header {
+  .fabrics-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.fabrics-header__title {
-  font-size: 2.25rem;
-  font-weight: bold;
+  .fabrics-header__title {
+  font-size: 2.5rem;
+  font-weight: 700;
   color: #111827;
-  font-family: 'Playfair Display', serif;
   margin-bottom: 1rem;
 }
 
-.fabrics-header__line {
-  width: 4rem;
-  height: 0.25rem;
-  background: linear-gradient(90deg, #c8a96a, #d4af37);
+  .fabrics-header__line {
+  width: 60px;
+  height: 4px;
+  background: #001F3F;
   margin: 0 auto;
-  border-radius: 9999px;
+  border-radius: 2px;
 }
 
+  /* Grid Layout - Replicating original style */
 .fabrics-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    justify-content: center;
 }
 
-@media (min-width: 640px) {
-  .fabrics-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .fabrics-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1280px) {
-  .fabrics-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Fabric Card */
 .fabric-card {
-  background-color: white;
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
-  border: 1px solid #e5e7eb;
+    width: 33.333%;
+    height: 300px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  overflow: hidden;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 1024px) {
+    .fabric-card {
+      width: 50%;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .fabric-card {
+      width: 100%;
+    }
+}
+
+  .fabric-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  height: 100%;
-}
-
-.fabric-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  border-color: #c8a96a;
-}
-
-.fabric-card__icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  background-color: rgba(200, 169, 106, 0.1);
-  border-radius: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .fabric-card:hover .fabric-card__overlay {
+    background: rgba(200, 169, 106, 0.9); /* Gold overlay on hover */
 }
 
 .fabric-card__title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 0.75rem;
-  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
 }
 
-.fabric-card__desc {
-  font-size: 0.95rem;
-  color: #6b7280;
-  line-height: 1.6;
+  .fabric-card__desc {
+    font-size: 1rem;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    line-height: 1.5;
+}
+
+  .fabric-card:hover .fabric-card__title {
+    transform: translateY(-10px);
+}
+
+  .fabric-card:hover .fabric-card__desc {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* CTA Section */
-.fabrics-cta-section {
-  padding: 5rem 0;
-  background-color: white;
+  .fabrics-cta-section {
+    padding: 6rem 0;
+    background: #fff;
 }
 
-.fabrics-cta-box {
+  .fabrics-cta-box {
   background: linear-gradient(135deg, #111827, #1f2937);
-  border-radius: 1.5rem;
+    border-radius: 20px;
   padding: 4rem 2rem;
   text-align: center;
-  position: relative;
-  overflow: hidden;
+    color: #fff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.fabrics-cta-box h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: white;
-  font-family: 'Playfair Display', serif;
+  .fabrics-cta-box h2 {
+    font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 1rem;
 }
 
-.fabrics-cta-box p {
-  font-size: 1.125rem;
-  color: #d1d5db;
-  margin-bottom: 2.5rem;
+  .fabrics-cta-box p {
+    font-size: 1.25rem;
+    color: #9ca3af;
+    margin-bottom: 2.5rem;
 }
 
-.fabrics-cta-btn {
+  .fabrics-cta-btn {
   display: inline-block;
-  padding: 1rem 2.5rem;
-  background: white;
-  color: #111827;
+    background: #001F3F;
+    color: #fff;
+  padding: 1rem 3rem;
+    border-radius: 50px;
   font-weight: 600;
-  border-radius: 9999px;
-  text-decoration: none;
+    font-size: 1.1rem;
   transition: all 0.3s ease;
 }
 
-.fabrics-cta-btn:hover {
-  background-color: #f3f4f6;
+  .fabrics-cta-btn:hover {
+    background: #003366;
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(200, 169, 106, 0.3);
 }

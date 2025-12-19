@@ -8,13 +8,14 @@
 /* Hero Section */
 .contact-hero {
   position: relative;
-  height: 40vh;
-  min-height: 300px;
-  background: linear-gradient(135deg, #111827, #1f2937, #111827);
+  min-height: 50vh;
   display: flex;
   align-items: center;
-  color: #fff;
+  justify-content: center;
+  background: linear-gradient(135deg, #111827, #1f2937, #111827);
   padding-top: 8rem;
+  padding-bottom: 4rem;
+  color: #fff;
 }
 
 .contact-hero__overlay {
@@ -37,6 +38,12 @@
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.contact-hero__highlight {
+  color: #fff; /* Changed from gold to white to match request */
+  font-weight: 800;
 }
 
 .contact-hero__desc {
@@ -49,7 +56,7 @@
 /* ==================== CONTACT SECTION (From HomePage) ==================== */
 .contact {
   padding: 80px 0;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: #ffffff;
 }
 
 .contact__container {
@@ -74,7 +81,7 @@
 .contact__info h2 {
   font-size: 36px;
   font-weight: 600;
-  color: #ffffff;
+  color: #1a1a1a;
   font-family: 'Playfair Display', serif;
   margin-bottom: 20px;
 }
@@ -86,12 +93,12 @@
 }
 
 .contact__info h2 span {
-  color: #e8b923;
+  color: #001F3F;
 }
 
 .contact__info p {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #666666;
   margin-bottom: 35px;
   line-height: 1.7;
 }
@@ -111,7 +118,7 @@
 .contact__detail-icon {
   width: 48px;
   height: 48px;
-  background: rgba(232, 185, 35, 0.15);
+  background: rgba(0, 31, 63, 0.1);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -121,19 +128,21 @@
 .contact__detail-icon svg {
   width: 22px;
   height: 22px;
-  color: #e8b923;
+  color: #001F3F;
 }
 
 .contact__detail-text {
-  color: #ffffff;
+  color: #333333;
   font-size: 16px;
+  font-weight: 500;
 }
 
 /* Contact Form */
 .contact__form-wrapper {
-  background: #ffffff;
+  background: #f9f9f9;
   border-radius: 20px;
   padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .contact__form-title {
@@ -186,8 +195,8 @@
 .contact__form-select:focus,
 .contact__form-textarea:focus {
   outline: none;
-  border-color: #e8b923;
-  box-shadow: 0 0 0 3px rgba(232, 185, 35, 0.15);
+  border-color: #001F3F;
+  box-shadow: 0 0 0 3px rgba(0, 31, 63, 0.15);
 }
 
 .contact__form-textarea {
@@ -198,8 +207,8 @@
 .contact__form-submit {
   width: 100%;
   padding: 16px 30px;
-  background: linear-gradient(135deg, #e8b923 0%, #d4a520 100%);
-  color: #000000;
+  background: linear-gradient(135deg, #001F3F 0%, #003366 100%);
+  color: #ffffff;
   font-weight: 600;
   font-size: 16px;
   border: none;
@@ -209,20 +218,6 @@
 }
 
 .contact__form-submit:hover {
-  background: linear-gradient(135deg, #f5d547 0%, #e8b923 100%);
-  box-shadow: 0 10px 30px rgba(232, 185, 35, 0.4);
-}
-
-/* ==================== TEAM SECTION ==================== */
-.team-section {
-  padding: 80px 0;
-  background: #f9f9f9;
-}
-
-.team-section h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 3rem;
-  color: #1a1a1a;
+  background: linear-gradient(135deg, #003366 0%, #001F3F 100%);
+  box-shadow: 0 10px 30px rgba(0, 31, 63, 0.4);
 }

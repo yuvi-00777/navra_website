@@ -60,13 +60,13 @@ const ApparelProductionPage: React.FC = () => {
         <div className="production-hero__overlay"></div>
         <div className="container production-hero__content">
           <h1 className="production-hero__title">
-            03. Custom Apparel <span className="text-[#c8a96a]">Production</span>
+            03. Custom Apparel <span className="production-hero__highlight">Production</span>
           </h1>
           <p className="production-hero__desc">
             At Navra, we prioritize our customer's satisfaction above all else. In addition to offering quick turnaround times and competitive pricing, we also guarantee the highest quality workmanship for each of our clients. We pride ourselves on being able to design clothing exactly how you want it without any limitations.
           </p>
           <div className="production-hero__actions">
-            <Link to="/about" className="production-hero__btn production-hero__btn--primary">Get Started</Link>
+            <Link to="/contact-us" className="production-hero__btn production-hero__btn--primary">Get Started</Link>
           </div>
         </div>
       </section>
@@ -74,11 +74,11 @@ const ApparelProductionPage: React.FC = () => {
       {/* Product Types & Materials */}
       <section className="production-section">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="production-grid">
             <div>
-              <h2 className="production-section__title text-left mb-6">Product Types</h2>
-              <div className="grid grid-cols-2 gap-4 text-gray-700">
-                <ul className="list-disc pl-5 space-y-2">
+              <h2 className="production-section__title production-section__title--left">Product Types</h2>
+              <div className="production-types-list-wrapper">
+                <ul className="production-list">
                   <li>T-shirt</li>
                   <li>Polo</li>
                   <li>Henley shirt</li>
@@ -86,7 +86,7 @@ const ApparelProductionPage: React.FC = () => {
                   <li>Denim Jacket</li>
                   <li>Shorts</li>
                 </ul>
-                <ul className="list-disc pl-5 space-y-2">
+                <ul className="production-list">
                   <li>Pants/Jeans</li>
                   <li>Chino</li>
                   <li>Biker-Jacket</li>
@@ -98,11 +98,11 @@ const ApparelProductionPage: React.FC = () => {
             </div>
             
             <div>
-              <h2 className="production-section__title text-left mb-6">Materials</h2>
+              <h2 className="production-section__title production-section__title--left">Materials</h2>
               <p className="mb-4 text-gray-600">We pride ourselves on being versatile with the types of fabric structures, weights and compositions that we use.</p>
-              <div className="flex flex-wrap gap-2">
+              <div className="production-tags">
                 {materials.map((m, idx) => (
-                  <span key={idx} className="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700">{m}</span>
+                  <span key={idx} className="production-tag">{m}</span>
                 ))}
               </div>
             </div>
@@ -111,21 +111,21 @@ const ApparelProductionPage: React.FC = () => {
       </section>
 
       {/* Fibers & Techniques */}
-      <section className="production-section bg-gray-50">
+      <section className="production-section production-section--alt">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="production-grid">
             <div>
-              <h2 className="production-section__title text-left mb-6">Fibers</h2>
-              <div className="flex flex-wrap gap-2">
+              <h2 className="production-section__title production-section__title--left">Fibers</h2>
+              <div className="production-tags">
                 {fibers.map((f, idx) => (
-                  <span key={idx} className="bg-white border border-gray-200 px-3 py-1 rounded-full text-sm text-gray-700">{f}</span>
+                  <span key={idx} className="production-tag production-tag--white">{f}</span>
                 ))}
               </div>
             </div>
 
             <div>
-              <h2 className="production-section__title text-left mb-6">Techniques</h2>
-              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+              <h2 className="production-section__title production-section__title--left">Techniques</h2>
+              <ul className="production-list">
                 {techniques.map((t, idx) => (
                   <li key={idx}>{t}</li>
                 ))}
@@ -139,15 +139,15 @@ const ApparelProductionPage: React.FC = () => {
       <section className="production-section">
         <div className="container">
           <h2 className="production-section__title">Size Guide</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full text-center border-collapse border border-gray-200">
-              <thead className="bg-gray-100">
+          <div className="production-table-wrapper">
+            <table className="production-table">
+              <thead>
                 <tr>
-                  <th className="p-3 border">USA</th>
-                  <th className="p-3 border">Europe</th>
-                  <th className="p-3 border">Bust</th>
-                  <th className="p-3 border">Waist</th>
-                  <th className="p-3 border">Hips</th>
+                  <th>USA</th>
+                  <th>Europe</th>
+                  <th>Bust</th>
+                  <th>Waist</th>
+                  <th>Hips</th>
                 </tr>
               </thead>
               <tbody>
@@ -158,12 +158,12 @@ const ApparelProductionPage: React.FC = () => {
                   { usa: 'L', eu: '10', bust: '40"', waist: '37"', hips: '29"' },
                   { usa: 'XL', eu: '12', bust: '42"', waist: '38"', hips: '30"' },
                 ].map((row, idx) => (
-                  <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                    <td className="p-3 border">{row.usa}</td>
-                    <td className="p-3 border">{row.eu}</td>
-                    <td className="p-3 border">{row.bust}</td>
-                    <td className="p-3 border">{row.waist}</td>
-                    <td className="p-3 border">{row.hips}</td>
+                  <tr key={idx}>
+                    <td>{row.usa}</td>
+                    <td>{row.eu}</td>
+                    <td>{row.bust}</td>
+                    <td>{row.waist}</td>
+                    <td>{row.hips}</td>
                   </tr>
                 ))}
               </tbody>
@@ -173,7 +173,7 @@ const ApparelProductionPage: React.FC = () => {
       </section>
 
       {/* Production Process */}
-      <section className="production-section bg-gray-50">
+      <section className="production-section production-section--alt">
         <div className="container">
           <h2 className="production-section__title">How We Made Your Clothes</h2>
           <div className="production-process-grid">
@@ -191,9 +191,9 @@ const ApparelProductionPage: React.FC = () => {
       {/* CTA Bottom */}
       <section className="production-cta-section">
         <div className="container">
-          <h2 className="text-3xl font-bold mb-4">Free Consulting Now!</h2>
-          <p className="mb-8 text-white/80">What’s Next? Once we're done with mass production of apparel, then we can move on to attaching labels and tags, as well as packaging everything up.</p>
-          <Link to="/about" className="production-hero__btn production-hero__btn--primary bg-white text-[#c8a96a]">
+          <h2 className="production-cta-title">Free Consulting Now!</h2>
+          <p className="production-cta-desc">What’s Next? Once we're done with mass production of apparel, then we can move on to attaching labels and tags, as well as packaging everything up.</p>
+          <Link to="/contact-us" className="production-cta-btn">
             Contact Us
           </Link>
         </div>
@@ -203,4 +203,3 @@ const ApparelProductionPage: React.FC = () => {
 };
 
 export default ApparelProductionPage;
-

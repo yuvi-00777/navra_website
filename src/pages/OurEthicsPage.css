@@ -8,13 +8,14 @@
 /* Hero Section */
 .ethics-hero {
   position: relative;
-  height: 40vh;
-  min-height: 300px;
-  background: linear-gradient(135deg, #111827, #1f2937, #111827);
+  min-height: 50vh;
   display: flex;
   align-items: center;
-  color: #fff;
+  justify-content: center;
+  background: linear-gradient(135deg, #111827, #1f2937, #111827);
   padding-top: 8rem;
+  padding-bottom: 4rem;
+  color: #fff;
 }
 
 .ethics-hero__overlay {
@@ -25,11 +26,11 @@
 
 .ethics-hero__content {
   position: relative;
-  z-index: 1;
-  max-width: 800px;
+  z-index: 10;
+  text-align: center;
+  max-width: 900px;
   padding: 0 2rem;
   margin: 0 auto;
-  text-align: center;
 }
 
 .ethics-hero__title {
@@ -37,6 +38,12 @@
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.ethics-hero__highlight {
+  font-weight: 800;
+  color: #fff;
 }
 
 .ethics-hero__desc {
@@ -44,11 +51,24 @@
   line-height: 1.6;
   max-width: 700px;
   margin: 0 auto;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Section General */
 .ethics-section {
   padding: 5rem 0;
+}
+
+.ethics-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.ethics-block {
+  text-align: center;
 }
 
 .ethics-section__title {
@@ -57,7 +77,13 @@
   font-weight: 700;
   margin-bottom: 1.5rem;
   position: relative;
-  color: #c8a96a;
+  color: #001F3F;
+}
+
+.ethics-text {
+  color: #4b5563;
+  line-height: 1.7;
+  font-size: 1.1rem;
 }
 
 /* Responsive */
@@ -74,4 +100,3 @@
     font-size: 1.75rem;
   }
 }
-

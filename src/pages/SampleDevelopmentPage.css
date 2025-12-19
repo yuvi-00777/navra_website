@@ -8,41 +8,58 @@
 /* Hero Section */
 .sample-dev-hero {
   position: relative;
-  height: 50vh;
-  min-height: 400px;
-  background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Sample/Sewing vibe */
-  background-size: cover;
-  background-position: center;
+  min-height: 50vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #111827, #1f2937, #111827);
+  padding-top: 8rem;
+  padding-bottom: 4rem;
   color: #fff;
 }
 
 .sample-dev-hero__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  /* background: rgba(0, 0, 0, 0.5); Removed overlay */
 }
 
 .sample-dev-hero__content {
   position: relative;
-  z-index: 1;
-  max-width: 800px;
+  z-index: 10;
+  text-align: center;
+  max-width: 900px;
   padding: 0 2rem;
+  margin: 0 auto;
 }
 
 .sample-dev-hero__title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.sample-dev-hero__highlight {
+  font-weight: 800;
+  color: #fff;
 }
 
 .sample-dev-hero__desc {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2.5rem;
-  max-width: 700px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.sample-dev-hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .sample-dev-hero__btn {
@@ -52,21 +69,28 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
+  border-radius: 4px;
+  text-decoration: none;
 }
 
 .sample-dev-hero__btn--primary {
-  background-color: #c8a96a;
+  background-color: #001F3F;
   color: #fff;
+  border: 2px solid #001F3F;
 }
 
 .sample-dev-hero__btn--primary:hover {
-  background-color: #b09358;
+  background-color: #003366;
+  border-color: #003366;
 }
 
 /* Sections General */
 .sample-dev-section {
   padding: 5rem 0;
+}
+
+.sample-dev-section--alt {
+  background-color: #f9fafb; /* Light gray background */
 }
 
 .sample-dev-section__title {
@@ -75,6 +99,7 @@
   font-weight: 700;
   margin-bottom: 3rem;
   position: relative;
+  color: #1a1a1a;
 }
 
 .sample-dev-section__title::after {
@@ -82,18 +107,37 @@
   display: block;
   width: 60px;
   height: 3px;
-  background-color: #c8a96a;
+  background-color: #001F3F;
   margin: 1rem auto 0;
 }
 
-.sample-dev-section__title.text-left {
+.sample-dev-section__title--left {
   text-align: left;
 }
-.sample-dev-section__title.text-left::after {
+
+.sample-dev-section__title--left::after {
   margin: 1rem 0 0;
 }
 
 /* Timetable Cards */
+.sample-dev-timetable-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .sample-dev-timetable-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sample-dev-timetable-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .sample-dev-time-card {
   background: #fff;
   padding: 2rem;
@@ -101,32 +145,35 @@
   border: 1px solid #eee;
   border-radius: 8px;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 .sample-dev-time-card:hover {
-  border-color: #c8a96a;
+  border-color: #001F3F;
   transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(200, 169, 106, 0.1);
+  box-shadow: 0 10px 20px rgba(200, 169, 106, 0.15);
 }
 
 .sample-dev-time-card__num {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #eee;
+  color: #f0f0f0;
   display: block;
   margin-bottom: 0.5rem;
+  line-height: 1;
 }
 
 .sample-dev-time-card__title {
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #1a1a1a;
 }
 
 .sample-dev-time-card__time {
-  color: #c8a96a;
+  color: #001F3F;
   font-weight: 600;
+  font-size: 1.1rem;
 }
 
 /* Process Cards */
@@ -140,49 +187,117 @@
   background: #fff;
   padding: 2.5rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .sample-dev-process-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  border-color: rgba(200, 169, 106, 0.3);
 }
 
 .sample-dev-process-card__num {
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 900;
-  color: #f3f3f3;
+  color: #f5f5f5;
   position: absolute;
-  top: -10px;
-  right: 10px;
+  top: -15px;
+  right: 15px;
   line-height: 1;
+  z-index: 0;
 }
 
 .sample-dev-process-card__title {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   position: relative;
   z-index: 1;
-  color: #333;
+  color: #1a1a1a;
 }
 
 .sample-dev-process-card__desc {
   color: #666;
-  line-height: 1.6;
+  line-height: 1.7;
   position: relative;
   z-index: 1;
+  font-size: 1rem;
+}
+
+/* Pricing Factors */
+.sample-dev-pricing-box {
+  background: #fff;
+  padding: 3rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.sample-dev-pricing-intro {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  font-size: 1.1rem;
+}
+
+.sample-dev-pricing-list {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  color: #4b5563;
+}
+
+.sample-dev-pricing-list li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.sample-dev-pricing-list strong {
+  color: #1a1a1a;
+  font-weight: 700;
 }
 
 /* CTA Section */
 .sample-dev-cta-section {
-  background: #c8a96a;
+  background: linear-gradient(135deg, #111827, #1f2937, #111827);
   color: #fff;
   padding: 5rem 0;
   text-align: center;
+}
+
+.sample-dev-cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.sample-dev-cta-desc {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.sample-dev-cta-btn {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background-color: #fff;
+  color: #001F3F;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.sample-dev-cta-btn:hover {
+  background-color: #f3f3f3;
+  transform: scale(1.05);
 }
 
 /* Responsive */
@@ -199,4 +314,3 @@
     font-size: 2rem;
   }
 }
-

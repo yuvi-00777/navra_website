@@ -62,13 +62,13 @@ const LabelsTagsPackagingPage: React.FC = () => {
         <div className="ltp-hero__overlay"></div>
         <div className="container ltp-hero__content">
           <h1 className="ltp-hero__title">
-            04. Customized Labels & <span className="text-[#c8a96a]">Tags & Packaging</span>
+            04. Customized Labels & <span className="ltp-hero__highlight">Tags & Packaging</span>
           </h1>
           <p className="ltp-hero__desc">
             We offer a wide range of customized labels, tags, and packaging solutions to make your brand stand out. From woven labels to custom boxes, we help you create a cohesive and professional brand identity.
           </p>
           <div className="ltp-hero__actions">
-            <Link to="/about" className="ltp-hero__btn ltp-hero__btn--primary">Get Started</Link>
+            <Link to="/contact-us" className="ltp-hero__btn ltp-hero__btn--primary">Get Started</Link>
           </div>
         </div>
       </section>
@@ -92,9 +92,9 @@ const LabelsTagsPackagingPage: React.FC = () => {
       {/* CTA Bottom */}
       <section className="ltp-cta-section">
         <div className="container">
-          <h2 className="text-3xl font-bold mb-4">Elevate Your Brand Identity</h2>
-          <p className="mb-8 text-white/80">Ready to customize your labels and packaging? Contact us today to discuss your requirements.</p>
-          <Link to="/about" className="ltp-hero__btn ltp-hero__btn--primary bg-white text-[#c8a96a]">
+          <h2 className="ltp-cta-title">Elevate Your Brand Identity</h2>
+          <p className="ltp-cta-desc">Ready to customize your labels and packaging? Contact us today to discuss your requirements.</p>
+          <Link to="/contact-us" className="ltp-cta-btn">
             Get in Touch
           </Link>
         </div>
@@ -104,4 +104,3 @@ const LabelsTagsPackagingPage: React.FC = () => {
 };
 
 export default LabelsTagsPackagingPage;
-

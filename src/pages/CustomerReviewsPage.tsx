@@ -34,7 +34,7 @@ const CustomerReviewsPage: React.FC = () => {
         <div className="reviews-hero__overlay"></div>
         <div className="container reviews-hero__content">
           <h1 className="reviews-hero__title">
-            Only True <span className="text-[#c8a96a]">Feedback Counts</span>
+            Only True <span className="reviews-hero__highlight">Feedback Counts</span>
           </h1>
           <p className="reviews-hero__desc">
             See what our clients from around the world have to say about working with Navra. We take pride in building long-lasting partnerships.
@@ -45,20 +45,20 @@ const CustomerReviewsPage: React.FC = () => {
       {/* Reviews Grid */}
       <section className="reviews-section">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="reviews-grid">
             {reviews.map((review, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-lg shadow-sm border border-gray-100 flex flex-col h-full">
-                <div className="mb-6">
-                  <h3 className="font-bold text-xl mb-1">{review.name}</h3>
-                  <p className="text-[#c8a96a] text-sm font-semibold uppercase tracking-wider">{review.location}</p>
+              <div key={idx} className="reviews-card">
+                <div className="reviews-card-header">
+                  <h3 className="reviews-card-name">{review.name}</h3>
+                  <p className="reviews-card-location">{review.location}</p>
                 </div>
-                <div className="flex-grow">
-                   <h4 className="font-bold text-lg mb-3">"{review.title}"</h4>
-                   <p className="text-gray-600 leading-relaxed text-sm italic">
+                <div className="reviews-card-body">
+                   <h4 className="reviews-card-title">"{review.title}"</h4>
+                   <p className="reviews-card-content">
                      "{review.content}"
                    </p>
                 </div>
-                <div className="mt-6 pt-6 border-t border-gray-100 flex text-[#c8a96a]">
+                <div className="reviews-card-footer">
                   {'★'.repeat(5)}
                 </div>
               </div>
@@ -71,4 +71,3 @@ const CustomerReviewsPage: React.FC = () => {
 };
 
 export default CustomerReviewsPage;
-

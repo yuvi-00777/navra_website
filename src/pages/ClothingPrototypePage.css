@@ -8,13 +8,15 @@
 /* Hero Section */
 .prototype-hero {
   position: relative;
-  height: 50vh;
-  min-height: 400px;
-  background: linear-gradient(135deg, #111827, #1f2937, #111827);
+  min-height: 50vh;
   display: flex;
   align-items: center;
-  color: #fff;
+  justify-content: center;
+  background: linear-gradient(135deg, #111827, #1f2937, #111827);
   padding-top: 8rem;
+  padding-bottom: 4rem;
+  color: #fff;
+  text-align: center;
 }
 
 .prototype-hero__overlay {
@@ -28,6 +30,7 @@
   z-index: 1;
   max-width: 800px;
   padding: 0 2rem;
+  margin: 0 auto;
 }
 
 .prototype-hero__title {
@@ -42,6 +45,8 @@
   line-height: 1.6;
   margin-bottom: 2.5rem;
   max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .prototype-hero__btn {
@@ -55,12 +60,12 @@
 }
 
 .prototype-hero__btn--primary {
-  background-color: #c8a96a;
+  background-color: #001F3F;
   color: #fff;
 }
 
 .prototype-hero__btn--primary:hover {
-  background-color: #b09358;
+  background-color: #003366;
 }
 
 /* Sections General */
@@ -81,7 +86,7 @@
   display: block;
   width: 60px;
   height: 3px;
-  background-color: #c8a96a;
+  background-color: #001F3F;
   margin: 1rem auto 0;
 }
 
@@ -93,7 +98,7 @@
 .prototype-service-icon {
   width: 20px;
   height: 20px;
-  color: #c8a96a;
+  color: #001F3F;
   margin-top: 4px;
   flex-shrink: 0;
 }
@@ -117,7 +122,7 @@
 }
 
 .prototype-step-card:hover {
-  border-top-color: #c8a96a;
+  border-top-color: #001F3F;
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
@@ -151,7 +156,7 @@
 
 /* CTA Section */
 .prototype-cta-section {
-  background: #c8a96a;
+  background: #001F3F;
   color: #fff;
   padding: 5rem 0;
   text-align: center;

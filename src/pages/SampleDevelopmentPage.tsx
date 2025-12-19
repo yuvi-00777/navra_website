@@ -44,13 +44,13 @@ const SampleDevelopmentPage: React.FC = () => {
         <div className="sample-dev-hero__overlay"></div>
         <div className="container sample-dev-hero__content">
           <h1 className="sample-dev-hero__title">
-            02. Sample <span className="text-[#c8a96a]">Development</span>
+            02. Sample <span className="sample-dev-hero__highlight">Development</span>
           </h1>
           <p className="sample-dev-hero__desc">
             Navra was established in 2003, and since then we have been working with various designers and fashion brands to help create new collections every quarter. Our clothing pattern maker can make products for you based on your design draft, completed technical package or any reference clothing you provide to make samples for you.
           </p>
           <div className="sample-dev-hero__actions">
-            <Link to="/about" className="sample-dev-hero__btn sample-dev-hero__btn--primary">Get Started</Link>
+            <Link to="/contact-us" className="sample-dev-hero__btn sample-dev-hero__btn--primary">Get Started</Link>
           </div>
         </div>
       </section>
@@ -59,7 +59,7 @@ const SampleDevelopmentPage: React.FC = () => {
       <section className="sample-dev-section">
         <div className="container">
           <h2 className="sample-dev-section__title">Timetable for Your Sample Development</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="sample-dev-timetable-grid">
             {timetable.map((item, idx) => (
               <div key={idx} className="sample-dev-time-card">
                 <span className="sample-dev-time-card__num">{item.step}</span>
@@ -72,7 +72,7 @@ const SampleDevelopmentPage: React.FC = () => {
       </section>
 
       {/* Process Section */}
-      <section className="sample-dev-section bg-gray-50">
+      <section className="sample-dev-section sample-dev-section--alt">
         <div className="container">
           <h2 className="sample-dev-section__title">How We Made Your Samples</h2>
           <div className="sample-dev-process-grid">
@@ -90,10 +90,10 @@ const SampleDevelopmentPage: React.FC = () => {
       {/* Pricing Factors */}
       <section className="sample-dev-section">
         <div className="container">
-          <h2 className="sample-dev-section__title text-left mb-8">Pricing Factors</h2>
-          <div className="bg-white p-8 border border-gray-200 rounded-lg shadow-sm">
-            <p className="mb-6 font-semibold">*The bulk order price will update after the sample is approved. Here are 4 factors that could lead to a different price:</p>
-            <ol className="list-decimal pl-6 space-y-4 text-gray-700">
+          <h2 className="sample-dev-section__title sample-dev-section__title--left">Pricing Factors</h2>
+          <div className="sample-dev-pricing-box">
+            <p className="sample-dev-pricing-intro">*The bulk order price will update after the sample is approved. Here are 4 factors that could lead to a different price:</p>
+            <ol className="sample-dev-pricing-list">
               <li><strong>Order Quantity</strong> — The minimum order quantity (MOQ) is 300 units.</li>
               <li><strong>Size/Color Quantities</strong> — A minimum of 100 pieces each color is necessary, having too many sizes may result in an increase of costs.</li>
               <li><strong>Textile/Fabric composition</strong> — Different fabrics cost different prices. The price of the finished product will vary depending on the fabric used.</li>
@@ -106,9 +106,9 @@ const SampleDevelopmentPage: React.FC = () => {
       {/* CTA Bottom */}
       <section className="sample-dev-cta-section">
         <div className="container">
-          <h2 className="text-3xl font-bold mb-4">Let's Discuss Your Sample Ideas Today!</h2>
-          <p className="mb-8 text-white/80">What’s Next? Once we confirm that the sample clothing meets our standards, we can move forward with mass producing the clothing.</p>
-          <Link to="/about" className="sample-dev-hero__btn sample-dev-hero__btn--primary bg-white text-[#c8a96a]">
+          <h2 className="sample-dev-cta-title">Let's Discuss Your Sample Ideas Today!</h2>
+          <p className="sample-dev-cta-desc">What’s Next? Once we confirm that the sample clothing meets our standards, we can move forward with mass producing the clothing.</p>
+          <Link to="/contact-us" className="sample-dev-cta-btn">
             Get in Touch
           </Link>
         </div>
@@ -118,4 +118,3 @@ const SampleDevelopmentPage: React.FC = () => {
 };
 
 export default SampleDevelopmentPage;
-

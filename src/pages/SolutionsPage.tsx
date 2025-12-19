@@ -225,7 +225,7 @@ const SolutionsPage: React.FC = () => {
                       </div>
                     </div>
                     <Link
-                      to="/about"
+                      to="/contact-us"
                       className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-[#3b82f6] to-[#3b82f6] text-white font-semibold rounded-full hover:shadow-lg hover:shadow-[#3b82f6]/30 transition-all duration-300"
                     >
                       Get Started
@@ -296,7 +296,7 @@ const SolutionsPage: React.FC = () => {
             Contact us today and let's discuss how we can bring your clothing line to life.
           </p>
           <Link
-            to="/about"
+            to="/contact-us"
             className="inline-flex items-center gap-2 px-10 py-4 bg-white text-[#3b82f6] font-semibold rounded-full hover:shadow-xl transition-all duration-300"
           >
             Contact Us Today

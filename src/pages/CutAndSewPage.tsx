@@ -1,50 +1,119 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './CutAndSewPage.css';
 
-/**
- * CutAndSewPage Component
- * Replicates the "Cut & Sew Customize" page of hongyuapparel.com
- */
+// Import images (using existing ones where possible or placeholders)
+import navraLogoDark from '../assets/navra_logo_dark.png'; // Placeholder for client logos
+
+import whyChooseUsImage from '../assets/why-choose-us.jpg';
+
+// Import product images
+import mensOversized1 from '../assets/products/mens-oversized-tshirt-1.jpg';
+import mensOversized2 from '../assets/products/mens-oversized-tshirt-2.jpg';
+import womensOversized1 from '../assets/products/womens-oversized-white-1.jpg';
+import polo1 from '../assets/products/classic-pique-polo-1.jpg';
+import polo3 from '../assets/products/performance-polo-1.jpg';
+import mensHoodie1 from '../assets/products/mens-hoodie-1.jpg';
+import womensHoodie1 from '../assets/products/womens-hoodie-1.jpg';
+import mensSweatshirt1 from '../assets/products/mens-sweatshirt-1.jpg';
+import mensFullSleeve1 from '../assets/products/mens-full-sleeve-1.jpg';
+import bioWash1 from '../assets/products/bio-wash-1.jpg';
+import unisexPlain1 from '../assets/products/unisex-plain-1.jpg';
+import womensTshirt1 from '../assets/products/womens-tshirt-1.jpg';
+import mensTrackPants1 from '../assets/products/mens-track-pants-1.jpg';
+import joggers1 from '../assets/products/joggers-1.jpg';
+import womensTrackSuit1 from '../assets/products/womens-track-suit-1.jpg';
+
+import FabricOptions from '../components/FabricOptions';
+import PrintOptions from '../components/PrintOptions';
+import ContactCTA from '../components/ContactCTA';
+
 const CutAndSewPage: React.FC = () => {
-  const customProducts = [
-    { name: 'Dresses', image: 'dress' },
-    { name: 'Sleepwear', image: 'sleepwear' },
-    { name: 'Swimwear', image: 'swimwear' },
-    { name: 'Outdoor Clothing', image: 'outdoor' },
-    { name: 'T-Shirts', image: 'tshirt' },
-    { name: 'Hoodies', image: 'hoodie' },
+  const [activeProductTab, setActiveProductTab] = useState('T-Shirts');
+  const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
+
+  const productTabs = ['T-Shirts', 'Oversized', 'Polo T-Shirts', 'Hoodies', 'Sweatshirts', 'Track Pants', 'Track Suits'];
+  
+  // Data for products grid based on tabs
+  const products: Record<string, { name: string; price: string; image: string }[]> = {
+    'T-Shirts': [
+      { name: 'Men’s Full Sleeve T Shirt', price: '$8.99', image: mensFullSleeve1 },
+      { name: 'Bio-Wash T-Shirt', price: '$7.99', image: bioWash1 },
+      { name: 'Unisex Plain T-Shirt', price: '$6.99', image: unisexPlain1 },
+      { name: 'Women’s T-Shirt', price: '$7.99', image: womensTshirt1 },
+    ],
+    'Oversized': [
+      { name: 'Men’s Oversized T-Shirt', price: '$9.99', image: mensOversized1 },
+      { name: 'Men’s Oversized T-Shirt V2', price: '$9.99', image: mensOversized2 },
+      { name: 'Women’s Oversized White T-Shirt', price: '$9.99', image: womensOversized1 },
+    ],
+    'Polo T-Shirts': [
+      { name: 'Classic Pique Polo', price: '$10.99', image: polo1 },
+      { name: 'Performance Sport Polo', price: '$11.99', image: polo3 },
+    ],
+    'Hoodies': [
+      { name: 'Men’s Hoodie', price: '$18.99', image: mensHoodie1 },
+      { name: 'Women’s Hoodie', price: '$18.99', image: womensHoodie1 },
+    ],
+    'Sweatshirts': [
+       { name: 'Men’s Sweatshirt', price: '$15.99', image: mensSweatshirt1 },
+    ],
+    'Track Pants': [
+       { name: 'Men’s Track Pants', price: '$12.99', image: mensTrackPants1 },
+       { name: 'Joggers', price: '$13.99', image: joggers1 },
+    ],
+    'Track Suits': [
+       { name: 'Women’s Track Suit', price: '$24.99', image: womensTrackSuit1 },
+    ]
+  };
+
+  const steps = [
+    { num: '01', title: 'Project Planning', desc: 'Send your tech pack or pic of the design you want. We will assist you in verifying your materials and fitting details. The advice about sample fee, MOQ and estimate bulk price.' },
+    { num: '02', title: 'Sourcing Materials', desc: 'We work with local suppliers to acquire high-quality materials and assure that we stay below your specified price points. Lead times may be significantly shortened by choosing in-stock products.' },
+    { num: '03', title: 'Pattern Making', desc: 'Work with our expert pattern makers to achieve the features and fit of each style. Patterns are essentially the blueprint for all clothing items.' },
+    { num: '04', title: 'Sample Making', desc: 'Our skilled sample makers hand cut and sew your garments with detail and precision. By creating samples of your clothing, we\'re able to test the fit and functionality before mass production.' },
+    { num: '05', title: 'Revisions', desc: "You'll have a fitting on the samples so we can know what alterations are needed for your next batch of samples. Thanks to the rich industry experience of our service team, we are confident to finish all revisions within only 1-2 rounds, while other traditional manufacturers may need 5+ rounds to achieve that." },
+    { num: '06', title: 'Productions', desc: 'With your sample approved, we can begin pre-production. Placing your purchase order will initiate your first production run.' },
   ];
 
-  const features = [
+
+  const reviews = [
+    { name: 'Cora-LUVHER BOY', location: 'United States', text: 'The quality of it is amazing, its super thick its super soft... I was incredibly impressed.' },
+    { name: 'Pedro', location: 'Spain', text: 'I must say they are amazing, I love them their client treatment is amazing... the quality of the product is excellent.' },
+    { name: 'Jake', location: 'Australia', text: 'They’ve been amazing at making really good samples... I feel like they are my secret weapon.' },
+  ];
+
+  const whyChoose = [
     {
-      title: 'Full Customization',
-      description: 'Create unique designs from scratch with our comprehensive OEM service.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-        </svg>
-      ),
+      number: '01',
+      title: 'ONE STOP SOLUTION',
+      description: 'Navra Clothes Maker is the perfect solution for all your garment and clothing manufacturing needs. From sample development and bulk production to label printing, delivery of goods — the experts at this factory will take care every step along with you! We offer wide range of products such as women’s dresses or men’s shirts, sportswear and swimwear — there are many styles available which means that whatever kind clothing design you required, we can easily made it.',
     },
     {
-      title: 'Premium Fabrics',
-      description: 'Access to a wide range of high-quality fabrics for your clothing line.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-        </svg>
-      ),
+      number: '02',
+      title: 'CUSTOM YOUR OWN UNIQUE DESIGN',
+      description: 'We have a team of professionals who will turn your design into reality. With our expertise, you can be assured that each product meets the highest standards for quality and craftsmanship while still maintaining an affordable price point.',
     },
     {
-      title: 'Advanced Technology',
-      description: 'State-of-the-art printing and embroidery techniques for superior results.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
+      number: '03',
+      title: 'QUICK TURNAROUND TIME',
+      description: 'With more than 100 clothes makers, we can make any volume of orders, big or small. Our turnaround time is very short, which means that it will grow your business quicker! We ship all over the world through DHL, FedEx, UPS etc., so you don’t have to worry about anything at hand – just relax while our team takes care of everything.',
+    },
+    {
+      number: '04',
+      title: 'ETHICALLY CONTROL QUALITY',
+      description: 'Bring your design to life with Navra’s professional service team. We will check the quality of all stitching, measurements and fabrics used in our products before they are shipped off for delivery so that you can be sure you’re getting the highest quality of products.',
+    },
+    {
+      number: '05',
+      title: 'LOWER YOUR INVENTORY RISK',
+      description: 'Start your own clothing line with 100 pieces per design to save money and pamper customers by giving them more options.',
     },
   ];
+
+  const toggleAccordion = (index: number) => {
+    setActiveAccordion(activeAccordion === index ? null : index);
+  };
 
   return (
     <div className="cut-and-sew-page">
@@ -53,136 +122,154 @@ const CutAndSewPage: React.FC = () => {
         <div className="cs-hero__overlay"></div>
         <div className="container cs-hero__content">
           <h1 className="cs-hero__title">
-            Clothing <span className="text-[#c8a96a]">Manufacturer</span>
+            Sustainable <span className="text-[#c8a96a]">Clothing Manufacturer</span>
           </h1>
           <p className="cs-hero__desc">
-            With Navra, you can create unique custom OEM clothing that will make your fashion label stand out among the rest. Your customers are sick of seeing the same thing everywhere they go; give them something new and different that they won’t be able to find anywhere else!
+            With Navra, you can create unique custom OEM clothing that will make your fashion label stand out among the rest. Your customers are sick of seeing the same thing everywhere they go; give them something new and different!
           </p>
           <div className="cs-hero__actions">
-            <Link to="/about" className="cs-hero__btn cs-hero__btn--primary">Custom Now</Link>
+            <Link to="/contact-us" className="cs-hero__btn cs-hero__btn--primary">Custom Now</Link>
           </div>
         </div>
       </section>
-
-      {/* Quick Access Nav */}
-      <div className="cs-quick-access">
-        <div className="container">
-          <div className="cs-quick-access__label">Quick Access</div>
-          <div className="cs-quick-access__list">
-            <span>01 Custom Product Series</span>
-            <span>02 Product Features</span>
-            <span>03 How We Make it</span>
-            <span>04 Fabric Option</span>
-            <span>05 Technology</span>
-            <span>06 Clients Reviews</span>
-            <span>07 Why Choose Us</span>
-          </div>
-        </div>
-      </div>
 
       {/* Custom Product Series */}
-      <section className="cs-section">
+      <section id="custom-products" className="cs-section">
         <div className="container">
           <h2 className="cs-section__title">Custom Product Series</h2>
+          <div className="cs-tabs">
+            {productTabs.map(tab => (
+              <button 
+                key={tab} 
+                className={`cs-tab ${activeProductTab === tab ? 'active' : ''}`}
+                onClick={() => setActiveProductTab(tab)}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
           <div className="cs-products-grid">
-            {customProducts.map((item, index) => (
+            {products[activeProductTab]?.map((item, index) => (
               <div key={index} className="cs-product-card">
-                <div className="cs-product-card__image">
-                  <div className="cs-product-card__placeholder">
-                    {/* Placeholder icon */}
-                    <svg className="w-16 h-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
+                <div className="cs-product-card__image" style={{ aspectRatio: '3/4', overflow: 'hidden' }}>
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      className="transition-transform duration-500 hover:scale-105"
+                    />
                 </div>
                 <h3 className="cs-product-card__title">{item.name}</h3>
+                <p className="cs-product-card__price">{item.price}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="cs-section bg-gray-50">
+      {/* Product Features */}
+      <section id="product-features" className="cs-section bg-gray-50">
         <div className="container">
-          <h2 className="cs-section__title">Product Features</h2>
-          <div className="cs-features-grid">
-            {features.map((feature, index) => (
-              <div key={index} className="cs-feature-card">
-                <div className="cs-feature-card__icon">{feature.icon}</div>
-                <h3 className="cs-feature-card__title">{feature.title}</h3>
-                <p className="cs-feature-card__desc">{feature.description}</p>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="cs-section__title text-center mb-8">OEM Clothing Manufacturer</h2>
+            <ul className="cs-feature-list">
+              <li><strong>We Are a ONE-STOP Shop:</strong> This means that all processes are finished under one roof. You only have to concentrate on design and marketing.</li>
+              <li><strong>Wide variety of styles available:</strong> We have hundreds of fabrics and patterns to choose from, ranging from both classic and modern styles.</li>
+              <li><strong>Customize your size:</strong> Choose the size specifically for each body type instead of a usual sizes offered by retailers.</li>
+              <li><strong>Low MOQ:</strong> Start with 100 pieces per item per color.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+      {/* How We Make It */}
+      <section className="process">
+        <div className="container">
+          <div className="process__header">
+            <h2 className="process__title">
+              <span className="section-title-wrapper">
+                How We Make It
+                <svg className="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                   <path d="M7 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-4h.01M17 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-4h.01M6.5 11l5-5 5 5M11.5 6V1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </h2>
+          </div>
+
+          <div className="process__grid">
+            {steps.map((step) => (
+              <div key={step.num} className="process-card">
+                <div className="process-card__number">{step.num}</div>
+                <div className="process-card__content">
+                  <h3 className="process-card__title">{step.title}</h3>
+                  <p className="process-card__description">{step.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Fabric Options Preview */}
-      <section className="cs-section">
+      {/* Fabric Option */}
+      <FabricOptions />
+
+      {/* Technology */}
+      <PrintOptions />
+
+
+      {/* Why Choose Us */}
+      <section id="why-choose-us" className="cs-section">
         <div className="container">
-          <h2 className="cs-section__title">Fabric Option</h2>
-          <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-            We offer a vast selection of fabrics including Cotton, Polyester, Silk, Denim, and more.
-          </p>
-          <div className="text-center">
-            <Link to="/fabrics" className="cs-btn-outline">
-              View All Fabrics
-            </Link>
+          <div className="why-us__header">
+            <h2 className="cs-section__title">
+              <span className="section-title-wrapper">
+                Why Choose Navra
+                <svg className="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M6 6L18 18M18 6L6 18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </h2>
+          </div>
+
+          <div className="why-us__content-wrapper">
+            <div className="why-us__list">
+              {whyChoose.map((feature, index) => (
+                <div 
+                  key={feature.number} 
+                  className={`why-us__item ${activeAccordion === index ? 'active' : ''}`}
+                  onClick={() => toggleAccordion(index)}
+                >
+                  <div className="why-us__item-header">
+                    <span className="why-us__item-number">{feature.number}</span>
+                    <h3 className="why-us__item-title">{feature.title}</h3>
+                    <span className="why-us__item-arrow">
+                      {activeAccordion === index ? '↘' : '↗'}
+                    </span>
+                  </div>
+                  {activeAccordion === index && (
+                    <p className="why-us__item-description animate-fade-in">
+                      {feature.description}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="why-us__image">
+               <img src={whyChooseUsImage} alt="Why Choose Us" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Technology Preview */}
-      <section className="cs-section bg-gray-50">
-        <div className="container">
-          <h2 className="cs-section__title">Technology</h2>
-          <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-            From DTG Printing to 3D Embroidery, we have the technology to execute your vision.
-          </p>
-          <div className="text-center">
-            <Link to="/technology" className="cs-btn-outline">
-              View Technologies
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Buyer's Guide / Tips */}
-      <section className="cs-section">
-        <div className="container">
-          <h2 className="cs-section__title">5 Tips for Sourcing the Right Partner</h2>
-          <div className="cs-guide-grid">
-            {[
-              { num: '01', title: 'Define Your Needs', text: 'Know exactly what you want to produce.' },
-              { num: '02', title: 'Do Your Research', text: 'Look for experience and reviews.' },
-              { num: '03', title: 'Consider Your Budget', text: 'Balance cost with quality requirements.' },
-              { num: '04', title: 'Ask for Samples', text: 'Always verify quality before bulk orders.' },
-              { num: '05', title: 'Negotiate Terms', text: 'Clarify lead times and MOQs upfront.' },
-            ].map((tip, idx) => (
-              <div key={idx} className="cs-tip-card">
-                <span className="cs-tip-card__num">{tip.num}</span>
-                <h3 className="cs-tip-card__title">{tip.title}</h3>
-                <p className="cs-tip-card__text">{tip.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Bottom */}
-      <section className="cs-cta-section">
-        <div className="container">
-          <h2 className="text-3xl font-bold mb-4">Ready to Create Your Custom Line?</h2>
-          <p className="mb-8 text-white/80">Get in touch with our team to start your OEM manufacturing journey.</p>
-          <Link to="/about" className="cs-hero__btn cs-hero__btn--primary bg-white text-[#c8a96a]">
-            Contact Us
-          </Link>
-        </div>
-      </section>
+      <ContactCTA 
+        title="Ready to Create Your Custom Line?"
+        subtitle="Get in touch with our team to start your OEM manufacturing journey."
+      />
     </div>
   );
 };
 
 export default CutAndSewPage;
-

@@ -1,24 +1,106 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import * as XLSX from 'xlsx';
 import './HomePage.css';
+import navraReel from '../assets/videos/navra-reel.mp4';
+
+// Import images for categories
+import mensFullSleeve1 from '../assets/products/mens-full-sleeve-1.jpg';
+import mensOversized1 from '../assets/products/mens-oversized-tshirt-1.jpg';
+import polo1 from '../assets/products/classic-pique-polo-1.jpg';
+import mensHoodie1 from '../assets/products/mens-hoodie-1.jpg';
+import mensSweatshirt1 from '../assets/products/mens-sweatshirt-1.jpg';
+import womensTrackSuit1 from '../assets/products/womens-track-suit-1.jpg';
+import mensTrackPants1 from '../assets/products/mens-track-pants-1.jpg';
+import joggers1 from '../assets/products/joggers-1.jpg'; // For Trousers
+import performancePolo1 from '../assets/products/performance-polo-1.jpg'; // For Jersey
+import whyChooseUsImage from '../assets/why-choose-us.jpg';
+import brandStyle1 from '../assets/brand-style-1.jpg';
+import brandStyle2 from '../assets/brand-style-2.jpg';
+import brandStyle3 from '../assets/brand-style-3.jpg';
+import brandStyle4 from '../assets/brand-style-4.jpg';
+import brandStyle5 from '../assets/brand-style-5.jpg';
+import brandStyle6 from '../assets/brand-style-6.jpg';
+import brandStyle7 from '../assets/brand-style-7.jpg';
+import brandStyle8 from '../assets/brand-style-8.jpg';
+import brandStyle9 from '../assets/brand-style-9.jpg';
+import brandStyle10 from '../assets/brand-style-10.jpg';
 
 /**
  * HomePage Component
  * Replicates the main landing page of hongyuapparel.com
  */
 const HomePage: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    message: ''
+  });
+
+  // State for Why Choose Navra accordion
+  const [activeFeature, setActiveFeature] = useState<number | null>(0); // Default to first item open
+  
+  // State for Image Comparison Slider
+  const [sliderPosition, setSliderPosition] = useState(50);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSliderPosition(Number(e.target.value));
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      const response = await fetch('http://127.0.0.1:5001/api/enquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Thank you! Your enquiry has been sent successfully.");
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Failed to submit enquiry');
+      }
+    } catch (error) {
+      console.error('Error submitting enquiry:', error);
+      alert(`There was an error submitting your enquiry: ${error instanceof Error ? error.message : String(error)}. Please check if the backend server is running.`);
+    }
+  };
+
+  // Toggle function for features accordion
+  const toggleFeature = (index: number) => {
+    if (activeFeature === index) {
+      // If clicking the active one, close it
+      setActiveFeature(null);
+    } else {
+      // If clicking a different one, open it (and close others automatically via state change)
+      setActiveFeature(index);
+    }
+  };
+
   // Mock data for solutions cards
   const solutions = [
     {
       id: 1,
       title: 'Blank Wholesale',
       subtitle: 'For Wholesaler',
-      difficulty: 5,
-      elements: 5,
-      measurements: 5,
-      customizations: 5,
-      quantities: 5,
-      cost: 5,
       description: 'Order ready-made clothing from our product page.',
       moq: '50 pieces mix size style Colors',
       sampleTime: '3 days',
@@ -29,12 +111,6 @@ const HomePage: React.FC = () => {
       id: 2,
       title: 'Logo Customize',
       subtitle: 'For Brand Starter',
-      difficulty: 15,
-      elements: 20,
-      measurements: 20,
-      customizations: 35,
-      quantities: 50,
-      cost: 10,
       description: 'Add logo on our blank clothing, printing, embroidery, or change to your private label.',
       moq: '50 pieces mix size style Colors',
       sampleTime: '5-8 days',
@@ -45,12 +121,6 @@ const HomePage: React.FC = () => {
       id: 3,
       title: 'Cut & Sew Customize',
       subtitle: 'For Fashion Brand Expert',
-      difficulty: 75,
-      elements: 90,
-      measurements: 80,
-      customizations: 80,
-      quantities: 90,
-      cost: 75,
       description: 'Create your own designs and dreams from sketch.',
       moq: '100Pcs/style/color (4 sizes)',
       sampleTime: '8-15 days',
@@ -59,22 +129,24 @@ const HomePage: React.FC = () => {
     },
   ];
 
-  // Mock data for product categories
+  // Updated product categories with images and sizes for grid layout
   const categories = [
-    { name: 'T-Shirts & Tops', icon: 'shirt' },
-    { name: 'Pajamas', icon: 'moon' },
-    { name: 'Swimwear', icon: 'water' },
-    { name: 'Hoodies', icon: 'hoodie' },
-    { name: 'Hats & Caps', icon: 'hat' },
-    { name: 'Streetwear', icon: 'street' },
-    { name: 'Dress', icon: 'dress' },
+    { name: 'T-Shirts', image: mensFullSleeve1 },
+    { name: 'Oversized', image: mensOversized1 },
+    { name: 'Polo T-Shirts', image: polo1 },
+    { name: 'Hoodies', image: mensHoodie1 },
+    { name: 'Sweatshirts', image: mensSweatshirt1 },
+    { name: 'Track Suits', image: womensTrackSuit1 },
+    { name: 'Track Pants', image: mensTrackPants1 },
+    { name: 'Trousers', image: joggers1 },
+    { name: 'Jersey', image: performancePolo1 },
   ];
 
-  // Mock data for Why Choose section
+  // Mock data for Why Choose section - UPDATED CONTENT
   const features = [
     {
       number: '01',
-      title: 'ONE-STOP SOLUTION',
+      title: 'ONE STOP SOLUTION',
       description: 'Navra Clothes Maker is the perfect solution for all your garment and clothing manufacturing needs. From sample development and bulk production to label printing, delivery of goods — the experts at this factory will take care every step along with you! We offer wide range of products such as women’s dresses or men’s shirts, sportswear and swimwear — there are many styles available which means that whatever kind clothing design you required, we can easily made it.',
     },
     {
@@ -89,7 +161,7 @@ const HomePage: React.FC = () => {
     },
     {
       number: '04',
-      title: 'ETHICALLY QUALITY CONTROL',
+      title: 'ETHICALLY CONTROL QUALITY',
       description: 'Bring your design to life with Navra’s professional service team. We will check the quality of all stitching, measurements and fabrics used in our products before they are shipped off for delivery so that you can be sure you’re getting the highest quality of products.',
     },
     {
@@ -110,34 +182,6 @@ const HomePage: React.FC = () => {
     { benefit: 'Cost Effective For Large Orders', hongyu: true, traditional: true },
   ];
 
-  // Mock data for statistics
-  const stats = [
-    { number: '22', label: 'Years of OEM experience in clothing industry' },
-    { number: '2013', label: 'Happy clients and counting' },
-    { number: '8058', label: 'Ready stylish designs' },
-    { number: '73685', label: 'Pieces of high-quality clothes made per month' },
-  ];
-
-  // Mock data for testimonials
-  const testimonials = [
-    {
-      name: 'Pedro',
-      location: 'Spain',
-      quote: "hello everyone, I’m Pedro from Spain, I’ve been working with Navra just for a couple of months, and I’ve bought all of the tees and hoodies, I must say they are amazing, I love them their client treatment is amazing, and kiki is so nice, they treat u very well, and the quality of the product they manufacture is excellent, in fact, I’m wearing one right now, its oversized wash tee, I truly recommend working with Navra and I’m very pleased.",
-    },
-    {
-      name: 'Jake',
-      location: 'Australia',
-      quote: "hey everyone, so I work with Navra, I’ve been working with them for quite a few months now, they’ve been amazing at making really good samples, and we are about to go into production. I was really struggling on trying to figure out whether I wanted to make this video or not, and the reason for that is, I feel like they are my secret weapon, they’ve just done an amazing job, and they really are a good team to work with!!",
-    },
-    {
-      name: 'Cora',
-      location: 'United States',
-      company: 'LUVHER BOY',
-      quote: "i’m Cora Sanfilippo, i work with Navra, this is the sample that I received, the quality of it is amazing, its super thick its super soft, its amazing quality, we also did puffy screen print on the back, and I was incredibly impressed they are super good at making any changes that u need. and answering super quickly, I love the quality and the fit and the color, they’ve been super great, showing every single option that you could possibly want in customizing it, so I am super grateful to be work with Navra!",
-    },
-  ];
-
   // Mock data for process steps
   const processSteps = [
     { step: '01', title: 'Project Planning', description: 'Send your tech pack or pic of the design you want. We will assist you in verifying your materials and fitting details. The advice about sample fee, MOQ and estimate bulk price.' },
@@ -146,6 +190,12 @@ const HomePage: React.FC = () => {
     { step: '04', title: 'Sample Making', description: 'Our skilled sample makers hand cut and sew your garments with detail and precision. By creating samples of your clothing, we\'re able to test the fit and functionality before mass production.' },
     { step: '05', title: 'Revisions', description: 'You\'ll have a fitting on the samples so we can know what alterations are needed for your next batch of samples. Thanks to the rich industry experience of our service team, we are confident to finish all revisions within only 1-2 rounds, while other traditional manufacturers may need 5+ rounds to achieve that.' },
     { step: '06', title: 'Productions', description: 'With your sample approved, we can begin pre-production. Placing your purchase order will initiate your first production run.' },
+  ];
+
+  // Mock data for Your Brand Your Style images
+  const brandStyles = [
+    brandStyle1, brandStyle2, brandStyle3, brandStyle4, brandStyle5,
+    brandStyle6, brandStyle7, brandStyle8, brandStyle9, brandStyle10
   ];
 
   // Mock data for FAQs
@@ -196,6 +246,13 @@ const HomePage: React.FC = () => {
     <div className="homepage">
       {/* Hero Section */}
       <section className="hero">
+        <div className="hero__video-container">
+          <video className="hero__video" autoPlay muted loop playsInline>
+            <source src={navraReel} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="hero__overlay"></div>
+        </div>
         <div className="hero__content">
           <div className="animate-fade-in-up">
             <h1 className="hero__title">
@@ -206,7 +263,7 @@ const HomePage: React.FC = () => {
               New fashion brand? Navra is here to be your first and last stop for all clothing needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/about" className="hero__cta">
+              <Link to="/contact-us" className="hero__cta">
                 Get Started
               </Link>
             </div>
@@ -235,29 +292,6 @@ const HomePage: React.FC = () => {
                   </h3>
                 </div>
 
-                <div className="solution-card__metrics">
-                  {[
-                    { label: 'Difficulty Level', value: solution.difficulty },
-                    { label: 'Elements Required on your part', value: solution.elements },
-                    { label: 'Measurments Chart', value: solution.measurements },
-                    { label: 'Level Of Customizations', value: solution.customizations },
-                    { label: 'Quantities Requirement', value: solution.quantities },
-                    { label: 'Cost & Time', value: solution.cost },
-                  ].map((item) => (
-                    <div key={item.label} className="metric-item">
-                      <div className="metric-item__header">
-                        <span className="metric-item__label">{item.label}</span>
-                        <span className="metric-item__value">{item.value}%</span>
-                      </div>
-                      <div className="metric-item__bar">
-                        <div
-                          className="metric-item__fill"
-                          style={{ width: `${item.value}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
 
                 <div className="solution-card__details">
                   <p className="text-sm mb-4" style={{ color: index === 2 ? 'rgba(255,255,255,0.9)' : '#666' }}>
@@ -290,37 +324,150 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Product Categories Section */}
+      {/* Product Categories Section - Updated to Grid Layout */}
       <section className="categories">
         <div className="categories__container">
           <div className="categories__header">
             <h2 className="categories__title">
-              Customize Any Type You Like. <span>In Your Style.</span>
+              <span className="section-title-wrapper">
+                Customize Any Type You Like. In Your Style.
+                <svg className="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M6 6L18 18M18 6L6 18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
             </h2>
           </div>
 
           <div className="categories__grid">
             {categories.map((category) => (
-              <Link key={category.name} to="/products" className="category-pill">
-                <span>{category.name}</span>
+              <Link 
+                key={category.name} 
+                to="/products" 
+                state={{ category: category.name }}
+                className="category-card"
+              >
+                <div className="category-card__image-wrapper">
+                  <img src={category.image} alt={category.name} className="category-card__image" />
+                  <div className="category-card__overlay"></div>
+                </div>
+                <div className="category-card__content">
+                  <h3 className="category-card__title">{category.name}</h3>
+                </div>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="cta-banner">
-        <div className="cta-banner__content">
-          <h2 className="cta-banner__title">
-            From Idea to <span>Reality</span>
+      {/* CTA Banner - FROM IDEA TO REALITY */}
+      <section className="idea-reality">
+        <div className="idea-reality__container">
+          <div className="idea-reality__content">
+            <h2 className="section-title-wrapper">
+              From Idea to Reality
+              <svg className="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                 <path d="M6 6L18 18M18 6L6 18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </h2>
-          <p className="cta-banner__subtitle">
-            Navra is here for you along the way. We'll help keep track of all those ideas that might scatter into papers, napkins or even just brain cells so they don't get lost inside your head!
+            <p className="idea-reality__subtitle">
+              Hongyu Apparel is here for you along the way. We'll help keep track of all those ideas that might scatter into papers, napkins or even just brain cells so they don't get lost inside your head!
             </p>
-          <Link to="/about" className="cta-banner__btn">
+            <Link to="/contact-us" className="idea-reality__btn">
               Get Started
             </Link>
+          </div>
+          
+          <div className="idea-reality__visual">
+            <div className="comparison-slider" ref={sliderRef}>
+              <div 
+                className="comparison-slider__image comparison-slider__image--before" 
+                style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
+              >
+                 {/* Sketch/Idea Image (Using filter for now) */}
+                <img src={mensHoodie1} alt="Sketch" style={{ filter: 'grayscale(100%) contrast(150%) brightness(120%)' }} />
+                <div className="comparison-slider__label">Sketch</div>
+              </div>
+              <div className="comparison-slider__image comparison-slider__image--after">
+                {/* Real Image */}
+                <img src={mensHoodie1} alt="Reality" />
+                <div className="comparison-slider__label">Reality</div>
+              </div>
+              <input 
+                type="range" 
+                min="0" 
+                max="100" 
+                value={sliderPosition} 
+                onChange={handleSliderChange}
+                className="comparison-slider__input"
+              />
+              <div 
+                className="comparison-slider__handle"
+                style={{ left: `${sliderPosition}%` }}
+              >
+                <div className="comparison-slider__handle-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                    <path d="M8 5v14l11-7z" transform="rotate(180 12 12) translate(-4, 0)" />
+                    <path d="M8 5v14l11-7z" transform="translate(4, 0)" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Us Section */}
+      <section className="about-us-home">
+        <div className="about-us-home__container">
+          <div className="about-us-home__header">
+            <h2 className="about-us-home__title">
+              <span className="section-title-wrapper">
+                About US
+                <svg className="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M6 6L18 18M18 6L6 18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </h2>
+          </div>
+          <div className="about-content">
+            <p>
+              NAVRA, from the house of Exovate Exports, was created with one conviction — sourcing should be clear, dependable, and rooted in trust.
+            </p>
+            <p>
+              Built in India for global markets, we close the gap between what buyers expect and what the industry actually delivers. Through design-led thinking, ethical supply chains, disciplined operations, and transparent communication, NAVRA makes sourcing seamless and predictable.
+            </p>
+            <p className="about-content__highlight">
+              We’re not agents.<br/>
+              We’re not traditional exporters.<br/>
+              We’re a next-generation sourcing partner — blending India’s craftsmanship with global standards.
+            </p>
+            <p>
+              NAVRA sets a new rhythm: organized, insight-driven, collaborative, and human at the core.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* The Navra Way Section */}
+      <section className="navra-way">
+        <div className="navra-way__container">
+          <h2 className="section-title">The Navra Way</h2>
+          <div className="navra-way-grid">
+            {[
+              { title: "Trust you can count on", desc: "Promises kept, quality delivered." },
+              { title: "Transparency at every step", desc: "Full visibility, zero guesswork." },
+              { title: "Consistency that sets us apart", desc: "Repeatable excellence." },
+              { title: "Innovation that moves you forward", desc: "Modern tools, modern thinking." },
+              { title: "Partnership over transactions", desc: "We win when you win." },
+              { title: "Responsibility built in", desc: "Ethical and sustainable practices always." },
+              { title: "A vision beyond sourcing", desc: "Shaping the future of global apparel." }
+            ].map((item, index) => (
+              <div key={index} className="navra-way-item">
+                <span className="navra-way-title">{item.title}</span>
+                <span className="navra-way-desc">{item.desc}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -328,19 +475,43 @@ const HomePage: React.FC = () => {
       <section className="why-us">
         <div className="why-us__container">
           <div className="why-us__header">
-            <h2 className="why-us__title">Why Choose Navra</h2>
+            <h2 className="why-us__title">
+              <span className="section-title-wrapper">
+                Why Choose Navra
+                <svg className="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M6 6L18 18M18 6L6 18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </h2>
           </div>
 
-          <div className="why-us__grid">
-            {features.map((feature) => (
-              <div key={feature.number} className="feature-card">
-                <div className="feature-card__number">{feature.number}</div>
-                <div className="feature-card__content">
-                  <h3 className="feature-card__title">{feature.title}</h3>
-                  <p className="feature-card__description">{feature.description}</p>
+          <div className="why-us__content-wrapper">
+            <div className="why-us__list">
+              {features.map((feature, index) => (
+                <div 
+                  key={feature.number} 
+                  className={`why-us__item ${activeFeature === index ? 'active' : ''}`}
+                  onClick={() => toggleFeature(index)}
+                >
+                  <div className="why-us__item-header">
+                    <span className="why-us__item-number">{feature.number}</span>
+                    <h3 className="why-us__item-title">{feature.title}</h3>
+                    <span className="why-us__item-arrow">
+                      {activeFeature === index ? '↘' : '↗'}
+                    </span>
+                  </div>
+                  {activeFeature === index && (
+                    <p className="why-us__item-description animate-fade-in">
+                      {feature.description}
+                    </p>
+                  )}
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="why-us__image">
+              {/* Using a placeholder or existing image */}
+               <img src={whyChooseUsImage} alt="Why Choose Us" />
+            </div>
           </div>
         </div>
       </section>
@@ -349,7 +520,14 @@ const HomePage: React.FC = () => {
       <section className="comparison">
         <div className="comparison__container">
           <div className="comparison__header">
-            <h2 className="comparison__title">We Are Different</h2>
+            <h2 className="comparison__title">
+               <span className="section-title-wrapper">
+                We Are Different
+                <svg className="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                   <path d="M7 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-4h.01M17 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-4h.01M6.5 11l5-5 5 5M11.5 6V1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </h2>
           </div>
 
           <div className="comparison__table">
@@ -395,61 +573,18 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Statistics Section */}
-      <section className="stats">
-        <div className="stats__container">
-          <div className="stats__header">
-            <h2 className="stats__title">Numbers We Are Proud Of</h2>
-            <p className="stats__subtitle">
-              Navra was founded in 2003. From humble beginnings as a small clothing manufacturer, we’ve grown to be one of China's leading companies for women, men and children apparel manufacturing with our custom design service that will help you grow your brand!
-            </p>
-          </div>
-          <div className="stats__grid">
-            {stats.map((stat) => (
-              <div key={stat.label} className="stat-item">
-                <div className="stat-item__number">{stat.number}</div>
-                <div className="stat-item__label">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="testimonials">
-        <div className="testimonials__container">
-          <div className="testimonials__header">
-            <h2 className="testimonials__title">Only True Feedback Counts</h2>
-          </div>
-
-          <div className="testimonials__grid">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.name} className="testimonial-card">
-                <div className="testimonial-card__header">
-                  <div className="testimonial-card__avatar">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                  <div>
-                    <h4 className="testimonial-card__name">{testimonial.name}</h4>
-                    <p className="testimonial-card__location">
-                      {testimonial.company && <span className="testimonial-card__company">{testimonial.company} • </span>}
-                      {testimonial.location}
-                    </p>
-                  </div>
-                </div>
-                <p className="testimonial-card__content">"{testimonial.quote}"</p>
-                <Link to="/customer-reviews" className="testimonial-card__read-more">Read More</Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Process Steps Section */}
       <section className="process">
         <div className="process__container">
           <div className="process__header">
-            <h2 className="process__title">How We Make It</h2>
+            <h2 className="process__title">
+              <span className="section-title-wrapper">
+                How We Make It
+                <svg className="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                   <path d="M7 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-4h.01M17 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-4h.01M6.5 11l5-5 5 5M11.5 6V1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </h2>
           </div>
 
           <div className="process__grid">
@@ -473,9 +608,12 @@ const HomePage: React.FC = () => {
             <h2 className="brand-style__title">Your Brand. Your Style.</h2>
             <p className="brand-style__subtitle">Any clothes you would like to customize, let Navra make it for you.</p>
           </div>
-          {/* Placeholder for images as in original site - simplified for code */}
           <div className="brand-style__grid">
-             {/* Images would go here */}
+             {brandStyles.map((img, index) => (
+               <div key={index} className="brand-style__item">
+                 <img src={img} alt={`Brand Style ${index + 1}`} loading="lazy" />
+               </div>
+             ))}
           </div>
         </div>
       </section>
@@ -484,7 +622,14 @@ const HomePage: React.FC = () => {
       <section className="faq">
         <div className="faq__container">
           <div className="faq__header">
-            <h2 className="faq__title">Frequently Asked Questions</h2>
+            <h2 className="faq__title">
+               <span className="section-title-wrapper">
+                Frequently Asked Questions
+                 <svg className="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                   <path d="M7 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-4h.01M17 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-4h.01M6.5 11l5-5 5 5M11.5 6V1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </h2>
           </div>
 
           <div className="faq__list">
@@ -515,10 +660,15 @@ const HomePage: React.FC = () => {
         <div className="contact__container">
           <div className="contact__grid">
             <div className="contact__info">
-              <h2>You've already taken the first step? <span>Talk to us.</span></h2>
-              <p>
-                Sure. Why Not!
-              </p>
+              <h2>
+                <span className="section-title-wrapper-light">
+                  You've already taken the first step? <br/>Now what? Talk to us.
+                   <svg className="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                   <path d="M7 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-4h.01M17 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-4h.01M6.5 11l5-5 5 5M11.5 6V1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                </span>
+              </h2>
+              <button className="contact__cta-btn">Sure. Why Not!</button>
               
               <div className="contact__details">
                 {/* Contact details intentionally left minimal to match source visual if needed, 
@@ -529,61 +679,51 @@ const HomePage: React.FC = () => {
 
             <div className="contact__form-wrapper">
               <h3 className="contact__form-title">Get in Touch</h3>
-              <form className="contact__form">
+              <form className="contact__form" onSubmit={handleSubmit}>
                 <div className="contact__form-row">
                   <div className="contact__form-group">
                     <label>Name *</label>
-                    <input type="text" className="contact__form-input" required />
+                    <input 
+                      type="text" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="contact__form-input" 
+                      required 
+                    />
                   </div>
                   <div className="contact__form-group">
                     <label>Email *</label>
-                    <input type="email" className="contact__form-input" required />
-                  </div>
-                </div>
-                <div className="contact__form-row">
-                  <div className="contact__form-group">
-                    <label>Phone</label>
-                    <input type="tel" className="contact__form-input" />
-                  </div>
-                  <div className="contact__form-group">
-                    <label>What is you estimated budget?</label>
-                    <select className="contact__form-select">
-                      <option>Select Estimate Budget</option>
-                      <option>Within $2,000</option>
-                      <option>$2,000 - $5,000</option>
-                      <option>$5,000 - $10,000</option>
-                      <option>$10,000+</option>
-                    </select>
+                    <input 
+                      type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="contact__form-input" 
+                      required 
+                    />
                   </div>
                 </div>
                 <div className="contact__form-group">
                   <label>Company Name</label>
-                  <input type="text" className="contact__form-input" />
-                </div>
-                <div className="contact__form-group">
-                  <label>Your Selling Platforms</label>
-                  <select className="contact__form-select">
-                    <option>Choose Your Platform</option>
-                    <option>Offline Store</option>
-                    <option>Online Website</option>
-                    <option>Social Media (Ins, FB, TIKTOK, etc.)</option>
-                    <option>Not Started</option>
-                    <option>Others</option>
-                  </select>
-                </div>
-                <div className="contact__form-group">
-                  <label>Website / URL</label>
-                  <input type="text" className="contact__form-input" />
+                  <input 
+                    type="text" 
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    className="contact__form-input" 
+                  />
                 </div>
                 <div className="contact__form-group">
                   <label>More details *</label>
-                  <textarea rows={4} className="contact__form-textarea" required></textarea>
-                </div>
-                <div className="contact__form-group">
-                   <label>File Upload</label>
-                   <div className="file-upload-box">
-                     Click or drag files to this area to upload. You can upload up to 10 files.
-                   </div>
+                  <textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4} 
+                    className="contact__form-textarea" 
+                    required
+                  ></textarea>
                 </div>
                 <button type="submit" className="contact__form-submit">
                   Send Inquiry

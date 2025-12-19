@@ -63,13 +63,13 @@ const ClothingPrototypePage: React.FC = () => {
         <div className="prototype-hero__overlay"></div>
         <div className="container prototype-hero__content">
           <h1 className="prototype-hero__title">
-            01. Clothing <span className="text-[#c8a96a]">Prototype</span>
+            01. Clothing <span className="text-[#001F3F]">Prototype</span>
           </h1>
           <p className="prototype-hero__desc">
             When it comes to manufacturing clothes, having a well-made tech pack is very important. A tech pack is a document that you need to create in order to communicate your design to a manufacturer. The document contains all of the technical information about your product line in one place.
           </p>
           <div className="prototype-hero__actions">
-            <Link to="/about" className="prototype-hero__btn prototype-hero__btn--primary">Get Your Tech Pack!</Link>
+            <Link to="/contact-us" className="prototype-hero__btn prototype-hero__btn--primary">Get Your Tech Pack!</Link>
           </div>
         </div>
       </section>
@@ -85,7 +85,7 @@ const ClothingPrototypePage: React.FC = () => {
               </p>
               
               <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
-                <h3 className="font-bold text-lg mb-4 text-[#c8a96a]">Included in our service:</h3>
+                <h3 className="font-bold text-lg mb-4 text-[#001F3F]">Included in our service:</h3>
                 <ul className="prototype-service-list">
                   {serviceList.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2 mb-2">
@@ -99,7 +99,7 @@ const ClothingPrototypePage: React.FC = () => {
                 <div className="mt-6 pt-6 border-t border-gray-200">
                   <p className="font-semibold text-gray-800">Price: $50-$100</p>
                   <p className="font-semibold text-gray-800">Lead time: 2 weeks</p>
-                  <p className="mt-4 text-[#c8a96a] font-bold italic">
+                  <p className="mt-4 text-[#001F3F] font-bold italic">
                     We will gladly provide you with tech pack FREE OF CHARGE if you choose to work with us for clothing manufacturing.
                   </p>
                 </div>
@@ -139,7 +139,7 @@ const ClothingPrototypePage: React.FC = () => {
         <div className="container">
           <h2 className="text-3xl font-bold mb-4">Ready to Start?</h2>
           <p className="mb-8 text-white/80">What’s Next? After we approve the tech pack, we can start developing the prototype/sample development.</p>
-          <Link to="/about" className="prototype-hero__btn prototype-hero__btn--primary bg-white text-[#c8a96a]">
+          <Link to="/contact-us" className="prototype-hero__btn prototype-hero__btn--primary bg-white text-[#001F3F]">
             Get in Touch
           </Link>
         </div>

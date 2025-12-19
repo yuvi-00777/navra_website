@@ -37,13 +37,13 @@ const GlobalShippingPage: React.FC = () => {
         <div className="shipping-hero__overlay"></div>
         <div className="container shipping-hero__content">
           <h1 className="shipping-hero__title">
-            05. Global <span className="text-[#c8a96a]">Shipping</span>
+            05. Global <span className="shipping-hero__highlight">Shipping</span>
           </h1>
           <p className="shipping-hero__desc">
             We ship globally to over 50 countries. Whether you need express delivery for samples or economical sea freight for bulk orders, we have the right logistics solution for you.
           </p>
           <div className="shipping-hero__actions">
-            <Link to="/about" className="shipping-hero__btn shipping-hero__btn--primary">Get a Quote</Link>
+            <Link to="/contact-us" className="shipping-hero__btn shipping-hero__btn--primary">Get a Quote</Link>
           </div>
         </div>
       </section>
@@ -65,24 +65,24 @@ const GlobalShippingPage: React.FC = () => {
       </section>
 
       {/* Info Section */}
-      <section className="shipping-section bg-gray-50">
+      <section className="shipping-section shipping-section--alt">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="shipping-info-grid">
             <div>
-              <h2 className="shipping-section__title text-left mb-6">Tax by Destination Country</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <h2 className="shipping-section__title shipping-section__title--left">Tax by Destination Country</h2>
+              <p className="shipping-text">
                 Please note that import duties, taxes, and charges are not included in the item price or shipping cost. These charges are the buyer's responsibility.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="shipping-text">
                 We recommend checking with your country's customs office to determine what these additional costs will be prior to buying. We can assist with documentation to help smooth the customs process.
               </p>
             </div>
             <div>
-              <h2 className="shipping-section__title text-left mb-6">Shipping Costs</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <h2 className="shipping-section__title shipping-section__title--left">Shipping Costs</h2>
+              <p className="shipping-text">
                 Shipping costs are calculated based on the weight and volume of your order, as well as the destination and shipping method chosen.
               </p>
-              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+              <ul className="shipping-list">
                 <li>Express: Expensive but fast (3-5 days)</li>
                 <li>Air Freight: Moderate cost (7-10 days)</li>
                 <li>Sea Freight: Low cost (20-40 days)</li>
@@ -95,9 +95,9 @@ const GlobalShippingPage: React.FC = () => {
       {/* CTA Bottom */}
       <section className="shipping-cta-section">
         <div className="container">
-          <h2 className="text-3xl font-bold mb-4">Ready to Ship Your Order?</h2>
-          <p className="mb-8 text-white/80">Contact us to get a precise shipping estimate for your location.</p>
-          <Link to="/about" className="shipping-hero__btn shipping-hero__btn--primary bg-white text-[#c8a96a]">
+          <h2 className="shipping-cta-title">Ready to Ship Your Order?</h2>
+          <p className="shipping-cta-desc">Contact us to get a precise shipping estimate for your location.</p>
+          <Link to="/contact-us" className="shipping-cta-btn">
             Contact Us
           </Link>
         </div>
@@ -107,4 +107,3 @@ const GlobalShippingPage: React.FC = () => {
 };
 
 export default GlobalShippingPage;
-
