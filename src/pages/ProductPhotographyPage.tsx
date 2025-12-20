@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductPhotographyPage.css';
+import ContactCTA from '../components/ContactCTA';
 
 /**
  * ProductPhotographyPage Component
@@ -100,15 +101,11 @@ const ProductPhotographyPage: React.FC = () => {
       </section>
 
       {/* CTA Bottom */}
-      <section className="photo-cta-section">
-        <div className="container">
-          <h2 className="photo-cta-title">Capture Your Brand's Best Look</h2>
-          <p className="photo-cta-desc">Get professional photos without the hassle of hiring a separate studio.</p>
-          <Link to="/contact-us" className="photo-cta-btn">
-            Get a Quote
-          </Link>
-        </div>
-      </section>
+      <ContactCTA 
+        title="Capture Your Brand's Best Look"
+        subtitle="Get professional photos without the hassle of hiring a separate studio."
+        buttonText="Contact Us"
+      />
     </div>
   );
 };

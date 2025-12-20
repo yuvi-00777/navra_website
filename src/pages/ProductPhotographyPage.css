@@ -90,7 +90,16 @@
 }
 
 .photo-section--alt {
-  background-color: #f9fafb;
+  background-color: #000;
+  color: #fff;
+}
+
+.photo-section--alt .photo-section__title {
+  color: #fff;
+}
+
+.photo-section--alt .photo-section__title::after {
+  background-color: #fff;
 }
 
 .photo-section__title {

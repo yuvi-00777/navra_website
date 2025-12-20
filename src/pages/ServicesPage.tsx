@@ -49,6 +49,13 @@ const ServicesPage: React.FC = () => {
     }
   };
 
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services-grid');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const services = [
     {
       title: 'Clothing Prototype',
@@ -131,11 +138,11 @@ const ServicesPage: React.FC = () => {
         <div className="container">
           <h2 className="services-section__title">What’s Your Business?</h2>
           <div className="business-type-wrapper">
-            <button className="business-type-btn">
+            <button className="business-type-btn" onClick={scrollToServices}>
               <span className="business-type-dot"></span>
               I’m a Start-up Brand
             </button>
-            <button className="business-type-btn">
+            <button className="business-type-btn" onClick={scrollToServices}>
               <span className="business-type-dot"></span>
               I'm a Scale-up Brand
             </button>
@@ -144,7 +151,7 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* Services Grid Section */}
-      <section className="services-section">
+      <section className="services-section" id="services-grid">
         <div className="container">
           <h2 className="services-section__title">Services We Provide</h2>
           <div className="services-grid">

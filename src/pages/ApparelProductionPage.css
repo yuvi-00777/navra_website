@@ -34,8 +34,8 @@
 }
 
 .production-hero__title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
   color: #fff;
@@ -90,7 +90,20 @@
 }
 
 .production-section--alt {
-  background-color: #f9fafb;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.production-section--alt .production-section__title {
+  color: #ffffff;
+}
+
+.production-section--alt .production-section__title::after {
+  background-color: #ffffff;
+}
+
+.production-section--alt .production-list {
+  color: #e5e7eb;
 }
 
 .production-section__title {
@@ -200,8 +213,20 @@
 /* Process Cards */
 .production-process-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .production-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .production-process-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .production-process-card {
@@ -216,9 +241,15 @@
 }
 
 .production-process-card:hover {
+  background-color: #000;
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-  border-color: rgba(200, 169, 106, 0.3);
+  border-color: #000;
+}
+
+.production-section--alt .production-process-card:hover {
+  border-color: #ffffff; /* Make border visible on black background */
+  box-shadow: 0 15px 30px rgba(255,255,255,0.1); /* Light shadow */
 }
 
 .production-process-card__num {
@@ -230,6 +261,11 @@
   right: 15px;
   line-height: 1;
   z-index: 0;
+  transition: color 0.3s ease;
+}
+
+.production-process-card:hover .production-process-card__num {
+  color: rgba(255, 255, 255, 0.1);
 }
 
 .production-process-card__title {
@@ -239,6 +275,11 @@
   position: relative;
   z-index: 1;
   color: #1a1a1a;
+  transition: color 0.3s ease;
+}
+
+.production-process-card:hover .production-process-card__title {
+  color: #fff;
 }
 
 .production-process-card__desc {
@@ -247,6 +288,68 @@
   position: relative;
   z-index: 1;
   font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.production-process-card:hover .production-process-card__desc {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* What's Next Section */
+.production-next-step {
+  background-color: #000;
+  padding: 8rem 0;
+  text-align: center;
+  color: #fff;
+}
+
+.production-next-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+.production-next-link:hover {
+  opacity: 0.8;
+}
+
+.production-next-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.production-next-desc {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.production-next-arrow {
+  display: flex;
+  justify-content: center;
+  animation: bounce 2s infinite;
+}
+
+.production-next-arrow svg {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 /* CTA Section */

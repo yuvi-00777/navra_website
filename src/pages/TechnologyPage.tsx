@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PrintOptions from '../components/PrintOptions';
 import './TechnologyPage.css';
 
 /**
@@ -9,6 +8,26 @@ import './TechnologyPage.css';
  * Displays various printing and manufacturing technologies.
  */
 const TechnologyPage: React.FC = () => {
+  const technologies = [
+    { name: 'DTF Printing', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/烫画-1.jpg' },
+    { name: 'DTG Printing', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/DTG.jpg' },
+    { name: 'Puff Printing', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/未标题-2.jpg' },
+    { name: 'Screen Printing', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/丝网印.jpg' },
+    { name: 'Flat Embroidery', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/未标题-2-1.jpg' },
+    { name: '3D Embroidery', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/3D-embroidery.jpg' },
+    { name: 'Terry Embroidery', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/未标题-2-2.jpg' },
+    { name: 'Applique Embroidery', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/未标题-2-4.jpg' },
+    { name: 'Embroidery Patch', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/未标题-3.jpg' },
+    { name: 'Rhinestone', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/未标题-2-10.jpg' },
+    { name: 'Rubber Printing', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/未标题-2-6.jpg' },
+    { name: 'Flocking', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/未标题-2-5.jpg' },
+    { name: 'Embossing', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/07/Embossing.jpg' },
+    { name: 'Reflective Printing', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/Reflective-Printing.jpg' },
+    { name: 'Metallic Printing', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/Metallic-Printing-1.jpg' },
+    { name: 'Laser', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/04/laser.jpg' },
+    { name: 'Glitter', image: 'https://www.hongyuapparel.com/wp-content/uploads/2025/08/下载-1.jpg' },
+  ];
+
   return (
     <div className="technology-page">
       {/* Hero Banner */}
@@ -17,9 +36,6 @@ const TechnologyPage: React.FC = () => {
           <div className="technology-hero__decoration"></div>
         </div>
         <div className="container technology-hero__content">
-          <span className="technology-hero__badge">
-            Advanced Manufacturing
-          </span>
           <h1 className="technology-hero__title">
             Our Technology
           </h1>
@@ -34,8 +50,31 @@ const TechnologyPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Technology Grid - Replaced with PrintOptions component */}
-      <PrintOptions />
+      {/* Technology Grid */}
+      <section className="technology-content">
+        <div className="container">
+          <div className="technology-header">
+            <h2 className="technology-header__title">What We Have</h2>
+            <div className="technology-header__line"></div>
+          </div>
+          
+          <div className="technology-grid">
+            {technologies.map((tech, index) => (
+              <div key={index} className="technology-card">
+                <div className="technology-card__image-wrapper">
+                  <img 
+                    src={tech.image} 
+                    alt={tech.name} 
+                    className="technology-card__image"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="technology-card__title">{tech.name}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="technology-cta-section">

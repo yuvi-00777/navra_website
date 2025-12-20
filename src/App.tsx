@@ -18,7 +18,7 @@ import SampleDevelopmentPage from './pages/SampleDevelopmentPage';
 import ApparelProductionPage from './pages/ApparelProductionPage';
 import LabelsTagsPackagingPage from './pages/LabelsTagsPackagingPage';
 import GlobalShippingPage from './pages/GlobalShippingPage';
-import ProductPhotographyPage from './pages/ProductPhotographyPage';
+// import ProductPhotographyPage from './pages/ProductPhotographyPage';
 import AboutUsPage from './pages/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage';
 import OurEthicsPage from './pages/OurEthicsPage';
@@ -63,7 +63,7 @@ function App() {
           <Route path="/services/apparel-production" element={<ApparelProductionPage />} />
           <Route path="/services/labels-tags-packaging" element={<LabelsTagsPackagingPage />} />
           <Route path="/services/global-shipping" element={<GlobalShippingPage />} />
-          <Route path="/services/product-photography" element={<ProductPhotographyPage />} />
+          {/* <Route path="/services/product-photography" element={<ProductPhotographyPage />} /> */}
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />

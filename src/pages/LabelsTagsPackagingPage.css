@@ -34,8 +34,8 @@
 }
 
 .ltp-hero__title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
   color: #fff;
@@ -87,6 +87,19 @@
 /* Section General */
 .ltp-section {
   padding: 5rem 0;
+}
+
+.ltp-section--alt {
+  background-color: #000;
+  color: #fff;
+}
+
+.ltp-section--alt .ltp-section__title {
+  color: #fff;
+}
+
+.ltp-section--alt .ltp-section__title::after {
+  background-color: #fff;
 }
 
 .ltp-section__title {
@@ -145,6 +158,63 @@
 .ltp-card__desc {
   color: #666;
   line-height: 1.6;
+}
+
+/* What's Next Section */
+.ltp-next-step {
+  background-color: #000;
+  padding: 8rem 0;
+  text-align: center;
+  color: #fff;
+}
+
+.ltp-next-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+.ltp-next-link:hover {
+  opacity: 0.8;
+}
+
+.ltp-next-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.ltp-next-desc {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.ltp-next-arrow {
+  display: flex;
+  justify-content: center;
+  animation: bounce 2s infinite;
+}
+
+.ltp-next-arrow svg {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 /* CTA Section */

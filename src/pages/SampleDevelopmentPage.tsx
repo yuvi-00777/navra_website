@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './SampleDevelopmentPage.css';
+import ContactCTA from '../components/ContactCTA';
 
 /**
  * SampleDevelopmentPage Component
@@ -103,13 +104,19 @@ const SampleDevelopmentPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Bottom */}
-      <section className="sample-dev-cta-section">
+      {/* What's Next Section */}
+      <section className="sample-dev-next-step">
         <div className="container">
-          <h2 className="sample-dev-cta-title">Let's Discuss Your Sample Ideas Today!</h2>
-          <p className="sample-dev-cta-desc">What’s Next? Once we confirm that the sample clothing meets our standards, we can move forward with mass producing the clothing.</p>
-          <Link to="/contact-us" className="sample-dev-cta-btn">
-            Get in Touch
+          <Link to="/services/apparel-production" className="sample-dev-next-link">
+            <h2 className="sample-dev-next-title">What's Next?</h2>
+            <p className="sample-dev-next-desc">
+              Once we confirm that the sample clothing meets our standards, we can move forward with mass producing the clothing.
+            </p>
+            <div className="sample-dev-next-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+              </svg>
+            </div>
           </Link>
         </div>
       </section>

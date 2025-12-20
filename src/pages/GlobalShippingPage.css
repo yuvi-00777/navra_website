@@ -34,8 +34,8 @@
 }
 
 .shipping-hero__title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
   color: #fff;
@@ -90,7 +90,16 @@
 }
 
 .shipping-section--alt {
-  background-color: #f9fafb;
+  background-color: #000;
+  color: #fff;
+}
+
+.shipping-section--alt .shipping-section__title {
+  color: #fff;
+}
+
+.shipping-section--alt .shipping-section__title::after {
+  background-color: #fff;
 }
 
 .shipping-section__title {
@@ -186,6 +195,63 @@
 
 .shipping-list li {
   margin-bottom: 0.5rem;
+}
+
+/* What's Next Section */
+.shipping-next-step {
+  background-color: #000;
+  padding: 8rem 0;
+  text-align: center;
+  color: #fff;
+}
+
+.shipping-next-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+.shipping-next-link:hover {
+  opacity: 0.8;
+}
+
+.shipping-next-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.shipping-next-desc {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.shipping-next-arrow {
+  display: flex;
+  justify-content: center;
+  animation: bounce 2s infinite;
+}
+
+.shipping-next-arrow svg {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 /* CTA Section */

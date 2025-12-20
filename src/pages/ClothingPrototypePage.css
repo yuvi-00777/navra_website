@@ -34,10 +34,11 @@
 }
 
 .prototype-hero__title {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
+  color: #fff;
 }
 
 .prototype-hero__desc {
@@ -71,6 +72,19 @@
 /* Sections General */
 .prototype-section {
   padding: 5rem 0;
+}
+
+.prototype-section--alt {
+  background-color: #000;
+  color: #fff;
+}
+
+.prototype-section--alt .prototype-section__title {
+  color: #fff;
+}
+
+.prototype-section--alt .prototype-section__title::after {
+  background-color: #fff;
 }
 
 .prototype-section__title {
@@ -122,7 +136,8 @@
 }
 
 .prototype-step-card:hover {
-  border-top-color: #001F3F;
+  background-color: #000;
+  border-top-color: #000;
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
@@ -136,6 +151,11 @@
   right: 10px;
   line-height: 1;
   z-index: 0;
+  transition: color 0.3s ease;
+}
+
+.prototype-step-card:hover .prototype-step-card__num {
+  color: rgba(255, 255, 255, 0.1);
 }
 
 .prototype-step-card__title {
@@ -145,6 +165,11 @@
   position: relative;
   z-index: 1;
   color: #333;
+  transition: color 0.3s ease;
+}
+
+.prototype-step-card:hover .prototype-step-card__title {
+  color: #fff;
 }
 
 .prototype-step-card__desc {
@@ -152,9 +177,71 @@
   line-height: 1.6;
   position: relative;
   z-index: 1;
+  transition: color 0.3s ease;
 }
 
-/* CTA Section */
+.prototype-step-card:hover .prototype-step-card__desc {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* What's Next Section */
+.prototype-next-step {
+  background-color: #000;
+  padding: 8rem 0;
+  text-align: center;
+  color: #fff;
+}
+
+.prototype-next-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+.prototype-next-link:hover {
+  opacity: 0.8;
+}
+
+.prototype-next-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.prototype-next-desc {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.prototype-next-arrow {
+  display: flex;
+  justify-content: center;
+  animation: bounce 2s infinite;
+}
+
+.prototype-next-arrow svg {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* CTA Section (Removed or kept for other pages? It was removed in TSX, removing unused styles if any, but ContactCTA styles are separate) */
 .prototype-cta-section {
   background: #001F3F;
   color: #fff;

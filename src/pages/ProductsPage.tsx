@@ -162,9 +162,6 @@ const ProductsPage: React.FC = () => {
           <div className="products-hero__decoration"></div>
         </div>
         <div className="container products-hero__content">
-          <span className="products-hero__badge">
-              Our Collection
-            </span>
           <h1 className="products-hero__title">
             Products and Categories
             </h1>

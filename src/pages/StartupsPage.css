@@ -34,10 +34,11 @@
 }
 
 .startups-hero__title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
+  color: #fff;
 }
 
 .startups-hero__desc {
@@ -71,6 +72,19 @@
 /* Sections General */
 .startups-section {
   padding: 5rem 0;
+}
+
+.startups-section--alt {
+  background-color: #000;
+  color: #fff;
+}
+
+.startups-section--alt .startups-section__title {
+  color: #fff;
+}
+
+.startups-section--alt .startups-section__title::after {
+  background-color: #fff;
 }
 
 .startups-section__title {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './LabelsTagsPackagingPage.css';
+import ContactCTA from '../components/ContactCTA';
 
 /**
  * LabelsTagsPackagingPage Component
@@ -89,13 +90,19 @@ const LabelsTagsPackagingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Bottom */}
-      <section className="ltp-cta-section">
+      {/* What's Next Section */}
+      <section className="ltp-next-step">
         <div className="container">
-          <h2 className="ltp-cta-title">Elevate Your Brand Identity</h2>
-          <p className="ltp-cta-desc">Ready to customize your labels and packaging? Contact us today to discuss your requirements.</p>
-          <Link to="/contact-us" className="ltp-cta-btn">
-            Get in Touch
+          <Link to="/services/global-shipping" className="ltp-next-link">
+            <h2 className="ltp-next-title">What's Next?</h2>
+            <p className="ltp-next-desc">
+              After your products are labeled and packaged, we'll arrange for global shipping to your destination.
+            </p>
+            <div className="ltp-next-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+              </svg>
+            </div>
           </Link>
         </div>
       </section>

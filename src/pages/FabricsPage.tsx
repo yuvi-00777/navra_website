@@ -186,9 +186,6 @@ const FabricsPage: React.FC = () => {
           <div className="fabrics-hero__decoration"></div>
         </div>
         <div className="container fabrics-hero__content">
-          <span className="fabrics-hero__badge">
-            Premium Materials
-          </span>
           <h1 className="fabrics-hero__title">
             Fabrics Collection
           </h1>

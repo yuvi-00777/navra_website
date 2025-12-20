@@ -2,18 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './AboutUsPage.css';
 
+// Import images (using existing assets as placeholders for now)
+import brandStyle1 from '../assets/brand-style-1.jpg';
+import brandStyle2 from '../assets/brand-style-2.jpg';
+import brandStyle3 from '../assets/brand-style-3.jpg';
+import brandStyle4 from '../assets/brand-style-4.jpg';
+
 /**
  * AboutUsPage Component
- * Replicates the "About Us" page of hongyuapparel.com
+ * Updated content based on about_us.html
  */
 const AboutUsPage: React.FC = () => {
-  const stats = [
-    { num: '22', label: 'Years of OEM experience in clothing industry' },
-    { num: '2013', label: 'Happy clients and counting' },
-    { num: '8058', label: 'Ready stylish designs' },
-    { num: '73685', label: 'Pieces of high-quality clothes made per month' },
-  ];
-
   return (
     <div className="about-page">
       {/* Hero Section */}
@@ -21,136 +20,155 @@ const AboutUsPage: React.FC = () => {
         <div className="about-hero__overlay"></div>
         <div className="container about-hero__content">
           <h1 className="about-hero__title">
-            Our <span className="about-hero__highlight">Story</span>
+            Redefining Apparel <span className="about-hero__highlight">Sourcing</span>
           </h1>
-          <p className="about-hero__desc">
-            Founded in 2003, Navra Factory is devoted to helping independent fashion brands and start-up designers with their clothing production needs.
-          </p>
+          {/* Kept the button as a useful CTA, though not explicitly in the HTML text content */}
           <div className="about-hero__actions">
-            <Link to="/contact-us" className="about-hero__btn about-hero__btn--primary">Get Started</Link>
+            <Link to="/contact-us" className="about-hero__btn">Get Started</Link>
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
+      {/* Who are We? */}
       <section className="about-section">
         <div className="container">
           <div className="about-grid">
             <div>
-              <h2 className="about-section__title about-section__title--left">How It All Began</h2>
-              <p className="about-text">
-                We are experts in large-scale apparel manufacturing, with over 20 years of expertise. We handle the whole supply chain process, from sourcing fabrics and accessories to producing samples, brand development by adding logos, bulk garment production, packaging, quality control inspections, and product delivery.
-              </p>
-              <p className="about-text">
-                Here at Navra Clothing Factory, we have a whole team of experts who will take care of your every clothing production need, no matter how big or small the project is.
-              </p>
-              <p className="about-text">
-                We prioritize quality and customer satisfaction above all else, treating each project as a partnership.
-              </p>
+              <h2 className="about-section__title about-section__title--left">Who are We?</h2>
+              <div className="about-text">
+                <p>
+                  NAVRA was built on a simple but powerful belief — global apparel sourcing should be transparent, reliable, and collaborative.
+                  <strong> Not chaotic. Not uncertain. Not hidden.</strong>
+                </p>
+                <br />
+                <p>
+                  Born in India and built for the world, NAVRA bridges the gap between what international buyers expect and what they actually receive. We bring together design intelligence, ethical sourcing, structured systems, and modern communication to make sourcing from India effortless and trustworthy.
+                </p>
+                <br />
+                <p>
+                  We are not middlemen.<br />
+                  We are not traditional exporters.<br />
+                  We are a new-generation sourcing partner — combining Indian craftsmanship with global sensibility.
+                </p>
+                <br />
+                <p>
+                  NAVRA represents a fresh rhythm in global trade: organized, data-driven, design-led, and deeply human.
+                </p>
+              </div>
             </div>
-            <div className="about-features-grid">
-              <div className="about-feature-card">
-                <h3 className="about-feature-title">01 Professional</h3>
-                <p className="about-feature-desc">Our clothing factory has been providing custom clothing services since 2003, with a daily production of up to 10,000 pieces.</p>
-              </div>
-              <div className="about-feature-card">
-                <h3 className="about-feature-title">02 Focused</h3>
-                <p className="about-feature-desc">We have helped over 1000 clothing brands and bring their designs to life and grow their businesses.</p>
-              </div>
-              <div className="about-feature-card">
-                <h3 className="about-feature-title">03 Confidentiality</h3>
-                <p className="about-feature-desc">We guarantee that your designs will remain private, and we have strict policies against sharing or reusing client designs.</p>
-              </div>
+            <div className="about-image-wrapper">
+               {/* Placeholder for home_page_1.png */}
+               <img src={brandStyle1} alt="Who We Are" className="about-image" style={{ borderRadius: '8px', width: '100%', height: 'auto' }} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Founder's Letter */}
+      {/* Vision & Mission */}
       <section className="about-section about-section--alt">
         <div className="container">
-          <div className="about-founder-grid">
-            <div className="about-founder-image">
-               Kiki Qi (Founder)
+          <div className="about-grid">
+             <div className="about-image-wrapper">
+               {/* Placeholder for about_us_page_3.png */}
+               <img src={brandStyle2} alt="Vision and Mission" className="about-image" style={{ borderRadius: '8px', width: '100%', height: 'auto' }} />
             </div>
             <div>
-              <h2 className="about-section__title about-section__title--left">A Letter from Founder - Kiki</h2>
-              <blockquote className="about-founder-quote">
-                "My parents started our clothing factory in 2003 and called it Navra. When we first opened, we only focused on fulfilling orders for big international brands... At that time, I decided that I would help anybody, whether you’re a designer, a small start-up brand, or a college student interested in the clothing industry. Navra will be here with you along the way."
-              </blockquote>
+              <h2 className="about-section__title about-section__title--left">Vision & Mission</h2>
+              <div className="about-text">
+                <p>
+                  To make sourcing apparel from India as easy, transparent, and trustworthy as possible — setting a new global standard for how trade is done.
+                </p>
+                <br />
+                <p><strong>Simplify and humanize sourcing</strong> through transparent systems and clear communication.</p>
+                <p><strong>Represent India globally</strong> — not just as a producer, but as a trusted partner in quality and innovation.</p>
+                <p><strong>Build long-term relationships</strong> with brands, importers, and retailers worldwide.</p>
+                <p><strong>Establish global distribution hubs</strong> for faster, direct collaboration.</p>
+                <p><strong>Evolve into a full-scale ecosystem</strong> that blends design, technology, and supply chain intelligence.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="about-stats-section">
-        <div className="container">
-          <h2 className="about-stats-title">Numbers We Are Proud Of</h2>
-          <div className="about-stats-grid">
-            {stats.map((stat, idx) => (
-              <div key={idx} className="about-stat-card">
-                <span className="about-stat-num">{stat.num}</span>
-                <span className="about-stat-label">{stat.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
+      {/* Why Navra? */}
       <section className="about-section">
         <div className="container">
-          <h2 className="about-section__title">Why Choose Navra</h2>
-          <div className="about-why-grid">
-            {[
-              { title: 'ONE-STOP SOLUTION', desc: 'From sample development and bulk production to label printing, delivery of goods.' },
-              { title: 'CUSTOM YOUR OWN UNIQUE DESIGN', desc: 'We have a team of professionals who will turn your design into reality.' },
-              { title: 'QUICK TURNAROUND TIME', desc: 'Our turnaround time is very short, which means that it will grow your business quicker!' },
-              { title: 'ETHICALLY QUALITY CONTROL', desc: 'We will check the quality of all stitching, measurements and fabrics used in our products.' },
-              { title: 'LOWER YOUR INVENTORY RISK', desc: 'Start your own clothing line with 100 pieces per design to save money.' }
-            ].map((item, idx) => (
-              <div key={idx} className="about-why-card">
-                <span className="about-why-num">0{idx + 1}</span>
-                <h3 className="about-why-title">{item.title}</h3>
-                <p className="about-why-desc">{item.desc}</p>
+          <div className="about-grid">
+             <div className="about-image-wrapper">
+               {/* Placeholder for about_us_page_1.png */}
+               <img src={brandStyle3} alt="Why Navra" className="about-image" style={{ borderRadius: '8px', width: '100%', height: 'auto' }} />
+            </div>
+            <div>
+              <h2 className="about-section__title about-section__title--left">Why Navra?</h2>
+              <div className="about-text">
+                <p><strong>Relationships over Transactions</strong>: We don’t just ship products — we help brands grow.</p>
+                <br />
+                <p><strong>Transparency over Guesswork</strong>: Track production, quality, and progress in real time.</p>
+                <br />
+                <p><strong>Systems over Chaos</strong>: Clear communication, predictable timelines, and structured processes.</p>
+                <br />
+                <p><strong>Value over Price</strong>: Design support, reliability, and trust at the core.</p>
+                <br />
+                <p><strong>Brand-First over Factory-First</strong>: Your vision leads; we build around it.</p>
+                <br />
+                <p><strong>NAVRA is not the old way — it’s the smarter way to source.</strong></p>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Comparison Table */}
+      {/* Our Capabilities */}
       <section className="about-section about-section--alt">
         <div className="container">
-          <h2 className="about-section__title">We Are Different</h2>
-          <div className="about-table-wrapper">
-            <table className="about-table">
-              <thead>
-                <tr>
-                  <th>Benefit</th>
-                  <th>NAVRA</th>
-                  <th>TRADITIONAL CLOTHING</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { benefit: '100% Custom Products', us: true, them: true },
-                  { benefit: 'Low Minimum Order', us: true, them: false },
-                  { benefit: 'All Products Under One Roof', us: true, them: false },
-                  { benefit: 'Best Value For Quality', us: true, them: false },
-                  { benefit: 'Convenient Ordering Process', us: true, them: false },
-                  { benefit: 'Custom Labels, Tags & Packaging Options', us: true, them: true },
-                  { benefit: 'Cost Effective For Large Orders', us: true, them: true },
-                ].map((row, idx) => (
-                  <tr key={idx}>
-                    <td>{row.benefit}</td>
-                    <td className="about-table-check">{row.us ? '✓' : '✕'}</td>
-                    <td className="about-table-cross">{row.them ? '✓' : '✕'}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="about-grid">
+            <div>
+              <h2 className="about-section__title about-section__title--left">Our Capabilities</h2>
+              <div className="about-text">
+                <p><strong>Design + Sourcing Hybrid:</strong> Creative collaboration with trend forecasts, color palettes, mockups, and product development — brands get ideas, not just execution.</p>
+                <br />
+                <p><strong>Flexible Manufacturing & Micro-Production:</strong> Scalable production from 50 to 50,000 units for startups, D2C brands, and global labels.</p>
+                <br />
+                <p><strong>Sustainability & Traceability:</strong> Every garment tells a story — verify fabric origin, ethical standards, and environmental impact.</p>
+                <br />
+                <p><strong>Quality Without Surprises:</strong> Pre-shipment QC tailored to buyers’ preferences — photo/video approvals, live virtual inspections, or third-party checks.</p>
+                <br />
+                <p><strong>End-to-End System:</strong> Centralized communication, predictable timelines, documented processes, timely follow-ups, and data-driven updates.</p>
+              </div>
+            </div>
+             <div className="about-image-wrapper">
+               {/* Placeholder for ChatGPT-Image... */}
+               <img src={brandStyle4} alt="Our Capabilities" className="about-image" style={{ borderRadius: '8px', width: '100%', height: 'auto' }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Future We are Building */}
+      <section className="about-section">
+        <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
+          <h2 className="about-section__title">The Future We are Building</h2>
+          
+          <h3 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '2rem', color: '#374151' }}>
+            NAVRA is on a long-term mission to transform India into the world’s most trusted apparel sourcing destination.
+          </h3>
+          
+          <div className="about-text" style={{ textAlign: 'left', display: 'inline-block' }}>
+            <p className="mb-4">Our future roadmap includes:</p>
+            <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', marginBottom: '2rem' }}>
+              <li className="mb-2">Developing a global brand accelerator for startups</li>
+              <li className="mb-2">Creating a "Fashion Cloud" — a digital library of fabrics, trims, suppliers, and timelines</li>
+              <li className="mb-2">Launching NAVRA’s own distribution hubs abroad</li>
+              <li className="mb-2">Growing "House of Vibes" into a global youth brand</li>
+              <li className="mb-2">And eventually, creating a legacy that uplifts India’s next generation of manufacturers and designers</li>
+            </ul>
+          </div>
+          
+          <div style={{ marginTop: '2rem' }}>
+            <p style={{ fontSize: '1.25rem', color: '#111827' }}>
+              NAVRA is not just a company.<br />
+              <strong style={{ fontSize: '1.5rem', color: '#001F3F' }}>It’s a movement.</strong>
+            </p>
           </div>
         </div>
       </section>

@@ -33,10 +33,11 @@
 }
 
 .cs-hero__title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
+  color: #fff;
 }
 
 .cs-hero__desc {
@@ -70,6 +71,19 @@
 /* Sections General */
 .cs-section {
   padding: 5rem 0;
+}
+
+.cs-section--alt {
+  background-color: #000;
+  color: #fff;
+}
+
+.cs-section--alt .cs-section__title {
+  color: #fff;
+}
+
+.cs-section--alt .cs-section__title::after {
+  background-color: #fff;
 }
 
 .cs-section__title {

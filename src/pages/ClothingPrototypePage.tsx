@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ClothingPrototypePage.css';
+import ContactCTA from '../components/ContactCTA';
 
 /**
  * ClothingPrototypePage Component
@@ -63,7 +64,7 @@ const ClothingPrototypePage: React.FC = () => {
         <div className="prototype-hero__overlay"></div>
         <div className="container prototype-hero__content">
           <h1 className="prototype-hero__title">
-            01. Clothing <span className="text-[#001F3F]">Prototype</span>
+            01. Clothing <span className="text-white">Prototype</span>
           </h1>
           <p className="prototype-hero__desc">
             When it comes to manufacturing clothes, having a well-made tech pack is very important. A tech pack is a document that you need to create in order to communicate your design to a manufacturer. The document contains all of the technical information about your product line in one place.
@@ -77,41 +78,57 @@ const ClothingPrototypePage: React.FC = () => {
       {/* Info Section */}
       <section className="prototype-section">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <h2 className="prototype-section__title text-left mb-6">Tech Pack Service</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-8 leading-relaxed text-lg">
                 Although it may be difficult to start working on a tech pack, it is important that you take the time to do it correctly. This includes things like finding the right materials, understanding how the product is assembled, and what type of packaging will work best.
               </p>
               
-              <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
-                <h3 className="font-bold text-lg mb-4 text-[#001F3F]">Included in our service:</h3>
-                <ul className="prototype-service-list">
+              <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-16 -mt-16 opacity-50"></div>
+                
+                <h3 className="font-bold text-xl mb-6 text-[#001F3F] flex items-center">
+                  <span className="w-2 h-8 bg-[#c8a96a] mr-3 rounded-full"></span>
+                  Included in our service:
+                </h3>
+                
+                <ul className="prototype-service-list grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
                   {serviceList.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2 mb-2">
-                      <svg className="prototype-service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-gray-700">{item}</span>
+                    <li key={idx} className="flex items-start">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#c8a96a] mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="text-gray-700 font-medium">{item}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <p className="font-semibold text-gray-800">Price: $50-$100</p>
-                  <p className="font-semibold text-gray-800">Lead time: 2 weeks</p>
-                  <p className="mt-4 text-[#001F3F] font-bold italic">
-                    We will gladly provide you with tech pack FREE OF CHARGE if you choose to work with us for clothing manufacturing.
+
+                <div className="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4 bg-gray-50 -mx-8 -mb-8 p-8">
+                  <div>
+                    <p className="text-sm text-gray-500 uppercase tracking-wider font-semibold">Service Cost</p>
+                    <p className="text-2xl font-bold text-[#001F3F]">$50 - $100</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500 uppercase tracking-wider font-semibold">Lead Time</p>
+                    <p className="text-2xl font-bold text-[#001F3F]">2 Weeks</p>
+                  </div>
+                </div>
+                
+                <div className="mt-8 bg-[#001F3F] text-white p-4 rounded-lg text-center">
+                   <p className="font-bold italic">
+                    Free Tech Pack if you manufacture with us!
                   </p>
                 </div>
               </div>
             </div>
             
-            <div className="grid grid-cols-2 gap-4">
-              <div className="aspect-[3/4] bg-gray-200 rounded-lg relative overflow-hidden group">
-                 <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-bold">Dress Tech Pack</div>
+            <div className="grid grid-cols-2 gap-6 mt-8 lg:mt-0">
+              <div className="aspect-[3/4] bg-gray-100 rounded-2xl relative overflow-hidden group shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                 <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-bold bg-gray-200">Dress Tech Pack</div>
+                 {/* Placeholder for actual image */}
               </div>
-              <div className="aspect-[3/4] bg-gray-200 rounded-lg relative overflow-hidden group mt-8">
-                 <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-bold">Hoodie Tech Pack</div>
+              <div className="aspect-[3/4] bg-gray-100 rounded-2xl relative overflow-hidden group shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 mt-12">
+                 <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-bold bg-gray-200">Hoodie Tech Pack</div>
+                 {/* Placeholder for actual image */}
               </div>
             </div>
           </div>
@@ -119,12 +136,12 @@ const ClothingPrototypePage: React.FC = () => {
       </section>
 
       {/* Process Steps */}
-      <section className="prototype-section bg-gray-50">
+      <section className="prototype-section prototype-section--alt">
         <div className="container">
           <h2 className="prototype-section__title">How We Make Your Tech Pack</h2>
           <div className="prototype-steps-grid">
             {processSteps.map((step, idx) => (
-              <div key={idx} className="prototype-step-card">
+              <div key={idx} className="prototype-step-card group">
                 <span className="prototype-step-card__num">{step.num}</span>
                 <h3 className="prototype-step-card__title">{step.title}</h3>
                 <p className="prototype-step-card__desc">{step.desc}</p>
@@ -134,13 +151,19 @@ const ClothingPrototypePage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Bottom */}
-      <section className="prototype-cta-section">
+      {/* What's Next Section */}
+      <section className="prototype-next-step">
         <div className="container">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start?</h2>
-          <p className="mb-8 text-white/80">What’s Next? After we approve the tech pack, we can start developing the prototype/sample development.</p>
-          <Link to="/contact-us" className="prototype-hero__btn prototype-hero__btn--primary bg-white text-[#001F3F]">
-            Get in Touch
+          <Link to="/services/sample-development" className="prototype-next-link">
+            <h2 className="prototype-next-title">What's Next?</h2>
+            <p className="prototype-next-desc">
+              After we approve the tech pack, we can start developing the prototype/sample development.
+            </p>
+            <div className="prototype-next-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+              </svg>
+            </div>
           </Link>
         </div>
       </section>

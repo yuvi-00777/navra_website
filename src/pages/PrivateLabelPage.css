@@ -34,10 +34,11 @@
 }
 
 .pl-hero__title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
+  color: #fff;
 }
 
 .pl-hero__desc {
@@ -71,6 +72,19 @@
 /* Sections General */
 .pl-section {
   padding: 5rem 0;
+}
+
+.pl-section--alt {
+  background-color: #000;
+  color: #fff;
+}
+
+.pl-section--alt .pl-section__title {
+  color: #fff;
+}
+
+.pl-section--alt .pl-section__title::after {
+  background-color: #fff;
 }
 
 .pl-section__title {

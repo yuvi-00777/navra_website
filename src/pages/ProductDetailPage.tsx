@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './ProductDetailPage.css';
+import ContactCTA from '../components/ContactCTA';
 
 // Import local images
 import fullSleeve1 from '../assets/products/mens-full-sleeve-1.jpg';
@@ -72,7 +73,7 @@ const ProductDetailPage: React.FC = () => {
     {
       id: 'mens-full-sleeve',
       name: "Men's Full Sleeve T Shirt",
-      description: "Price only for this stock blank design, add Logo need extra charge, not including shipping",
+      description: "Lightweight, breathable full-sleeve cotton t-shirt — perfect for formal, casual, or export-ready apparel collections.",
       images: [fullSleeve1, fullSleeve2, fullSleeve3],
       features: [
         { label: 'Fit', value: 'Regular fit' },
@@ -634,7 +635,7 @@ const ProductDetailPage: React.FC = () => {
         {/* Related Products */}
         <div className="pd-related">
           <h2 className="pd-related__title">Related Products</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="related-products-scroll">
             {relatedProducts.length > 0 ? (
               relatedProducts.map((relatedProd) => (
                 <Link 
@@ -663,7 +664,7 @@ const ProductDetailPage: React.FC = () => {
                 </Link>
               ))
             ) : (
-              <div className="col-span-full text-center text-gray-500">
+              <div className="col-span-full text-center text-gray-500 w-full">
                 No related products found in this category.
               </div>
             )}
@@ -672,13 +673,12 @@ const ProductDetailPage: React.FC = () => {
       </div>
       
       {/* Contact Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="container text-center">
-            <h2 className="text-3xl font-bold mb-4 font-playfair">You've already taken the first step? Now what? Talk to us.</h2>
-            <p className="text-gray-600 mb-8">Sure. Why Not!</p>
-             <Link to="/contact-us" className="pd-btn pd-btn--primary">Contact Us</Link>
-        </div>
-      </section>
+      <ContactCTA 
+        title="You've already taken the first step? Talk to us."
+        subtitle="Sure. Why Not!"
+        buttonText="Contact Us"
+        link="/contact-us"
+      />
     </div>
   );
 };

@@ -153,7 +153,7 @@ const SolutionsPage: React.FC = () => {
               Business Solutions
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-white font-['Playfair_Display'] mb-6">
-              Tailored Solutions For <span className="text-[#3b82f6]">Your Business</span>
+              Tailored Solutions For <span className="text-white">Your Business</span>
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed">
               Whether you're a startup or established brand, we have the perfect manufacturing solution for your needs.

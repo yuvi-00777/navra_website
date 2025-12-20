@@ -99,7 +99,16 @@
   }
 
 .services-section--alt {
-  background-color: #f9fafb;
+  background-color: #000;
+  color: #fff;
+}
+
+.services-section--alt .services-section__title {
+  color: #fff;
+}
+
+.services-section--alt .services-section__title::after {
+  background-color: #fff;
 }
 
 .services-section__title {
@@ -191,7 +200,9 @@
 .service-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-  border-color: #001F3F;
+  border-color: #000;
+  background-color: #000;
+  color: #fff;
 }
 
 .service-card__icon {
@@ -205,6 +216,7 @@
 
 .service-card:hover .service-card__icon {
   transform: scale(1.1);
+  color: #fff;
 }
 
 .service-card__title {
@@ -215,7 +227,7 @@
 }
 
 .service-card:hover .service-card__title {
-  color: #001F3F;
+  color: #fff;
 }
 
 /* Reuse Contact Styles */

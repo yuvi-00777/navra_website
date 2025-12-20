@@ -67,6 +67,7 @@
 @media (min-width: 768px) {
   .products-hero__title {
     font-size: 4rem;
+    font-weight: 800;
   }
 }
 
@@ -80,18 +81,20 @@
 
 .products-hero__cta {
   display: inline-block;
-  padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #001F3F, #d4af37);
-  color: white;
+  padding: 1rem 3rem;
+  background-color: #001F3F; /* Navy Blue */
+  color: #fff;
   font-weight: 600;
-  border-radius: 9999px;
+  text-transform: uppercase;
+  border-radius: 0;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s;
 }
 
 .products-hero__cta:hover {
-  box-shadow: 0 10px 25px rgba(200, 169, 106, 0.4);
-  transform: translateY(-2px);
+  background-color: #003366; /* Lighter Navy */
+  box-shadow: none;
+  transform: none;
 }
 
 /* Layout */
@@ -160,14 +163,15 @@
 }
 
 .product-card__image {
-  aspect-ratio: 1;
+  width: 100%;
+  aspect-ratio: 3/4;
   background: #f9f9f9;
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #eee;
   overflow: hidden;
-  height: 300px; /* Fixed height to control image size */
+  position: relative;
 }
 
 .product-card__placeholder {

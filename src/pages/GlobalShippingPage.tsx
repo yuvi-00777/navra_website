@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './GlobalShippingPage.css';
+import ContactCTA from '../components/ContactCTA';
 
 /**
  * GlobalShippingPage Component
@@ -92,13 +93,19 @@ const GlobalShippingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Bottom */}
-      <section className="shipping-cta-section">
+      {/* What's Next Section */}
+      <section className="shipping-next-step">
         <div className="container">
-          <h2 className="shipping-cta-title">Ready to Ship Your Order?</h2>
-          <p className="shipping-cta-desc">Contact us to get a precise shipping estimate for your location.</p>
-          <Link to="/contact-us" className="shipping-cta-btn">
-            Contact Us
+          <Link to="/services/product-photography" className="shipping-next-link">
+            <h2 className="shipping-next-title">What's Next?</h2>
+            <p className="shipping-next-desc">
+              While your products are being shipped, we can capture professional product photography for your marketing.
+            </p>
+            <div className="shipping-next-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+              </svg>
+            </div>
           </Link>
         </div>
       </section>

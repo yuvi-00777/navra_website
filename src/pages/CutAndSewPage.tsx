@@ -122,7 +122,7 @@ const CutAndSewPage: React.FC = () => {
         <div className="cs-hero__overlay"></div>
         <div className="container cs-hero__content">
           <h1 className="cs-hero__title">
-            Sustainable <span className="text-[#c8a96a]">Clothing Manufacturer</span>
+            Sustainable <span className="text-white">Clothing Manufacturer</span>
           </h1>
           <p className="cs-hero__desc">
             With Navra, you can create unique custom OEM clothing that will make your fashion label stand out among the rest. Your customers are sick of seeing the same thing everywhere they go; give them something new and different!
@@ -168,7 +168,7 @@ const CutAndSewPage: React.FC = () => {
       </section>
 
       {/* Product Features */}
-      <section id="product-features" className="cs-section bg-gray-50">
+      <section id="product-features" className="cs-section cs-section--alt">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="cs-section__title text-center mb-8">OEM Clothing Manufacturer</h2>

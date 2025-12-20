@@ -34,10 +34,11 @@
 }
 
 .lc-hero__title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
+  color: #fff;
 }
 
 .lc-hero__desc {
@@ -71,6 +72,15 @@
 /* Sections General */
 .lc-section {
   padding: 5rem 0;
+}
+
+.lc-section--alt {
+  background-color: #000;
+  color: #fff;
+}
+
+.lc-section--alt .lc-section__title {
+  color: #fff;
 }
 
 .lc-section__title {

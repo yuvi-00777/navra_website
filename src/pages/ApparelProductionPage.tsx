@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ApparelProductionPage.css';
+import ContactCTA from '../components/ContactCTA';
 
 /**
  * ApparelProductionPage Component
@@ -175,7 +176,7 @@ const ApparelProductionPage: React.FC = () => {
       {/* Production Process */}
       <section className="production-section production-section--alt">
         <div className="container">
-          <h2 className="production-section__title">How We Made Your Clothes</h2>
+          <h2 className="production-section__title">How We Make Your Clothes</h2>
           <div className="production-process-grid">
             {processSteps.map((step, idx) => (
               <div key={idx} className="production-process-card">
@@ -188,13 +189,19 @@ const ApparelProductionPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Bottom */}
-      <section className="production-cta-section">
+      {/* What's Next Section */}
+      <section className="production-next-step">
         <div className="container">
-          <h2 className="production-cta-title">Free Consulting Now!</h2>
-          <p className="production-cta-desc">What’s Next? Once we're done with mass production of apparel, then we can move on to attaching labels and tags, as well as packaging everything up.</p>
-          <Link to="/contact-us" className="production-cta-btn">
-            Contact Us
+          <Link to="/services/labels-tags-packaging" className="production-next-link">
+            <h2 className="production-next-title">What's Next?</h2>
+            <p className="production-next-desc">
+              Once we're done with mass production of apparel, then we can move on to attaching labels and tags, as well as packaging everything up.
+            </p>
+            <div className="production-next-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+              </svg>
+            </div>
           </Link>
         </div>
       </section>

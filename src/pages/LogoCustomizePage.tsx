@@ -118,7 +118,7 @@ const LogoCustomizePage: React.FC = () => {
         <div className="lc-hero__overlay"></div>
         <div className="container lc-hero__content">
           <h1 className="lc-hero__title">
-            20+ Years <span className="text-[#c8a96a]">Logo Customize Manufacturer</span>
+            20+ Years <span className="text-white">Logo Customize Manufacturer</span>
           </h1>
           <p className="lc-hero__desc">
             Skip the wait! Choose from 1,000+ ready-to-print styles (hoodies, tees, caps) and add your logo with premium DTG, or heat transfer printing/embroidery. 7-day global delivery – You Focus on marketing, we’ll nail production.
@@ -165,7 +165,7 @@ const LogoCustomizePage: React.FC = () => {
       </section>
 
       {/* Product Features */}
-      <section id="product-features" className="lc-section bg-gray-50">
+      <section id="product-features" className="lc-section lc-section--alt">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="lc-section__title text-center mb-8">OEM Clothing Manufacturer</h2>

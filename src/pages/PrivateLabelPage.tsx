@@ -118,7 +118,7 @@ const PrivateLabelPage: React.FC = () => {
         <div className="pl-hero__overlay"></div>
         <div className="container pl-hero__content">
           <h1 className="pl-hero__title">
-            Sustainable <span className="text-[#c8a96a]">Private Label Clothing Manufacturers</span>
+            Sustainable <span className="text-white">Private Label Clothing Manufacturers</span>
           </h1>
           <p className="pl-hero__desc">
             With Navra, you can create unique custom private label clothing that will make your fashion label stand out among the rest. Your customers are sick of seeing the same thing everywhere they go; give them something new and different that they won’t be able to find anywhere else!
@@ -165,7 +165,7 @@ const PrivateLabelPage: React.FC = () => {
       </section>
 
       {/* Product Features */}
-      <section id="product-features" className="pl-section bg-gray-50">
+      <section id="product-features" className="pl-section pl-section--alt">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="pl-section__title text-center mb-8">Private Label Services</h2>

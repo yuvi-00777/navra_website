@@ -328,9 +328,89 @@
   text-align: center;
 }
 
+.related-products-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem; /* Space for scrollbar */
+  scrollbar-width: thin;
+}
+
+.related-products-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.related-products-scroll::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+.related-products-scroll::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Product Card (replicated from ProductsPage.css for related products) */
+.product-card {
+  min-width: 250px; /* Ensure cards don't shrink */
+  background: #fff;
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+}
+
+.product-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+}
+
+.product-card__image {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card__placeholder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.product-card__placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-card__placeholder img {
+  transform: scale(1.05);
+}
+
+.product-card__details {
+  padding: 1rem;
+}
+
+.product-card__title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  color: #333;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* Reuse existing contact styles or simplified version */
 .pd-contact {
   background-color: #f9f9f9;
   padding: 4rem 0;
 }
-

@@ -34,10 +34,11 @@
 }
 
 .bw-hero__title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
+  color: #fff;
 }
 
 .bw-hero__desc {
@@ -71,6 +72,19 @@
 /* Sections General */
 .bw-section {
   padding: 5rem 0;
+}
+
+.bw-section--alt {
+  background-color: #000;
+  color: #fff;
+}
+
+.bw-section--alt .bw-section__title {
+  color: #fff;
+}
+
+.bw-section--alt .bw-section__title::after {
+  background-color: #fff;
 }
 
 .bw-section__title {

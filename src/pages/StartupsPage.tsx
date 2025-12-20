@@ -99,7 +99,7 @@ const StartupsPage: React.FC = () => {
         <div className="startups-hero__overlay"></div>
         <div className="container startups-hero__content">
           <h1 className="startups-hero__title">
-            Sustainable <span className="text-[#c8a96a]">Clothing Manufacturers For Startups</span>
+            Sustainable <span className="text-white">Clothing Manufacturers For Startups</span>
           </h1>
           <p className="startups-hero__desc">
             With Navra, you can create unique custom clothing for startups that will make your fashion label stand out among the rest. Your customers are sick of seeing the same thing everywhere they go; give them something new and different that they won’t be able to find anywhere else!
@@ -146,7 +146,7 @@ const StartupsPage: React.FC = () => {
       </section>
 
       {/* Product Features */}
-      <section id="product-features" className="startups-section bg-gray-50">
+      <section id="product-features" className="startups-section startups-section--alt">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="startups-section__title text-center mb-8">Startups Clothing Manufacturer</h2>

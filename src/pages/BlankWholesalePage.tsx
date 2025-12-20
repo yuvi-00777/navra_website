@@ -119,7 +119,7 @@ const BlankWholesalePage: React.FC = () => {
         <div className="bw-hero__overlay"></div>
         <div className="container bw-hero__content">
           <h1 className="bw-hero__title">
-            Sustainable <span className="text-[#c8a96a]">Readymade Garments Manufacturers</span>
+            Sustainable <span className="text-white">Readymade Garments Manufacturers</span>
           </h1>
           <p className="bw-hero__desc">
             With Navra, you can create unique custom readymade garments that will make your fashion label stand out among the rest. Your customers are sick of seeing the same thing everywhere they go; give them something new and different that they won’t be able to find anywhere else!
@@ -166,7 +166,7 @@ const BlankWholesalePage: React.FC = () => {
       </section>
 
       {/* Product Features */}
-      <section id="product-features" className="bw-section bg-gray-50">
+      <section id="product-features" className="bw-section bw-section--alt">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="bw-section__title text-center mb-8">Readymade Garments Manufacturer</h2>
