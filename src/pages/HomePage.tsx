@@ -147,7 +147,7 @@ const HomePage: React.FC = () => {
     {
       number: '01',
       title: 'ONE STOP SOLUTION',
-      description: 'Navra Clothes Maker is the perfect solution for all your garment and clothing manufacturing needs. From sample development and bulk production to label printing, delivery of goods — the experts at this factory will take care every step along with you! We offer wide range of products such as women’s dresses or men’s shirts, sportswear and swimwear — there are many styles available which means that whatever kind clothing design you required, we can easily made it.',
+      description: 'Navra Clothes Maker is the perfect solution for all your garment and clothing manufacturing needs. From sample development and bulk production to label printing, delivery of goods — the experts at this factory will take care every step along with you! we have wide variety of products such as t shirts, joggers, hoodies, sweatshirts — there are many styles available which means that whatever kind clothing design you required, we can easily made it.',
     },
     {
       number: '02',
@@ -422,7 +422,7 @@ const HomePage: React.FC = () => {
           <div className="about-us-home__header">
             <h2 className="about-us-home__title">
               <span className="section-title-wrapper">
-                About US
+                Crafted for the World
                 <svg className="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <path d="M6 6L18 18M18 6L6 18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>

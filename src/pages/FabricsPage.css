@@ -56,7 +56,7 @@
 }
 
   .fabrics-hero__title {
-    font-size: 4rem;
+    font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
     background: linear-gradient(to right, #fff, #e5e7eb);
@@ -74,9 +74,10 @@
 
 .fabrics-hero__cta {
     display: inline-block;
+    margin-top: 2rem;
     background: #001F3F;
     color: #fff;
-  padding: 1rem 2.5rem;
+  padding: 0.7rem 1.8rem;
     border-radius: 50px;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -102,7 +103,7 @@
 }
 
   .fabrics-header__title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #111827;
   margin-bottom: 1rem;
@@ -208,7 +209,7 @@
 }
 
   .fabrics-cta-box h2 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
@@ -223,7 +224,7 @@
   display: inline-block;
     background: #001F3F;
     color: #fff;
-  padding: 1rem 3rem;
+  padding: 0.8rem 2.2rem;
     border-radius: 50px;
   font-weight: 600;
     font-size: 1.1rem;

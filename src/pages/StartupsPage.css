@@ -34,7 +34,7 @@
 }
 
 .startups-hero__title {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
@@ -52,7 +52,7 @@
 
 .startups-hero__btn {
   display: inline-block;
-  padding: 1rem 3rem;
+  padding: 0.8rem 2.2rem;
   font-weight: 600;
   text-transform: uppercase;
   border-radius: 0;
@@ -89,7 +89,7 @@
 
 .startups-section__title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 3rem;
   position: relative;
@@ -209,7 +209,7 @@
 }
 
 .startups-step-num {
-  font-size: 3rem;
+  font-size: 1.6rem;
   font-weight: 900;
   color: #f0f0f0;
   position: absolute;
@@ -408,7 +408,7 @@
 }
 
 .process__title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
   position: relative;

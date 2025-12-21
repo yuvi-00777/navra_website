@@ -34,7 +34,7 @@
 }
 
 .lc-hero__title {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
@@ -52,7 +52,7 @@
 
 .lc-hero__btn {
   display: inline-block;
-  padding: 1rem 3rem;
+  padding: 0.8rem 2.2rem;
   font-weight: 600;
   text-transform: uppercase;
   border-radius: 0;
@@ -85,7 +85,7 @@
 
 .lc-section__title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 3rem;
   position: relative;
@@ -339,7 +339,7 @@
 }
 
 .lc-tip-card__num {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 900;
   color: rgba(200, 169, 106, 0.3);
   display: block;
@@ -409,7 +409,7 @@
 }
 
 .process__title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
   position: relative;

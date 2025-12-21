@@ -34,7 +34,7 @@
 }
 
 .production-hero__title {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
@@ -64,7 +64,7 @@
 
 .production-hero__btn {
   display: inline-block;
-  padding: 1rem 2.5rem;
+  padding: 0.7rem 1.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -108,7 +108,7 @@
 
 .production-section__title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 3rem;
   position: relative;
@@ -315,7 +315,7 @@
 }
 
 .production-next-title {
-  font-size: 3.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 2rem;
   color: #fff;
@@ -361,7 +361,7 @@
 }
 
 .production-cta-title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: #fff;
@@ -377,7 +377,7 @@
 
 .production-cta-btn {
   display: inline-block;
-  padding: 1rem 3rem;
+  padding: 0.8rem 2.2rem;
   background-color: #fff;
   color: #001F3F;
   font-weight: 700;
@@ -395,7 +395,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .production-hero__title {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
   
   .production-section {
@@ -403,6 +403,6 @@
   }
   
   .production-section__title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }

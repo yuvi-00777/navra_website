@@ -34,7 +34,7 @@
 }
 
 .sample-dev-hero__title {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
@@ -64,7 +64,7 @@
 
 .sample-dev-hero__btn {
   display: inline-block;
-  padding: 1rem 2.5rem;
+  padding: 0.7rem 1.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -104,7 +104,7 @@
 
 .sample-dev-section__title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 3rem;
   position: relative;
@@ -164,7 +164,7 @@
 }
 
 .sample-dev-time-card__num {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 900;
   color: #f0f0f0;
   display: block;
@@ -306,7 +306,7 @@
 }
 
 .sample-dev-cta-title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: #fff;
@@ -322,7 +322,7 @@
 
 .sample-dev-cta-btn {
   display: inline-block;
-  padding: 1rem 3rem;
+  padding: 0.8rem 2.2rem;
   background-color: #fff;
   color: #001F3F;
   font-weight: 700;
@@ -357,7 +357,7 @@
 }
 
 .sample-dev-next-title {
-  font-size: 3.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 2rem;
   color: #fff;
@@ -397,7 +397,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .sample-dev-hero__title {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
   
   .sample-dev-section {
@@ -405,6 +405,6 @@
   }
   
   .sample-dev-section__title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }

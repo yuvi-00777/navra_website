@@ -8,47 +8,59 @@ import ContactCTA from '../components/ContactCTA';
 import whyChooseUsImage from '../assets/why-choose-us.jpg';
 
 // Import product images
-import tshirt1 from '../assets/products/mens-oversized-tshirt-1.jpg';
-import tshirt2 from '../assets/products/unisex-plain-tshirt-1.jpg';
-import tshirt3 from '../assets/products/womens-plain-tshirt-1.jpg';
-import hoodie1 from '../assets/products/mens-hoodie-1.jpg';
-import hoodie2 from '../assets/products/womens-hoodie-1.jpg';
-import sleepwear1 from '../assets/products/womens-oversized-white-1.jpg'; // Placeholder
-import sleepwear2 from '../assets/products/womens-oversized-white-2.jpg'; // Placeholder
-import swimwear1 from '../assets/products/womens-track-suit-1.jpg'; // Placeholder
-import swimwear2 from '../assets/products/womens-track-suit-2.jpg'; // Placeholder
-import accessory1 from '../assets/products/joggers-1.jpg'; // Placeholder
-import accessory2 from '../assets/products/joggers-2.jpg'; // Placeholder
+import mensOversized1 from '../assets/products/mens-oversized-tshirt-1.jpg';
+import mensOversized2 from '../assets/products/mens-oversized-tshirt-2.jpg';
+import womensOversized1 from '../assets/products/womens-oversized-white-1.jpg';
+import polo1 from '../assets/products/classic-pique-polo-1.jpg';
+import polo3 from '../assets/products/performance-polo-1.jpg';
+import mensHoodie1 from '../assets/products/mens-hoodie-1.jpg';
+import womensHoodie1 from '../assets/products/womens-hoodie-1.jpg';
+import mensSweatshirt1 from '../assets/products/mens-sweatshirt-1.jpg';
+import mensFullSleeve1 from '../assets/products/mens-full-sleeve-1.jpg';
+import bioWash1 from '../assets/products/bio-wash-1.jpg';
+import unisexPlain1 from '../assets/products/unisex-plain-1.jpg';
+import womensTshirt1 from '../assets/products/womens-tshirt-1.jpg';
+import mensTrackPants1 from '../assets/products/mens-track-pants-1.jpg';
+import joggers1 from '../assets/products/joggers-1.jpg';
+import womensTrackSuit1 from '../assets/products/womens-track-suit-1.jpg';
 
 const StartupsPage: React.FC = () => {
   const [activeProductTab, setActiveProductTab] = useState('T-Shirts');
   const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
 
-  const productTabs = ['T-Shirts', 'Sleepwear', 'Swimwear', 'Hoodies', 'Accessories'];
+  const productTabs = ['T-Shirts', 'Oversized', 'Polo T-Shirts', 'Hoodies', 'Sweatshirts', 'Track Pants', 'Track Suits'];
 
-  // Mock data for products
-  const products: Record<string, { name: string; price: string; image: string }[]> = {
+  // Data for products grid based on tabs
+  const products: Record<string, { name: string; image: string }[]> = {
     'T-Shirts': [
-      { name: '#BX8103 Quick-Dry 250Gsm upf50+ Sports Vest', price: '$6.99', image: tshirt1 },
-      { name: '#1237 Cotton 250GSM Vintage Washed Oversized T-Shirt', price: '$7.99', image: tshirt2 },
-      { name: '#1240 Acid Wash 275GSM Cotton Oversized T-Shirt', price: '$8.99', image: tshirt3 },
+      { name: 'Men’s Full Sleeve T Shirt', image: mensFullSleeve1 },
+      { name: 'Bio-Wash T-Shirt', image: bioWash1 },
+      { name: 'Unisex Plain T-Shirt', image: unisexPlain1 },
+      { name: 'Women’s T-Shirt', image: womensTshirt1 },
     ],
-    'Sleepwear': [
-      { name: '#2349 Silk Short Sleeve shorts Pajamas For Women', price: '$12.99', image: sleepwear1 },
-      { name: '#TZ2062 Silk Elegant Long Sleeve Pajama Set', price: '$15.99', image: sleepwear2 },
+    'Oversized': [
+      { name: 'Men’s Oversized T-Shirt', image: mensOversized1 },
+      { name: 'Men’s Oversized T-Shirt V2', image: mensOversized2 },
+      { name: 'Women’s Oversized White T-Shirt', image: womensOversized1 },
     ],
-    'Swimwear': [
-      { name: 'Bikini Manufactures Floral Bikinis With Strings', price: '$8.00', image: swimwear1 },
-      { name: 'Swimwear Suppliers Sexy Print Bikini', price: '$8.00', image: swimwear2 },
+    'Polo T-Shirts': [
+      { name: 'Classic Pique Polo', image: polo1 },
+      { name: 'Performance Sport Polo', image: polo3 },
     ],
     'Hoodies': [
-      { name: '#H101 Heavyweight Cotton Hoodie', price: '$18.99', image: hoodie1 },
-      { name: '#H102 French Terry Oversized Hoodie', price: '$20.99', image: hoodie2 },
+      { name: 'Men’s Hoodie', image: mensHoodie1 },
+      { name: 'Women’s Hoodie', image: womensHoodie1 },
     ],
-    'Accessories': [
-      { name: '#A001 Baseball Cap', price: '$4.99', image: accessory1 },
-      { name: '#A002 Beanie', price: '$3.99', image: accessory2 },
+    'Sweatshirts': [
+       { name: 'Men’s Sweatshirt', image: mensSweatshirt1 },
     ],
+    'Track Pants': [
+       { name: 'Men’s Track Pants', image: mensTrackPants1 },
+       { name: 'Joggers', image: joggers1 },
+    ],
+    'Track Suits': [
+       { name: 'Women’s Track Suit', image: womensTrackSuit1 },
+    ]
   };
 
   const steps = [
@@ -138,7 +150,6 @@ const StartupsPage: React.FC = () => {
                     />
                 </div>
                 <h3 className="startups-product-card__title">{item.name}</h3>
-                <p className="startups-product-card__price">{item.price}</p>
               </div>
             ))}
           </div>

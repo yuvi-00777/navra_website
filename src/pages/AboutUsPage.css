@@ -39,7 +39,7 @@
 }
 
 .about-hero__title {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
@@ -69,7 +69,7 @@
 
 .about-hero__btn {
   display: inline-block;
-  padding: 1rem 3rem;
+  padding: 0.8rem 2.2rem;
   background-color: #001F3F; /* Navy Blue */
   color: #fff;
   font-weight: 600;
@@ -117,7 +117,7 @@
 
 .about-section__title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 3rem;
   position: relative;
@@ -264,7 +264,7 @@
 
 .about-stat-num {
   display: block;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   line-height: 1;
@@ -368,7 +368,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .about-hero__title {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
   
   .about-section {
@@ -376,7 +376,7 @@
   }
   
   .about-section__title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 

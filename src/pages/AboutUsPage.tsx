@@ -20,7 +20,7 @@ const AboutUsPage: React.FC = () => {
         <div className="about-hero__overlay"></div>
         <div className="container about-hero__content">
           <h1 className="about-hero__title">
-            Redefining Apparel <span className="about-hero__highlight">Sourcing</span>
+            Crafted for the <span className="about-hero__highlight">World</span>
           </h1>
           {/* Kept the button as a useful CTA, though not explicitly in the HTML text content */}
           <div className="about-hero__actions">

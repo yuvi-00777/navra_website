@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import navraLogoWhite from '../assets/navra_logo_white.png';
-import navraLogoDark from '../assets/navra_logo_dark.png';
+import navraLogo from '../assets/navra_final_logo_crop.png';
 import './Layout.css';
 
 interface LayoutProps {
@@ -101,9 +100,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Logo */}
           <Link to="/" className="logo">
             <img 
-              src={shouldShowDarkHeader ? navraLogoDark : navraLogoWhite} 
+              src={navraLogo} 
               alt="Navra" 
-              style={{ height: '48px', width: 'auto' }} 
+              style={{ 
+                height: '48px', 
+                width: 'auto',
+                filter: shouldShowDarkHeader ? 'none' : 'brightness(0) invert(1)' 
+              }} 
             />
             </Link>
 

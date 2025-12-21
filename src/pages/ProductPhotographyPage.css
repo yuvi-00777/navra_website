@@ -34,7 +34,7 @@
 }
 
 .photo-hero__title {
-  font-size: 3.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.5rem;
@@ -64,7 +64,7 @@
 
 .photo-hero__btn {
   display: inline-block;
-  padding: 1rem 2.5rem;
+  padding: 0.7rem 1.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -104,7 +104,7 @@
 
 .photo-section__title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 3rem;
   position: relative;
@@ -253,7 +253,7 @@
 
 .photo-package-icon {
   display: block;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
@@ -279,7 +279,7 @@
 }
 
 .photo-cta-title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: #fff;
@@ -295,7 +295,7 @@
 
 .photo-cta-btn {
   display: inline-block;
-  padding: 1rem 3rem;
+  padding: 0.8rem 2.2rem;
   background-color: #fff;
   color: #001F3F;
   font-weight: 700;
@@ -313,7 +313,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .photo-hero__title {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
   
   .photo-section {
@@ -321,6 +321,6 @@
   }
   
   .photo-section__title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }

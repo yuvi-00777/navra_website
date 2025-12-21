@@ -31,35 +31,35 @@ const LogoCustomizePage: React.FC = () => {
 
   const productTabs = ['T-Shirts', 'Oversized', 'Polo T-Shirts', 'Hoodies', 'Sweatshirts', 'Track Pants', 'Track Suits'];
 
-  const products: Record<string, { name: string; price: string; image: string }[]> = {
+  const products: Record<string, { name: string; image: string }[]> = {
     'T-Shirts': [
-      { name: 'Men’s Full Sleeve T Shirt', price: '$8.99', image: mensFullSleeve1 },
-      { name: 'Bio-Wash T-Shirt', price: '$7.99', image: bioWash1 },
-      { name: 'Unisex Plain T-Shirt', price: '$6.99', image: unisexPlain1 },
-      { name: 'Women’s T-Shirt', price: '$7.99', image: womensTshirt1 },
+      { name: 'Men’s Full Sleeve T Shirt', image: mensFullSleeve1 },
+      { name: 'Bio-Wash T-Shirt', image: bioWash1 },
+      { name: 'Unisex Plain T-Shirt', image: unisexPlain1 },
+      { name: 'Women’s T-Shirt', image: womensTshirt1 },
     ],
     'Oversized': [
-      { name: 'Men’s Oversized T-Shirt', price: '$9.99', image: mensOversized1 },
-      { name: 'Men’s Oversized T-Shirt V2', price: '$9.99', image: mensOversized2 },
-      { name: 'Women’s Oversized White T-Shirt', price: '$9.99', image: womensOversized1 },
+      { name: 'Men’s Oversized T-Shirt', image: mensOversized1 },
+      { name: 'Men’s Oversized T-Shirt V2', image: mensOversized2 },
+      { name: 'Women’s Oversized White T-Shirt', image: womensOversized1 },
     ],
     'Polo T-Shirts': [
-      { name: 'Classic Pique Polo', price: '$10.99', image: polo1 },
-      { name: 'Performance Sport Polo', price: '$11.99', image: polo3 },
+      { name: 'Classic Pique Polo', image: polo1 },
+      { name: 'Performance Sport Polo', image: polo3 },
     ],
     'Hoodies': [
-      { name: 'Men’s Hoodie', price: '$18.99', image: mensHoodie1 },
-      { name: 'Women’s Hoodie', price: '$18.99', image: womensHoodie1 },
+      { name: 'Men’s Hoodie', image: mensHoodie1 },
+      { name: 'Women’s Hoodie', image: womensHoodie1 },
     ],
     'Sweatshirts': [
-       { name: 'Men’s Sweatshirt', price: '$15.99', image: mensSweatshirt1 },
+       { name: 'Men’s Sweatshirt', image: mensSweatshirt1 },
     ],
     'Track Pants': [
-       { name: 'Men’s Track Pants', price: '$12.99', image: mensTrackPants1 },
-       { name: 'Joggers', price: '$13.99', image: joggers1 },
+       { name: 'Men’s Track Pants', image: mensTrackPants1 },
+       { name: 'Joggers', image: joggers1 },
     ],
     'Track Suits': [
-       { name: 'Women’s Track Suit', price: '$24.99', image: womensTrackSuit1 },
+       { name: 'Women’s Track Suit', image: womensTrackSuit1 },
     ]
   };
 
@@ -83,7 +83,7 @@ const LogoCustomizePage: React.FC = () => {
     {
       number: '01',
       title: 'ONE STOP SOLUTION',
-      description: 'Navra Clothes Maker is the perfect solution for all your garment and clothing manufacturing needs. From sample development and bulk production to label printing, delivery of goods — the experts at this factory will take care every step along with you! We offer wide range of products such as women’s dresses or men’s shirts, sportswear and swimwear — there are many styles available which means that whatever kind clothing design you required, we can easily made it.',
+      description: 'Navra Clothes Maker is the perfect solution for all your garment and clothing manufacturing needs. From sample development and bulk production to label printing, delivery of goods — the experts at this factory will take care every step along with you! we have wide variety of products such as t shirts, joggers, hoodies, sweatshirts — there are many styles available which means that whatever kind clothing design you required, we can easily made it.',
     },
     {
       number: '02',
@@ -118,7 +118,7 @@ const LogoCustomizePage: React.FC = () => {
         <div className="lc-hero__overlay"></div>
         <div className="container lc-hero__content">
           <h1 className="lc-hero__title">
-            20+ Years <span className="text-white">Logo Customize Manufacturer</span>
+            Logo Customize Manufacturer
           </h1>
           <p className="lc-hero__desc">
             Skip the wait! Choose from 1,000+ ready-to-print styles (hoodies, tees, caps) and add your logo with premium DTG, or heat transfer printing/embroidery. 7-day global delivery – You Focus on marketing, we’ll nail production.
@@ -157,7 +157,6 @@ const LogoCustomizePage: React.FC = () => {
                     />
                 </div>
                 <h3 className="lc-product-card__title">{item.name}</h3>
-                <p className="lc-product-card__price">{item.price}</p>
               </div>
             ))}
           </div>
