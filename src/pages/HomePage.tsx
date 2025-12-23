@@ -203,15 +203,29 @@ const HomePage: React.FC = () => {
     },
   ];
 
+  useEffect(() => {
+    // Ensure video plays on load
+    const videoElement = document.querySelector('video');
+    if (videoElement) {
+      videoElement.play().catch(error => {
+        console.log("Video autoplay failed:", error);
+      });
+    }
+  }, []);
+
   return (
     <div className="homepage">
       {/* Hero Section */}
       <section className="hero">
         <div className="hero__video-container">
-          <video className="hero__video" autoPlay muted loop playsInline>
-            <source src={navraReel} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <video 
+            className="hero__video" 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            src={navraReel}
+          />
           <div className="hero__overlay"></div>
         </div>
         <div className="hero__content">
