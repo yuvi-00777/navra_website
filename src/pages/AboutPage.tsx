@@ -88,7 +88,7 @@ const AboutPage: React.FC = () => {
   const faqs = [
     {
       question: 'How do I place a sample order?',
-      answer: 'After confirming your design, simple samples cost $50/piece and complicated ones up to $80. It takes 7-12 working days to receive your sample.',
+      answer: 'After confirming your design, we will provide a quote based on complexity. It takes 7-12 working days to receive your sample.',
     },
     {
       question: "What's the minimum order quantity?",

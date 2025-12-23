@@ -996,6 +996,11 @@
   color: #fff;
 }
 
+/* Ensure headings stay visible (white) on hover */
+.process-card:hover .process-card__content h3 {
+  color: #fff;
+}
+
 .process-card__number {
   font-size: 1.5rem;
   font-weight: 700;

@@ -510,22 +510,6 @@
   margin-bottom: 20px;
 }
 
-.footer__company-icon {
-  width: 42px;
-  height: 42px;
-  background: linear-gradient(135deg, #001F3F, #003366);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer__company-icon span {
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 18px;
-  font-family: 'Playfair Display', serif;
-}
 
 .footer__company-name {
   font-weight: 700;

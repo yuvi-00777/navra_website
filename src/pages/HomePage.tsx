@@ -12,8 +12,6 @@ import mensHoodie1 from '../assets/products/mens-hoodie-1.jpg';
 import mensSweatshirt1 from '../assets/products/mens-sweatshirt-1.jpg';
 import womensTrackSuit1 from '../assets/products/womens-track-suit-1.jpg';
 import mensTrackPants1 from '../assets/products/mens-track-pants-1.jpg';
-import joggers1 from '../assets/products/joggers-1.jpg'; // For Trousers
-import performancePolo1 from '../assets/products/performance-polo-1.jpg'; // For Jersey
 import whyChooseUsImage from '../assets/why-choose-us.jpg';
 import brandStyle1 from '../assets/brand-style-1.jpg';
 import brandStyle2 from '../assets/brand-style-2.jpg';
@@ -37,6 +35,13 @@ const HomePage: React.FC = () => {
   // State for Image Comparison Slider
   const [sliderPosition, setSliderPosition] = useState(50);
   const sliderRef = useRef<HTMLDivElement>(null);
+
+  // State for FAQ accordion - ensures only one is open at a time
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setActiveFaq(activeFaq === index ? null : index);
+  };
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSliderPosition(Number(e.target.value));
@@ -62,8 +67,8 @@ const HomePage: React.FC = () => {
       description: 'Order ready-made clothing from our product page.',
       moq: '50 pieces mix size style Colors',
       sampleTime: '3 days',
-      sampleFee: 'USD $20-25/piece',
       bulkPrice: 'As shown on website',
+      link: '/solutions/blank-wholesale',
     },
     {
       id: 2,
@@ -72,8 +77,8 @@ const HomePage: React.FC = () => {
       description: 'Add logo on our blank clothing, printing, embroidery, or change to your private label.',
       moq: '50 pieces mix size style Colors',
       sampleTime: '5-8 days',
-      sampleFee: 'USD $50/piece',
       bulkPrice: 'Quote upon request',
+      link: '/solutions/logo-customize',
     },
     {
       id: 3,
@@ -82,8 +87,8 @@ const HomePage: React.FC = () => {
       description: 'Create your own designs and dreams from sketch.',
       moq: '100Pcs/style/color (4 sizes)',
       sampleTime: '8-15 days',
-      sampleFee: 'USD $50/piece',
       bulkPrice: 'Depends on design',
+      link: '/solutions/cut-and-sew',
     },
   ];
 
@@ -96,8 +101,6 @@ const HomePage: React.FC = () => {
     { name: 'Sweatshirts', image: mensSweatshirt1 },
     { name: 'Track Suits', image: womensTrackSuit1 },
     { name: 'Track Pants', image: mensTrackPants1 },
-    { name: 'Trousers', image: joggers1 },
-    { name: 'Jersey', image: performancePolo1 },
   ];
 
   // Mock data for Why Choose section - UPDATED CONTENT
@@ -133,7 +136,6 @@ const HomePage: React.FC = () => {
   const comparisonData = [
     { benefit: '100% Custom Products', hongyu: true, traditional: true },
     { benefit: 'Low Minimum Order', hongyu: true, traditional: false },
-    { benefit: 'All Products Under One Roof', hongyu: true, traditional: false },
     { benefit: 'Best Value For Quality', hongyu: true, traditional: false },
     { benefit: 'Convenient Ordering Process', hongyu: true, traditional: false },
     { benefit: 'Custom Labels, Tags & Packaging Options', hongyu: true, traditional: true },
@@ -160,7 +162,7 @@ const HomePage: React.FC = () => {
   const faqs = [
     {
       question: 'How to place a sample order?',
-      answer: 'After we confirmed the design you want for the sample, we can move forward for more details. For a simple sample, we charge $50 per piece; while for a more complicated sample, we may charge up to $80 per piece. After payment has been made, it takes about 7-12 working days to receive your sample.',
+      answer: 'After we confirmed the design you want for the sample, we can move forward for more details. Sample charges vary based on complexity. After payment has been made, it takes about 7-12 working days to receive your sample.',
     },
     {
       question: 'Can I choose directly from your ready design?',
@@ -168,11 +170,7 @@ const HomePage: React.FC = () => {
     },
     {
       question: 'Can I make my own design?',
-      answer: 'Yes, we can customize it based on your own design. If you choose our ready design and want to modify it, we can do that too upon your request. and we can customize your own size and make standard sizes as well, such as US, UK, EU, AU size.',
-    },
-    {
-      question: "Whats your ethics ?",
-      answer: 'you can check this link > Find Ethical Clothing Manufacturer',
+      answer: 'Yes, we can customize it based on your own design. If you choose our ready design and want to modify it, we can do that too upon your request. and we can customize your own size and make standard sizes as well, such as US, UK, EU, AU, and African sizes.',
     },
     {
       question: "What is the production process?",
@@ -181,10 +179,6 @@ const HomePage: React.FC = () => {
     {
       question: "What's your MOQ for production? (minimum order quantity)",
       answer: 'Generally speaking, our MOQ is 100 units per style per color. But it may vary according to the fabric you choose.',
-    },
-    {
-      question: "What are the main factors that affect the final price?",
-      answer: 'Prices may vary depending on: 1. Ordered quantity 2. Number of size/color: i.e. 100pcs in 3 sizes(S,M,L) is cheaper than 100pcs in 6 sizes(XS,S,M,L,XL,XXL) 3. Textile/Fabric composition: i.e. T-Shirt made from Polyester is cheaper than one that was made from cotton or viscose. 4. Quality of Production: i.e. Customized designs in terms of stitching, accessories, buttons have higher cost per unit; flat-lock stitch has a price difference from reverse cross-stitch',
     },
     {
       question: "What is your leading time?",
@@ -218,7 +212,7 @@ const HomePage: React.FC = () => {
           <div className="hero__video-wrapper">
             <iframe
               className="hero__video-iframe"
-              src={`https://www.youtube.com/embed/82hd6Gfp8_Q?autoplay=1&mute=1&controls=0&loop=1&playlist=82hd6Gfp8_Q&playsinline=1&rel=0&showinfo=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0`}
+              src={`https://www.youtube.com/embed/852GCUtjWYI?autoplay=1&mute=1&controls=0&loop=1&playlist=852GCUtjWYI&playsinline=1&rel=0&showinfo=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               style={{
@@ -288,16 +282,12 @@ const HomePage: React.FC = () => {
                     <span className="solution-card__detail-value">{solution.sampleTime}</span>
                   </div>
                   <div className="solution-card__detail-item">
-                    <span className="solution-card__detail-label">Sample fee:</span>
-                    <span className="solution-card__detail-value">{solution.sampleFee}</span>
-                  </div>
-                  <div className="solution-card__detail-item">
                     <span className="solution-card__detail-label">Bulk Price:</span>
                     <span className="solution-card__detail-value">{solution.bulkPrice}</span>
                   </div>
                 </div>
 
-                <Link to="/solutions" className="solution-card__cta">
+                <Link to={solution.link} className="solution-card__cta">
                   Learn More
                 </Link>
               </div>
@@ -616,7 +606,15 @@ const HomePage: React.FC = () => {
 
           <div className="faq__list">
             {faqs.map((faq, index) => (
-              <details key={index} className="faq-item">
+              <details 
+                key={index} 
+                className="faq-item" 
+                open={activeFaq === index}
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleFaq(index);
+                }}
+              >
                 <summary>
                   <div className="faq-item__question">
                     <span className="faq-item__number">
@@ -650,7 +648,9 @@ const HomePage: React.FC = () => {
                 </svg>
                 </span>
               </h2>
-              <button className="contact__cta-btn">Sure. Why Not!</button>
+              <Link to="/contact-us">
+                <button className="contact__cta-btn">Sure. Why Not!</button>
+              </Link>
               
               <div className="contact__details">
                 {/* Contact details intentionally left minimal to match source visual if needed, 
