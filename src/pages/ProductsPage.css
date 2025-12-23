@@ -126,8 +126,43 @@
   padding: 0;
 }
 
+/* Mobile Sidebar - Horizontal Scroll */
+@media (max-width: 768px) {
+  .products-sidebar__title {
+    display: none;
+  }
+  
+  .products-sidebar {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .products-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-list {
+    display: flex;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+}
+
 .category-item {
   margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .category-item {
+    margin-bottom: 0;
+    flex: 0 0 auto;
+  }
 }
 
 .category-item__header {
@@ -135,9 +170,24 @@
   padding: 0.5rem 0;
   font-weight: 600;
   display: flex;
-    justify-content: space-between;
+  justify-content: space-between;
   align-items: center;
   transition: color 0.2s;
+}
+
+@media (max-width: 768px) {
+  .category-item__header {
+    padding: 0.5rem 1rem;
+    background: #f3f4f6;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .category-item__header.active {
+    background: #001F3F;
+    color: #ffffff !important;
+  }
 }
 
 .category-item__header:hover,
@@ -145,11 +195,27 @@
   color: #001F3F;
 }
 
+@media (max-width: 768px) {
+    /* Ensure active state overrides hover/default on mobile */
+    .category-item__header.active {
+        color: #ffffff !important;
+    }
+}
+
 /* Product Grid */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 1.5rem; /* Larger gap between items */
+    max-width: 400px; /* Limit max width for better aesthetic */
+    margin: 0 auto; /* Center the grid container */
+  }
 }
 
 .product-card {
@@ -194,6 +260,12 @@
 
 .product-card__details {
   padding: 1rem;
+}
+
+@media (max-width: 640px) {
+  .product-card__details {
+    padding: 0.75rem;
+  }
 }
 
 .product-card__title {

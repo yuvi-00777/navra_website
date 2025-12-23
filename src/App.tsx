@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Layout from './components/Layout';
+import LoadingScreen from './components/LoadingScreen';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
@@ -42,11 +44,15 @@ import AboutPage from './pages/AboutPage';
  * - /about : About the company, contact info, reviews
  */
 function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
-    <Router>
-      <ScrollToTop />
-      <Layout>
-        <Routes>
+    <>
+      {loading && <LoadingScreen onFinished={() => setLoading(false)} />}
+      <Router>
+        <ScrollToTop />
+        <Layout>
+          <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/product/:id" element={<ProductDetailPage />} />
@@ -70,9 +76,10 @@ function App() {
           <Route path="/contact-us" element={<ContactUsPage />} />
           <Route path="/our-ethics" element={<OurEthicsPage />} />
           <Route path="/customer-reviews" element={<CustomerReviewsPage />} />
-        </Routes>
-      </Layout>
-    </Router>
+          </Routes>
+        </Layout>
+      </Router>
+    </>
   );
 }
 

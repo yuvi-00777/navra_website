@@ -47,8 +47,14 @@
 
 /* Gallery */
 .pd-gallery {
-  position: sticky;
-  top: 2rem;
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .pd-gallery {
+    position: sticky;
+    top: 2rem;
+  }
 }
 
 .pd-gallery__main {

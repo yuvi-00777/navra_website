@@ -177,6 +177,7 @@
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: #fff; /* Ensure white text */
 }
 
 .technology-cta-box p {

@@ -17,6 +17,7 @@ interface NavItem {
   name: string;
   path: string;
   dropdown?: DropdownItem[];
+  collapsed?: boolean; // New property to track collapse state in mobile menu
 }
 
 /**
@@ -27,6 +28,8 @@ interface NavItem {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // State to manage collapsed sections in mobile menu
+  const [openMobileDropdowns, setOpenMobileDropdowns] = useState<string[]>([]);
   const location = useLocation();
 
   // Handle scroll effect for header
@@ -42,6 +45,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);
+
+  const toggleMobileDropdown = (itemName: string) => {
+    setOpenMobileDropdowns(prev => 
+      prev.includes(itemName) 
+        ? [] 
+        : [itemName]
+    );
+  };
 
   // Determine if we should show the dark header (scrolled style) by default
   // This is for pages that don't have a dark hero section at the top
@@ -196,22 +207,45 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="mobile-menu">
             <nav className="mobile-menu__nav">
               {navItems.map((item) => (
-                <div key={item.name}>
-                  <Link
-                    to={item.path}
-                    className="mobile-menu__link"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                  {/* Simple flattened mobile menu for dropdowns */}
+                <div key={item.name} className="mobile-menu__item-wrapper">
+                  <div className="mobile-menu__header">
+                    <Link
+                      to={item.path}
+                      className="mobile-menu__link"
+                      onClick={() => !item.dropdown && setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                    {item.dropdown && (
+                      <button 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          toggleMobileDropdown(item.name);
+                        }}
+                        className="mobile-menu__toggle"
+                      >
+                        <svg 
+                          className={`mobile-menu__arrow ${openMobileDropdowns.includes(item.name) ? 'mobile-menu__arrow--open' : ''}`} 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                    )}
+                  </div>
+                  
+                  {/* Collapsible Dropdown for Mobile */}
                   {item.dropdown && (
-                    <div className="pl-4 bg-gray-50/50">
+                    <div 
+                      className={`mobile-menu__dropdown ${openMobileDropdowns.includes(item.name) ? 'mobile-menu__dropdown--open' : ''}`}
+                    >
                       {item.dropdown.map((dropItem) => (
                         <div key={dropItem.name}>
                           <Link
                             to={dropItem.path}
-                            className="block px-8 py-2 text-sm text-gray-500 hover:text-[#001F3F]"
+                            className="mobile-menu__sublink"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {dropItem.name}
@@ -298,6 +332,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     'Customer Reviews',
                     'Terms of Use',
                     'Privacy Policy',
+                    'Sitemap',
                     'Sitemap',
                   ].map((item) => (
                     <li key={item}>

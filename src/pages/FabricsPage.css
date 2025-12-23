@@ -209,9 +209,10 @@
 }
 
   .fabrics-cta-box h2 {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: #fff; /* Ensure white text */
 }
 
   .fabrics-cta-box p {

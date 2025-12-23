@@ -1,31 +1,12 @@
 import React from 'react';
-import { useForm, ValidationError } from '@formspree/react';
 import './ContactUsPage.css';
+import ContactForm from '../components/ContactForm';
 
 /**
  * ContactUsPage Component
  * Replicates the "Contact Us" page of hongyuapparel.com
  */
 const ContactUsPage: React.FC = () => {
-  // Replace 'YOUR_FORM_ID' with your actual Formspree Form ID
-  const [state, handleSubmit] = useForm("xvzpvyab");
-
-  if (state.succeeded) {
-    return (
-      <div className="contact-page">
-         <section className="contact-hero">
-            <div className="contact-hero__overlay"></div>
-            <div className="container contact-hero__content">
-              <h1 className="contact-hero__title text-white">Thank You!</h1>
-              <p className="contact-hero__desc">
-                  Your enquiry has been sent successfully. We will get back to you within 24 hours.
-              </p>
-            </div>
-         </section>
-      </div>
-    );
-  }
-
   return (
     <div className="contact-page">
       {/* Hero Section */}
@@ -72,76 +53,7 @@ const ContactUsPage: React.FC = () => {
 
             <div className="contact__form-wrapper">
               <h3 className="contact__form-title">Get in Touch</h3>
-              <form className="contact__form" onSubmit={handleSubmit}>
-                <div className="contact__form-row">
-                  <div className="contact__form-group">
-                    <label>Name *</label>
-                    <input 
-                      type="text" 
-                      name="name"
-                      id="name"
-                      className="contact__form-input" 
-                      placeholder="Your name" 
-                      required
-                    />
-                     <ValidationError 
-                        prefix="Name" 
-                        field="name"
-                        errors={state.errors}
-                      />
-                  </div>
-                  <div className="contact__form-group">
-                    <label>Email *</label>
-                    <input 
-                      type="email" 
-                      name="email"
-                      id="email"
-                      className="contact__form-input" 
-                      placeholder="your@email.com" 
-                      required
-                    />
-                    <ValidationError 
-                        prefix="Email" 
-                        field="email"
-                        errors={state.errors}
-                      />
-                  </div>
-                </div>
-                <div className="contact__form-group">
-                  <label>Company Name</label>
-                  <input 
-                    type="text" 
-                    name="company"
-                    id="company"
-                    className="contact__form-input" 
-                    placeholder="Your company" 
-                  />
-                  <ValidationError 
-                        prefix="Company" 
-                        field="company"
-                        errors={state.errors}
-                      />
-                </div>
-                <div className="contact__form-group">
-                  <label>Message *</label>
-                  <textarea 
-                    name="message"
-                    id="message"
-                    rows={4} 
-                    className="contact__form-textarea" 
-                    placeholder="Tell us about your project..."
-                    required
-                  ></textarea>
-                  <ValidationError 
-                        prefix="Message" 
-                        field="message"
-                        errors={state.errors}
-                      />
-                </div>
-                <button type="submit" className="contact__form-submit" disabled={state.submitting}>
-                  Send Inquiry
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useForm, ValidationError } from '@formspree/react';
 import './HomePage.css';
+import ContactForm from '../components/ContactForm';
 // import navraReel from '../assets/videos/navra-reel.mp4';
 
 // Import images for categories
@@ -31,9 +31,6 @@ import brandStyle10 from '../assets/brand-style-10.jpg';
  * Replicates the main landing page of hongyuapparel.com
  */
 const HomePage: React.FC = () => {
-  // Replace 'YOUR_FORM_ID' with your actual Formspree Form ID
-  const [state, handleSubmit] = useForm("xvzpvyab");
-
   // State for Why Choose Navra accordion
   const [activeFeature, setActiveFeature] = useState<number | null>(0); // Default to first item open
   
@@ -610,7 +607,7 @@ const HomePage: React.FC = () => {
             <h2 className="faq__title">
                <span className="section-title-wrapper">
                 Frequently Asked Questions
-                 <svg className="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <svg className="scissors-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                    <path d="M7 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-4h.01M17 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-4h.01M6.5 11l5-5 5 5M11.5 6V1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </span>
@@ -664,79 +661,7 @@ const HomePage: React.FC = () => {
 
             <div className="contact__form-wrapper">
               <h3 className="contact__form-title">Get in Touch</h3>
-              {state.succeeded ? (
-                  <div className="text-center p-8">
-                      <h4 className="text-xl font-bold mb-2">Thank You!</h4>
-                      <p>Your enquiry has been sent successfully. We will get back to you within 24 hours.</p>
-                  </div>
-              ) : (
-                <form className="contact__form" onSubmit={handleSubmit}>
-                    <div className="contact__form-row">
-                    <div className="contact__form-group">
-                        <label>Name *</label>
-                        <input 
-                        type="text" 
-                        name="name"
-                        id="name"
-                        className="contact__form-input" 
-                        required 
-                        />
-                        <ValidationError 
-                            prefix="Name" 
-                            field="name"
-                            errors={state.errors}
-                        />
-                    </div>
-                    <div className="contact__form-group">
-                        <label>Email *</label>
-                        <input 
-                        type="email" 
-                        name="email"
-                        id="email"
-                        className="contact__form-input" 
-                        required 
-                        />
-                        <ValidationError 
-                            prefix="Email" 
-                            field="email"
-                            errors={state.errors}
-                        />
-                    </div>
-                    </div>
-                    <div className="contact__form-group">
-                    <label>Company Name</label>
-                    <input 
-                        type="text" 
-                        name="company"
-                        id="company"
-                        className="contact__form-input" 
-                    />
-                    <ValidationError 
-                        prefix="Company" 
-                        field="company"
-                        errors={state.errors}
-                    />
-                    </div>
-                    <div className="contact__form-group">
-                    <label>More details *</label>
-                    <textarea 
-                        name="message"
-                        id="message"
-                        rows={4} 
-                        className="contact__form-textarea" 
-                        required
-                    ></textarea>
-                    <ValidationError 
-                        prefix="Message" 
-                        field="message"
-                        errors={state.errors}
-                    />
-                    </div>
-                    <button type="submit" className="contact__form-submit" disabled={state.submitting}>
-                    Send Inquiry
-                    </button>
-                </form>
-              )}
+              <ContactForm />
             </div>
           </div>
         </div>
