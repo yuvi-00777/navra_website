@@ -225,12 +225,12 @@ const HomePage: React.FC = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: window.innerWidth < 768 ? '300%' : '106%', // Adjusted zoom for mobile
+                position: window.innerWidth < 768 ? 'absolute' : 'absolute', // Keep absolute for desktop to center, mobile CSS overrides via class if needed, but inline styles have high specificity. Let's adjust.
+                top: window.innerWidth < 768 ? '0' : '50%',
+                left: window.innerWidth < 768 ? '0' : '50%',
+                width: window.innerWidth < 768 ? '100%' : '106%', 
                 height: window.innerWidth < 768 ? '100%' : '111%', 
-                transform: 'translate(-50%, -50%)',
+                transform: window.innerWidth < 768 ? 'none' : 'translate(-50%, -50%)',
                 objectFit: 'cover',
                 pointerEvents: 'none',
               }}
