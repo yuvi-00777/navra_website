@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import * as XLSX from 'xlsx';
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import './ContactUsPage.css';
 
 /**
@@ -7,47 +7,24 @@ import './ContactUsPage.css';
  * Replicates the "Contact Us" page of hongyuapparel.com
  */
 const ContactUsPage: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: ''
-  });
+  // Replace 'YOUR_FORM_ID' with your actual Formspree Form ID
+  const [state, handleSubmit] = useForm("YOUR_FORM_ID");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      const response = await fetch('http://127.0.0.1:5001/api/enquiry', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert("Thank you! Your enquiry has been sent successfully.");
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          message: ''
-        });
-      } else {
-        throw new Error('Failed to submit enquiry');
-      }
-    } catch (error) {
-      console.error('Error submitting enquiry:', error);
-      alert(`There was an error submitting your enquiry: ${error instanceof Error ? error.message : String(error)}. Please check if the backend server is running.`);
-    }
-  };
+  if (state.succeeded) {
+    return (
+      <div className="contact-page">
+         <section className="contact-hero">
+            <div className="contact-hero__overlay"></div>
+            <div className="container contact-hero__content">
+              <h1 className="contact-hero__title text-white">Thank You!</h1>
+              <p className="contact-hero__desc">
+                  Your enquiry has been sent successfully. We will get back to you within 24 hours.
+              </p>
+            </div>
+         </section>
+      </div>
+    );
+  }
 
   return (
     <div className="contact-page">
@@ -102,24 +79,32 @@ const ContactUsPage: React.FC = () => {
                     <input 
                       type="text" 
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
+                      id="name"
                       className="contact__form-input" 
                       placeholder="Your name" 
                       required
                     />
+                     <ValidationError 
+                        prefix="Name" 
+                        field="name"
+                        errors={state.errors}
+                      />
                   </div>
                   <div className="contact__form-group">
                     <label>Email *</label>
                     <input 
                       type="email" 
                       name="email"
-                      value={formData.email}
-                      onChange={handleChange}
+                      id="email"
                       className="contact__form-input" 
                       placeholder="your@email.com" 
                       required
                     />
+                    <ValidationError 
+                        prefix="Email" 
+                        field="email"
+                        errors={state.errors}
+                      />
                   </div>
                 </div>
                 <div className="contact__form-group">
@@ -127,25 +112,33 @@ const ContactUsPage: React.FC = () => {
                   <input 
                     type="text" 
                     name="company"
-                    value={formData.company}
-                    onChange={handleChange}
+                    id="company"
                     className="contact__form-input" 
                     placeholder="Your company" 
                   />
+                  <ValidationError 
+                        prefix="Company" 
+                        field="company"
+                        errors={state.errors}
+                      />
                 </div>
                 <div className="contact__form-group">
                   <label>Message *</label>
                   <textarea 
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
+                    id="message"
                     rows={4} 
                     className="contact__form-textarea" 
                     placeholder="Tell us about your project..."
                     required
                   ></textarea>
+                  <ValidationError 
+                        prefix="Message" 
+                        field="message"
+                        errors={state.errors}
+                      />
                 </div>
-                <button type="submit" className="contact__form-submit">
+                <button type="submit" className="contact__form-submit" disabled={state.submitting}>
                   Send Inquiry
                 </button>
               </form>

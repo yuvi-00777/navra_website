@@ -73,13 +73,6 @@ const BlankWholesalePage: React.FC = () => {
     { num: '06', title: 'Receive Goods', desc: 'Get your high-quality blanks ready for sale or further customization.' },
   ];
 
-
-  const reviews = [
-    { name: 'Sarah', location: 'UK', text: 'The blanks are incredible quality. My customers love the feel of the fabric.' },
-    { name: 'Mike', location: 'USA', text: 'Fast shipping and consistent sizing. Navra is my go-to for wholesale.' },
-    { name: 'Jessica', location: 'Canada', text: 'Great variety of colors and styles. Helped me launch my brand quickly.' },
-  ];
-
   const whyChoose = [
     {
       number: '01',

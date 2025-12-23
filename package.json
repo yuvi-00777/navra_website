@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://yuvi-00777.github.io/navra_website",
+  "homepage": "https://www.thenavra.in",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -14,6 +14,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "cors": "^2.8.5",
     "express": "^5.2.1",
     "react": "^19.2.0",

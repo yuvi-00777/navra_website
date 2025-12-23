@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './GlobalShippingPage.css';
-import ContactCTA from '../components/ContactCTA';
 
 /**
  * GlobalShippingPage Component

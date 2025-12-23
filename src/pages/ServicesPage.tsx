@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useForm, ValidationError } from '@formspree/react';
 import './ServicesPage.css';
 
 /**
@@ -7,47 +8,8 @@ import './ServicesPage.css';
  * Replicates the "Services" page of hongyuapparel.com
  */
 const ServicesPage: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: ''
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      const response = await fetch('http://127.0.0.1:5001/api/enquiry', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert("Thank you! Your enquiry has been sent successfully.");
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          message: ''
-        });
-      } else {
-        throw new Error('Failed to submit enquiry');
-      }
-    } catch (error) {
-      console.error('Error submitting enquiry:', error);
-      alert(`There was an error submitting your enquiry: ${error instanceof Error ? error.message : String(error)}. Please check if the backend server is running.`);
-    }
-  };
+  // Replace 'YOUR_FORM_ID' with your actual Formspree Form ID
+  const [state, handleSubmit] = useForm("YOUR_FORM_ID");
 
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services-grid');
@@ -198,60 +160,83 @@ const ServicesPage: React.FC = () => {
 
             <div className="contact__form-wrapper">
               <h3 className="contact__form-title">Get in Touch</h3>
-              <form className="contact__form" onSubmit={handleSubmit}>
-                <div className="contact__form-row">
+              {state.succeeded ? (
+                  <div className="text-center p-8">
+                      <h4 className="text-xl font-bold mb-2">Thank You!</h4>
+                      <p>Your enquiry has been sent successfully. We will get back to you within 24 hours.</p>
+                  </div>
+              ) : (
+                <form className="contact__form" onSubmit={handleSubmit}>
+                  <div className="contact__form-row">
+                    <div className="contact__form-group">
+                      <label>Name *</label>
+                      <input 
+                        type="text" 
+                        name="name"
+                        id="name"
+                        className="contact__form-input" 
+                        placeholder="Your name" 
+                        required
+                      />
+                      <ValidationError 
+                        prefix="Name" 
+                        field="name"
+                        errors={state.errors}
+                      />
+                    </div>
+                    <div className="contact__form-group">
+                      <label>Email *</label>
+                      <input 
+                        type="email" 
+                        name="email"
+                        id="email"
+                        className="contact__form-input" 
+                        placeholder="your@email.com" 
+                        required
+                      />
+                      <ValidationError 
+                        prefix="Email" 
+                        field="email"
+                        errors={state.errors}
+                      />
+                    </div>
+                  </div>
                   <div className="contact__form-group">
-                    <label>Name *</label>
+                    <label>Company Name</label>
                     <input 
                       type="text" 
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
+                      name="company"
+                      id="company"
                       className="contact__form-input" 
-                      placeholder="Your name" 
-                      required
+                      placeholder="Your company" 
                     />
-                  </div>
-                  <div className="contact__form-group">
-                    <label>Email *</label>
-                    <input 
-                      type="email" 
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="contact__form-input" 
-                      placeholder="your@email.com" 
-                      required
+                    <ValidationError 
+                      prefix="Company" 
+                      field="company"
+                      errors={state.errors}
                     />
-                  </div>
                 </div>
-                <div className="contact__form-group">
-                  <label>Company Name</label>
-                  <input 
-                    type="text" 
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="contact__form-input" 
-                    placeholder="Your company" 
-                  />
-              </div>
-                <div className="contact__form-group">
-                  <label>Message *</label>
-                  <textarea 
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4} 
-                    className="contact__form-textarea" 
-                    placeholder="Tell us about your project..."
-                    required
-                  ></textarea>
-              </div>
-                <button type="submit" className="contact__form-submit">
-                  Send Inquiry
-                </button>
-              </form>
+                  <div className="contact__form-group">
+                    <label>Message *</label>
+                    <textarea 
+                      name="message"
+                      id="message"
+                      rows={4} 
+                      className="contact__form-textarea" 
+                      placeholder="Tell us about your project..."
+                      required
+                    ></textarea>
+                    <ValidationError 
+                      prefix="Message" 
+                      field="message"
+                      errors={state.errors}
+                    />
+                </div>
+                  <button type="submit" className="contact__form-submit" disabled={state.submitting}>
+                    Send Inquiry
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>

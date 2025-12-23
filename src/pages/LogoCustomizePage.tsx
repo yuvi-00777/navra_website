@@ -72,13 +72,6 @@ const LogoCustomizePage: React.FC = () => {
     { num: '06', title: 'Productions', desc: 'With your sample approved, we can begin pre-production. Placing your purchase order will initiate your first production run.' },
   ];
 
-
-  const reviews = [
-    { name: 'Cora-LUVHER BOY', location: 'United States', text: 'The quality of it is amazing, its super thick its super soft... I was incredibly impressed.' },
-    { name: 'Pedro', location: 'Spain', text: 'I must say they are amazing, I love them their client treatment is amazing... the quality of the product is excellent.' },
-    { name: 'Jake', location: 'Australia', text: 'They’ve been amazing at making really good samples... I feel like they are my secret weapon.' },
-  ];
-
   const whyChoose = [
     {
       number: '01',

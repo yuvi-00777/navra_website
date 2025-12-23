@@ -73,12 +73,6 @@ const PrivateLabelPage: React.FC = () => {
     { num: '06', title: 'Delivery', desc: 'We handle logistics to deliver your private label products directly to your warehouse.' },
   ];
 
-  const reviews = [
-    { name: 'Emma', location: 'France', text: 'Navra helped me launch my own line with ease. The private label options are fantastic.' },
-    { name: 'David', location: 'USA', text: 'Professional service and great quality. My customers love the custom tags.' },
-    { name: 'Li', location: 'China', text: 'Reliable partner for my boutique. The branding options really make a difference.' },
-  ];
-
   const whyChoose = [
     {
       number: '01',

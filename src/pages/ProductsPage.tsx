@@ -4,9 +4,7 @@ import './ProductsPage.css';
 
 // Import product images
 import mensOversized1 from '../assets/products/mens-oversized-tshirt-1.jpg';
-import mensOversized2 from '../assets/products/mens-oversized-tshirt-2.jpg';
 import womensOversized1 from '../assets/products/womens-oversized-white-1.jpg';
-import womensOversized2 from '../assets/products/womens-oversized-white-2.jpg';
 import polo1 from '../assets/products/classic-pique-polo-1.jpg';
 import polo3 from '../assets/products/performance-polo-1.jpg';
 import mensHoodie1 from '../assets/products/mens-hoodie-1.jpg';
