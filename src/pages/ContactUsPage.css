@@ -59,6 +59,13 @@
   background: #ffffff;
 }
 
+@media (max-width: 900px) {
+  /* Ensure it stays white on mobile and matches HomePage mobile style if that was dark initially */
+  .contact {
+    background: #ffffff;
+  }
+}
+
 .contact__container {
   max-width: 1200px;
   margin: 0 auto;

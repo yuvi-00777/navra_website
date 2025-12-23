@@ -1201,6 +1201,39 @@
   overflow: hidden;
 }
 
+/* Mobile responsiveness for Contact Section Background */
+@media (max-width: 900px) {
+  .contact {
+    background-color: #fff; /* White background for mobile/tablet */
+    color: #333; /* Dark text for mobile/tablet */
+  }
+  
+  .contact::before {
+    display: none; /* Remove dark gradient overlay on mobile */
+  }
+
+  .contact__info h2 span {
+    color: #001F3F; /* Navy Blue title span on mobile */
+  }
+  
+  /* Update section title wrapper for white background */
+  .contact .section-title-wrapper-light {
+    border-color: #333;
+    color: #333;
+  }
+  
+  .contact .section-title-wrapper-light .scissors-icon {
+    background: #fff;
+    color: #333;
+  }
+
+  /* Adjust form container for white background context */
+  .contact__form-wrapper {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Add shadow since bg is now white */
+    border: 1px solid #eee;
+  }
+}
+
 /* Adding a background image effect if possible, else solid black */
 .contact::before {
   content: '';
