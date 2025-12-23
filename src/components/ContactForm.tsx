@@ -138,7 +138,7 @@ const ContactForm: React.FC = () => {
         {state.submitting ? 'Sending...' : 'Send Message'}
       </button>
 
-      {state.errors && state.errors.length > 0 && (
+      {state.errors && (
         <div style={{ color: 'red', marginTop: '10px', fontWeight: 'bold' }}>
           There was an error sending your message. Please check the fields and try again.
         </div>
