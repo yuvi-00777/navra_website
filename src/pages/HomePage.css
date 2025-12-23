@@ -1039,12 +1039,18 @@
 @media (max-width: 768px) {
   .brand-style__item {
     flex: 0 0 50%;
+    height: 300px;
   }
 }
 
 @media (max-width: 480px) {
   .brand-style__item {
     flex: 0 0 100%;
+    height: 300px;
+  }
+  
+  .brand-style__item img {
+    object-position: top center;
   }
 }
 /* ==================== BRAND STYLE (Your Brand. Your Style.) ==================== */
@@ -1217,6 +1223,14 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 900px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
 }
 
 .contact__info h2 {

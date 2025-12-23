@@ -228,8 +228,8 @@ const HomePage: React.FC = () => {
                 position: 'absolute',
                 top: '50%',
                 left: '50%',
-                width: '106%', // Reduced zoom
-                height: '111%', 
+                width: window.innerWidth < 768 ? '300%' : '106%', // Adjusted zoom for mobile
+                height: window.innerWidth < 768 ? '100%' : '111%', 
                 transform: 'translate(-50%, -50%)',
                 objectFit: 'cover',
                 pointerEvents: 'none',
