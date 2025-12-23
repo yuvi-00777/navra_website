@@ -313,7 +313,7 @@ const AboutPage: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-900">Phone</h4>
-                        <p className="text-gray-600">+86 188 2580 3155</p>
+                        <p className="text-gray-600">+91 7680943044</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -324,7 +324,7 @@ const AboutPage: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-900">Email</h4>
-                        <p className="text-gray-600">info@hongyuapparel.com</p>
+                        <p className="text-gray-600">admin@exovateexports.com</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
