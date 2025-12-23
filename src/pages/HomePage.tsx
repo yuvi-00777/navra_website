@@ -228,8 +228,8 @@ const HomePage: React.FC = () => {
                 position: 'absolute',
                 top: '50%',
                 left: '50%',
-                width: '300%', // Increased width to zoom in
-                height: '150%', // Increased height to zoom in
+                width: '150%', // Reduced zoom
+                height: '150%', 
                 transform: 'translate(-50%, -50%)',
                 objectFit: 'cover',
                 pointerEvents: 'none',
