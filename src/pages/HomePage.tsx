@@ -218,14 +218,26 @@ const HomePage: React.FC = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero__video-container">
-          <video 
-            className="hero__video" 
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            src={navraReel}
-          />
+          <div className="hero__video-wrapper">
+            <iframe
+              className="hero__video-iframe"
+              src={`https://www.youtube.com/embed/82hd6Gfp8_Q?autoplay=1&mute=1&controls=0&loop=1&playlist=82hd6Gfp8_Q&playsinline=1&rel=0&showinfo=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                width: '100vw',
+                height: '100vh',
+                transform: 'translate(-50%, -50%)',
+                objectFit: 'cover',
+                pointerEvents: 'none',
+                minWidth: '100%',
+                minHeight: '100%'
+              }}
+            ></iframe>
+          </div>
           <div className="hero__overlay"></div>
         </div>
         <div className="hero__content">
