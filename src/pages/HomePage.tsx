@@ -228,17 +228,15 @@ const HomePage: React.FC = () => {
                 position: 'absolute',
                 top: '50%',
                 left: '50%',
-                width: '100vw',
-                height: '100vh',
+                width: '300%', // Increased width to zoom in
+                height: '150%', // Increased height to zoom in
                 transform: 'translate(-50%, -50%)',
                 objectFit: 'cover',
                 pointerEvents: 'none',
-                minWidth: '100%',
-                minHeight: '100%'
               }}
             ></iframe>
           </div>
-          <div className="hero__overlay"></div>
+          <div className="hero__overlay" style={{ zIndex: 2 }}></div> {/* Ensure overlay is on top */}
         </div>
         <div className="hero__content">
           <div className="animate-fade-in-up">
