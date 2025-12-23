@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm, ValidationError } from '@formspree/react';
 import './HomePage.css';
-import navraReel from '../assets/videos/navra-reel.mp4';
+// import navraReel from '../assets/videos/navra-reel.mp4';
 
 // Import images for categories
 import mensFullSleeve1 from '../assets/products/mens-full-sleeve-1.jpg';
