@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import './AboutPage.css';
 
 /**
@@ -14,6 +15,7 @@ import './AboutPage.css';
  */
 const AboutPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState('about');
+  const [state, handleSubmit] = useForm("xeejylvo");
 
   const stats = [
     { number: '22+', label: 'Years Experience' },
@@ -343,35 +345,81 @@ const AboutPage: React.FC = () => {
                 </div>
                 <div className="bg-white rounded-3xl p-8 shadow-sm">
                   <h3 className="text-xl font-bold text-gray-900 mb-6">Send us a Message</h3>
-                  <form className="space-y-4">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Name *</label>
-                        <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#3b82f6] focus:ring-2 focus:ring-[#3b82f6]/20 outline-none" placeholder="Your name" />
+                  {state.succeeded ? (
+                    <div className="text-center py-8">
+                      <div className="text-green-600 text-xl font-bold mb-4">Thank You!</div>
+                      <p className="text-gray-600">Your enquiry has been sent successfully. We will contact you shortly.</p>
+                      <button 
+                        onClick={() => window.location.reload()} 
+                        className="mt-6 px-6 py-2 bg-[#001F3F] text-white rounded-lg hover:bg-[#003366] transition-colors"
+                      >
+                        Send Another Message
+                      </button>
+                    </div>
+                  ) : (
+                    <form className="space-y-4" onSubmit={handleSubmit}>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Name *</label>
+                          <input 
+                            type="text" 
+                            name="name"
+                            id="name"
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#3b82f6] focus:ring-2 focus:ring-[#3b82f6]/20 outline-none" 
+                            placeholder="Your name" 
+                            required
+                          />
+                          <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-500 text-xs mt-1" />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                          <input 
+                            type="email" 
+                            name="email"
+                            id="email"
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#3b82f6] focus:ring-2 focus:ring-[#3b82f6]/20 outline-none" 
+                            placeholder="your@email.com" 
+                            required
+                          />
+                          <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-xs mt-1" />
+                        </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-                        <input type="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#3b82f6] focus:ring-2 focus:ring-[#3b82f6]/20 outline-none" placeholder="your@email.com" />
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Budget</label>
+                        <select 
+                          name="budget"
+                          id="budget"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#3b82f6] focus:ring-2 focus:ring-[#3b82f6]/20 outline-none"
+                        >
+                          <option value="">Select Budget</option>
+                          <option value="Within $2,000">Within $2,000</option>
+                          <option value="$2,000 - $5,000">$2,000 - $5,000</option>
+                          <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                          <option value="$10,000+">$10,000+</option>
+                        </select>
+                        <ValidationError prefix="Budget" field="budget" errors={state.errors} className="text-red-500 text-xs mt-1" />
                       </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Budget</label>
-                      <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#3b82f6] focus:ring-2 focus:ring-[#3b82f6]/20 outline-none">
-                        <option>Select Budget</option>
-                        <option>Within $2,000</option>
-                        <option>$2,000 - $5,000</option>
-                        <option>$5,000 - $10,000</option>
-                        <option>$10,000+</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
-                      <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#3b82f6] focus:ring-2 focus:ring-[#3b82f6]/20 outline-none resize-none" placeholder="Tell us about your project..."></textarea>
-                    </div>
-                    <button type="submit" className="w-full px-8 py-4 bg-gradient-to-r from-[#3b82f6] to-[#3b82f6] text-white font-semibold rounded-xl hover:shadow-lg transition-all">
-                      Send Inquiry
-                    </button>
-                  </form>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                        <textarea 
+                          rows={4} 
+                          name="message"
+                          id="message"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#3b82f6] focus:ring-2 focus:ring-[#3b82f6]/20 outline-none resize-none" 
+                          placeholder="Tell us about your project..."
+                          required
+                        ></textarea>
+                        <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-xs mt-1" />
+                      </div>
+                      <button 
+                        type="submit" 
+                        disabled={state.submitting}
+                        className="w-full px-8 py-4 bg-gradient-to-r from-[#3b82f6] to-[#3b82f6] text-white font-semibold rounded-xl hover:shadow-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                      >
+                        {state.submitting ? 'Sending...' : 'Send Inquiry'}
+                      </button>
+                    </form>
+                  )}
                 </div>
               </div>
             </div>
