@@ -4,7 +4,7 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
   padding-top: 8rem;
-  padding-bottom: 5rem;
+  padding-bottom: 0;
 }
 
 /* Breadcrumb */
@@ -415,8 +415,33 @@
   overflow: hidden;
 }
 
-/* Reuse existing contact styles or simplified version */
-.pd-contact {
-  background-color: #f9f9f9;
-  padding: 4rem 0;
+/* Contact CTA Section Overrides for Product Detail Page */
+.pd-contact-cta .contact-cta-section {
+  background-color: #000000;
+  color: #ffffff;
+  border-top: none;
+}
+
+.pd-contact-cta .contact-cta-title {
+  color: #ffffff;
+}
+
+.pd-contact-cta .contact-cta-subtitle {
+  color: #cccccc;
+}
+
+.pd-contact-cta .contact-cta-decoration {
+  background-image: radial-gradient(circle at center, #fff 1px, transparent 1px);
+  opacity: 0.1;
+}
+
+.pd-contact-cta .contact-cta-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.pd-contact-cta .contact-cta-btn:hover {
+  background-color: transparent;
+  color: #ffffff;
 }

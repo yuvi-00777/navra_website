@@ -26,6 +26,8 @@ import ContactUsPage from './pages/ContactUsPage';
 import OurEthicsPage from './pages/OurEthicsPage';
 import CustomerReviewsPage from './pages/CustomerReviewsPage';
 import AboutPage from './pages/AboutPage';
+import FAQPage from './pages/FAQPage';
+import TermsPrivacyPage from './pages/TermsPrivacyPage';
 
 /**
  * Main App component with routing setup
@@ -72,6 +74,8 @@ function App() {
           {/* <Route path="/services/product-photography" element={<ProductPhotographyPage />} /> */}
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/terms-privacy" element={<TermsPrivacyPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact-us" element={<ContactUsPage />} />
           <Route path="/our-ethics" element={<OurEthicsPage />} />

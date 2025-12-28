@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './ProductsPage.css';
+import ContactCTA from '../components/ContactCTA';
 
 // Import product images
 import mensOversized1 from '../assets/products/mens-oversized-tshirt-1.jpg';
@@ -220,6 +221,15 @@ const ProductsPage: React.FC = () => {
           )}
             </main>
           </div>
+
+      {/* Contact CTA Section */}
+      <div className="products-contact-cta">
+        <ContactCTA 
+          title="You've already taken the first step? Now what? Talk to us."
+          subtitle=""
+          buttonText="Sure. Why Not!"
+        />
+      </div>
     </div>
   );
 };

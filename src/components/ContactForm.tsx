@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import { countryCodes } from '../data/countryCodes';
 
 // Styles are expected to be loaded by the parent page (HomePage.css or ContactUsPage.css)
 // or we can import a shared CSS file if we extracted it. 
@@ -72,55 +73,47 @@ const ContactForm: React.FC = () => {
         </div>
       </div>
 
-      <div className="contact__form-row">
-        <div className="contact__form-group">
-          <label htmlFor="phone">Phone</label>
+      <div className="contact__form-group">
+        <label htmlFor="phone">Phone *</label>
+        <div className="phone-input-group" style={{ display: 'flex', gap: '10px' }}>
+          <select
+            name="countryCode"
+            id="countryCode"
+            className="contact__form-select"
+            style={{ width: '120px', minWidth: '120px' }}
+            defaultValue="+1"
+          >
+            {countryCodes.map((country) => (
+              <option key={country.code} value={country.dial_code}>
+                {country.name} ({country.dial_code})
+              </option>
+            ))}
+          </select>
           <input
             type="tel"
             id="phone"
             name="phone"
             className="contact__form-input"
-            placeholder="Your Phone Number"
-          />
-          <ValidationError 
-            prefix="Phone" 
-            field="phone"
-            errors={state.errors}
-            style={{ color: 'red', fontSize: '0.8rem', marginTop: '5px' }}
+            placeholder="Phone Number"
+            style={{ flex: 1 }}
+            required
           />
         </div>
-        <div className="contact__form-group">
-          <label htmlFor="service">Service Interested In</label>
-          <select
-            id="service"
-            name="service"
-            className="contact__form-select"
-            defaultValue="General Inquiry"
-          >
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Blank Wholesale">Blank Wholesale</option>
-            <option value="Logo Customization">Logo Customization</option>
-            <option value="Cut & Sew Manufacturing">Cut & Sew Manufacturing</option>
-            <option value="Private Label">Private Label</option>
-            <option value="Sample Development">Sample Development</option>
-          </select>
-          <ValidationError 
-            prefix="Service" 
-            field="service"
-            errors={state.errors}
-            style={{ color: 'red', fontSize: '0.8rem', marginTop: '5px' }}
-          />
-        </div>
+        <ValidationError 
+          prefix="Phone" 
+          field="phone"
+          errors={state.errors}
+          style={{ color: 'red', fontSize: '0.8rem', marginTop: '5px' }}
+        />
       </div>
 
       <div className="contact__form-group">
-        <label htmlFor="message">Message *</label>
+        <label htmlFor="message">Message</label>
         <textarea
           id="message"
           name="message"
           className="contact__form-textarea"
           placeholder="Tell us about your project..."
-          required
         ></textarea>
         <ValidationError 
           prefix="Message" 
@@ -128,6 +121,19 @@ const ContactForm: React.FC = () => {
           errors={state.errors}
           style={{ color: 'red', fontSize: '0.8rem', marginTop: '5px' }}
         />
+      </div>
+
+      <div className="contact__form-group contact__checkbox-group" style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginTop: '15px', marginBottom: '15px' }}>
+        <input 
+          type="checkbox" 
+          id="contactConsent" 
+          name="contactConsent" 
+          required 
+          style={{ marginTop: '4px', width: 'auto' }}
+        />
+        <label htmlFor="contactConsent" style={{ fontSize: '0.9rem', color: '#666', fontWeight: 'normal', lineHeight: '1.5' }}>
+          By checking this box, you agree to allow the Navra team to contact you via email, phone, or message. We will reach out within 12 to 24 hours.
+        </label>
       </div>
 
       <button 

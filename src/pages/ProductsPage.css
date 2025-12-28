@@ -3,7 +3,7 @@
 .products-page {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
-  padding-bottom: 5rem;
+  padding-bottom: 0;
 }
 
 /* Hero Banner */
@@ -284,4 +284,35 @@
   font-weight: 700;
   color: #001F3F;
   font-size: 1.1rem;
+}
+
+/* Contact CTA Section Overrides for Products Page */
+.products-contact-cta .contact-cta-section {
+  background-color: #000000;
+  color: #ffffff;
+  border-top: none;
+}
+
+.products-contact-cta .contact-cta-title {
+  color: #ffffff;
+}
+
+.products-contact-cta .contact-cta-subtitle {
+  color: #cccccc;
+}
+
+.products-contact-cta .contact-cta-decoration {
+  background-image: radial-gradient(circle at center, #fff 1px, transparent 1px);
+  opacity: 0.1;
+}
+
+.products-contact-cta .contact-cta-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.products-contact-cta .contact-cta-btn:hover {
+  background-color: transparent;
+  color: #ffffff;
 }

@@ -1,10 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import './AboutUsPage.css';
 
 // Import images (using existing assets as placeholders for now)
 import brandStyle1 from '../assets/brand-style-1.jpg';
-import brandStyle2 from '../assets/brand-style-2.jpg';
 import brandStyle3 from '../assets/brand-style-3.jpg';
 import brandStyle4 from '../assets/brand-style-4.jpg';
 
@@ -13,19 +11,40 @@ import brandStyle4 from '../assets/brand-style-4.jpg';
  * Updated content based on about_us.html
  */
 const AboutUsPage: React.FC = () => {
+  // Generate a random start time (e.g., between 0 and 60 seconds)
+  // Using useState to ensure it's stable during a session, though for this component a constant would also work per mount.
+  const [randomStart] = useState(Math.floor(Math.random() * 60));
+
   return (
     <div className="about-page">
       {/* Hero Section */}
       <section className="about-hero">
-        <div className="about-hero__overlay"></div>
+        <div className="about-hero__video-container">
+          <div className="about-hero__video-wrapper">
+             <iframe
+              className="about-hero__video-iframe"
+              src={`https://www.youtube.com/embed/852GCUtjWYI?autoplay=1&mute=1&controls=0&loop=1&playlist=852GCUtjWYI&playsinline=1&rel=0&showinfo=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&start=${randomStart}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                width: '100%',
+                height: '100%',
+                transform: 'translate(-50%, -50%)',
+                objectFit: 'cover',
+                pointerEvents: 'none',
+              }}
+            ></iframe>
+          </div>
+           <div className="about-hero__overlay"></div>
+        </div>
         <div className="container about-hero__content">
           <h1 className="about-hero__title">
             Crafted for the <span className="about-hero__highlight">World</span>
           </h1>
-          {/* Kept the button as a useful CTA, though not explicitly in the HTML text content */}
-          <div className="about-hero__actions">
-            <Link to="/contact-us" className="about-hero__btn">Get Started</Link>
-          </div>
+          {/* Replaced Get Started button with video background approach as requested */}
         </div>
       </section>
 
@@ -68,9 +87,18 @@ const AboutUsPage: React.FC = () => {
       <section className="about-section about-section--alt">
         <div className="container">
           <div className="about-grid">
-             <div className="about-image-wrapper">
-               {/* Placeholder for about_us_page_3.png */}
-               <img src={brandStyle2} alt="Vision and Mission" className="about-image" style={{ borderRadius: '8px', width: '100%', height: 'auto' }} />
+             {/* Replaced image with Venture Info text block */}
+             <div className="venture-info">
+               <h3>A Venture by Exovate Exports</h3>
+               <p>
+                 Navra is the specialized apparel division of Exovate Exports, an Indian-based export house dedicated to bringing the finest Indian craftsmanship to the global stage.
+               </p>
+               <p>
+                 Established with a vision to revolutionize the garment export industry, Exovate Exports combines traditional manufacturing strength with modern supply chain efficiency.
+               </p>
+               <p>
+                 We started this journey to solve the pain points of international brands — providing a reliable, ethical, and transparent partner in India.
+               </p>
             </div>
             <div>
               <h2 className="about-section__title about-section__title--left">Vision & Mission</h2>
@@ -79,11 +107,28 @@ const AboutUsPage: React.FC = () => {
                   To make sourcing apparel from India as easy, transparent, and trustworthy as possible — setting a new global standard for how trade is done.
                 </p>
                 <br />
-                <p><strong>Simplify and humanize sourcing</strong> through transparent systems and clear communication.</p>
-                <p><strong>Represent India globally</strong> — not just as a producer, but as a trusted partner in quality and innovation.</p>
-                <p><strong>Build long-term relationships</strong> with brands, importers, and retailers worldwide.</p>
-                <p><strong>Establish global distribution hubs</strong> for faster, direct collaboration.</p>
-                <p><strong>Evolve into a full-scale ecosystem</strong> that blends design, technology, and supply chain intelligence.</p>
+                <ul className="vision-list">
+                  <li>
+                    <strong>Simplify and humanize sourcing</strong>
+                    through transparent systems and clear communication.
+                  </li>
+                  <li>
+                    <strong>Represent India globally</strong>
+                    not just as a producer, but as a trusted partner in quality and innovation.
+                  </li>
+                  <li>
+                    <strong>Build long-term relationships</strong>
+                    with brands, importers, and retailers worldwide.
+                  </li>
+                  <li>
+                    <strong>Establish global distribution hubs</strong>
+                    for faster, direct collaboration.
+                  </li>
+                  <li>
+                    <strong>Evolve into a full-scale ecosystem</strong>
+                    that blends design, technology, and supply chain intelligence.
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -139,6 +184,37 @@ const AboutUsPage: React.FC = () => {
              <div className="about-image-wrapper">
                {/* Placeholder for ChatGPT-Image... */}
                <img src={brandStyle4} alt="Our Capabilities" className="about-image" style={{ borderRadius: '8px', width: '100%', height: 'auto' }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Founders Section */}
+      <section className="about-section about-section--founders">
+        <div className="container">
+          <h2 className="about-section__title">Meet The Founders</h2>
+          <div className="founders-grid">
+            <div className="founder-card">
+              <div className="founder-card__image-placeholder">
+                {/* Replace with actual image */}
+                <span className="founder-card__initials">NB</span>
+              </div>
+              <h3 className="founder-card__name">Naveen Bolla</h3>
+              <p className="founder-card__role">Co-Founder & CEO</p>
+              <p className="founder-card__bio">
+                Visionary leader with a passion for transforming the apparel industry through transparency and innovation.
+              </p>
+            </div>
+            <div className="founder-card">
+              <div className="founder-card__image-placeholder">
+                {/* Replace with actual image */}
+                <span className="founder-card__initials">RD</span>
+              </div>
+              <h3 className="founder-card__name">Rajesh Dharavath</h3>
+              <p className="founder-card__role">Co-Founder & COO</p>
+              <p className="founder-card__bio">
+                Operations expert dedicated to building efficient, ethical, and scalable supply chains.
+              </p>
             </div>
           </div>
         </div>

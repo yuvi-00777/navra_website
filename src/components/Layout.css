@@ -518,6 +518,14 @@
   color: #ffffff;
 }
 
+.footer__company-tagline {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  margin-left: 4px;
+}
+
 .footer__company-desc {
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;

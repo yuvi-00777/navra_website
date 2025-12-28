@@ -57,11 +57,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   // Determine if we should show the dark header (scrolled style) by default
   // This is for pages that don't have a dark hero section at the top
   const isDetailPage = location.pathname.startsWith('/product') && location.pathname !== '/products';
-  const shouldShowDarkHeader = isScrolled || isDetailPage;
+  const shouldShowDarkHeader = isScrolled || isDetailPage || location.pathname === '/faq';
 
   // Navigation items with dropdowns matching hongyuapparel.com
   const navItems: NavItem[] = [
     { name: 'Home', path: '/' },
+    {
+      name: 'About Us',
+      path: '/about-us',
+    },
     {
       name: 'Products',
       path: '/products',
@@ -90,10 +94,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         { name: 'Global Shipping', path: '/services/global-shipping' },
         // { name: 'Product Photography', path: '/services/product-photography' },
       ],
-    },
-    {
-      name: 'About Us',
-      path: '/about-us',
     },
     {
       name: 'Contact Us',
@@ -278,6 +278,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <div className="footer__company">
                 <div className="footer__company-logo">
                   <span className="footer__company-name">NAVRA</span>
+                  <span className="footer__company-tagline"> - Crafted for the world</span>
                 </div>
                 <p className="footer__company-desc">
                   Inidan-based apparel exporter delivering high-quality, sustainable men’s and women’s wear with trusted service, global standards, and a commitment to craftsmanship.
@@ -310,6 +311,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     { name: 'Products', path: '/products' },
                     { name: 'About', path: '/about-us' },
                     { name: 'Contact', path: '/contact-us' },
+                    { name: 'FAQ', path: '/faq' },
+                    { name: 'Terms & Privacy Policy', path: '/terms-privacy' },
                   ].map((item) => (
                     <li key={item.name}>
                       <Link to={item.path} className="footer__link">{item.name}</Link>

@@ -577,7 +577,7 @@ const ProductDetailPage: React.FC = () => {
             </div>
 
             <div className="pd-actions">
-              <Link to="/contact-us" className="pd-btn pd-btn--outline">Inquiry Now</Link>
+              <Link to="/contact-us" className="pd-btn pd-btn--primary">Inquiry Now</Link>
             </div>
             
             <div className="pd-meta-footer">
@@ -673,12 +673,14 @@ const ProductDetailPage: React.FC = () => {
       </div>
       
       {/* Contact Section */}
-      <ContactCTA 
-        title="You've already taken the first step? Talk to us."
-        subtitle="Sure. Why Not!"
-        buttonText="Contact Us"
-        link="/contact-us"
-      />
+      <div className="pd-contact-cta">
+        <ContactCTA 
+          title="You've already taken the first step? Talk to us."
+          subtitle="Sure. Why Not!"
+          buttonText="Contact Us"
+          link="/contact-us"
+        />
+      </div>
     </div>
   );
 };
