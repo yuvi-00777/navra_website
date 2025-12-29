@@ -244,7 +244,7 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="solutions__grid">
-            {solutions.map((solution, index) => (
+            {solutions.map((solution) => (
               <div
                 key={solution.id}
                 className="solution-card"
