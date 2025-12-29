@@ -326,7 +326,7 @@ const AboutPage: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-900">Email</h4>
-                        <p className="text-gray-600">admin@exovateexports.com</p>
+                        <p className="text-gray-600">admin@thenavra.in</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">

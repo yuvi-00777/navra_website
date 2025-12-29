@@ -151,6 +151,26 @@
   transform: rotate(180deg);
 }
 
+/* Contact Us Button Style in Nav */
+.nav__link--btn {
+  background: #ffffff;
+  color: #001F3F !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  margin-left: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #001F3F;
+  font-weight: 600;
+}
+
+.nav__link--btn:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  color: #001F3F !important;
+}
+
 /* Dropdown */
 .nav__dropdown {
   position: absolute;
@@ -539,10 +559,10 @@
 }
 
 .footer__social-link {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -552,6 +572,11 @@
   text-transform: uppercase;
   transition: all 0.3s ease;
   text-decoration: none;
+}
+
+.footer__social-link svg {
+  width: 16px;
+  height: 16px;
 }
 
 .footer__social-link:hover {
@@ -607,11 +632,11 @@
 }
 
 .footer__contact-icon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   color: #ffffff;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 .footer__contact-text {

@@ -110,7 +110,7 @@ const TermsPrivacyPage: React.FC = () => {
         <div className="terms-contact-box">
           <h3>Questions?</h3>
           <p>If you have any questions about our Terms or Privacy Policy, please contact us:</p>
-          <p><strong>Email:</strong> <a href="mailto:admin@exovateexports.com">admin@exovateexports.com</a></p>
+          <p><strong>Email:</strong> <a href="mailto:admin@thenavra.in">admin@thenavra.in</a></p>
           <p><strong>Phone:</strong> +91 7680943044</p>
           <p><strong>Address:</strong> Sai Nagar Colony, ECIL, Hyderabad, Telangana – 500062</p>
         </div>

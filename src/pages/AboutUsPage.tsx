@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import './AboutUsPage.css';
 
-// Import images (using existing assets as placeholders for now)
-import brandStyle1 from '../assets/brand-style-1.jpg';
-import brandStyle3 from '../assets/brand-style-3.jpg';
-import brandStyle4 from '../assets/brand-style-4.jpg';
-
+// Import images
+import visionMissionImg from '/images/about/vision_mission.png';
+import whyNavraImg from '/images/about/why_navra.png';
+import capabilitiesImg from '/images/about/capabilities.png';
 /**
  * AboutUsPage Component
  * Updated content based on about_us.html
@@ -18,11 +17,11 @@ const AboutUsPage: React.FC = () => {
   return (
     <div className="about-page">
       {/* Hero Section */}
-      <section className="about-hero">
-        <div className="about-hero__video-container">
-          <div className="about-hero__video-wrapper">
+      <section className="about-us-hero">
+        <div className="about-us-hero__video-container">
+          <div className="about-us-hero__video-wrapper">
              <iframe
-              className="about-hero__video-iframe"
+              className="about-us-hero__video-iframe"
               src={`https://www.youtube.com/embed/852GCUtjWYI?autoplay=1&mute=1&controls=0&loop=1&playlist=852GCUtjWYI&playsinline=1&rel=0&showinfo=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&start=${randomStart}`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -38,11 +37,11 @@ const AboutUsPage: React.FC = () => {
               }}
             ></iframe>
           </div>
-           <div className="about-hero__overlay"></div>
+           <div className="about-us-hero__overlay"></div>
         </div>
-        <div className="container about-hero__content">
-          <h1 className="about-hero__title">
-            Crafted for the <span className="about-hero__highlight">World</span>
+        <div className="container about-us-hero__content">
+          <h1 className="about-us-hero__title">
+            Crafted for the <span className="about-us-hero__highlight">World</span>
           </h1>
           {/* Replaced Get Started button with video background approach as requested */}
         </div>
@@ -75,9 +74,11 @@ const AboutUsPage: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="about-image-wrapper">
-               {/* Placeholder for home_page_1.png */}
-               <img src={brandStyle1} alt="Who We Are" className="about-image" style={{ borderRadius: '8px', width: '100%', height: 'auto' }} />
+            <div className="venture-info">
+               <h3>A Venture by Exovate Exports</h3>
+               <p>
+                 Navra is the specialized apparel division of Exovate Exports, dedicated to bringing the finest Indian craftsmanship to the global stage.
+               </p>
             </div>
           </div>
         </div>
@@ -87,46 +88,39 @@ const AboutUsPage: React.FC = () => {
       <section className="about-section about-section--alt">
         <div className="container">
           <div className="about-grid">
-             {/* Replaced image with Venture Info text block */}
-             <div className="venture-info">
-               <h3>A Venture by Exovate Exports</h3>
-               <p>
-                 Navra is the specialized apparel division of Exovate Exports, an Indian-based export house dedicated to bringing the finest Indian craftsmanship to the global stage.
-               </p>
-               <p>
-                 Established with a vision to revolutionize the garment export industry, Exovate Exports combines traditional manufacturing strength with modern supply chain efficiency.
-               </p>
-               <p>
-                 We started this journey to solve the pain points of international brands — providing a reliable, ethical, and transparent partner in India.
-               </p>
+             <div className="about-image-wrapper">
+               <img src={visionMissionImg} alt="Vision and Mission" className="about-image" style={{ borderRadius: '8px', width: '100%', height: 'auto' }} />
             </div>
             <div>
-              <h2 className="about-section__title about-section__title--left">Vision & Mission</h2>
+              <h2 className="about-section__title about-section__title--left" style={{ marginBottom: '1.5rem' }}>Vision</h2>
               <div className="about-text">
                 <p>
-                  To make sourcing apparel from India as easy, transparent, and trustworthy as possible — setting a new global standard for how trade is done.
+                  To make sourcing apparel from India as easy, transparent, and trustworthy as possible — setting a new global standard for how international trade is done.
                 </p>
-                <br />
+              </div>
+
+              <h2 className="about-section__title about-section__title--left" style={{ marginTop: '3rem', marginBottom: '1.5rem' }}>Mission</h2>
+              <div className="about-text">
                 <ul className="vision-list">
                   <li>
-                    <strong>Simplify and humanize sourcing</strong>
-                    through transparent systems and clear communication.
+                    <strong>Simplify and humanize apparel sourcing</strong>
+                    through transparent systems, clear communication, and accountable processes.
                   </li>
                   <li>
                     <strong>Represent India globally</strong>
-                    not just as a producer, but as a trusted partner in quality and innovation.
+                    not just as a manufacturing hub, but as a trusted partner in quality, innovation, and reliability.
                   </li>
                   <li>
                     <strong>Build long-term relationships</strong>
-                    with brands, importers, and retailers worldwide.
+                    with brands, importers, and retailers worldwide based on trust and consistency.
                   </li>
                   <li>
                     <strong>Establish global distribution hubs</strong>
-                    for faster, direct collaboration.
+                    to enable faster execution and closer collaboration with international partners.
                   </li>
                   <li>
-                    <strong>Evolve into a full-scale ecosystem</strong>
-                    that blends design, technology, and supply chain intelligence.
+                    <strong>Evolve into a full-scale sourcing ecosystem</strong>
+                    that integrates design, technology, and supply-chain intelligence.
                   </li>
                 </ul>
               </div>
@@ -135,13 +129,45 @@ const AboutUsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Why Navra? */}
+      {/* What drives Us? */}
       <section className="about-section">
+        <div className="container">
+          <h2 className="about-section__title" style={{ marginBottom: '40px' }}>What drives Us?</h2>
+          <div className="about-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
+              <div>
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '10px' }}>Trust</h4>
+                <p>Every order begins and ends with reliability.</p>
+              </div>
+              <div>
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '10px' }}>Partnership</h4>
+                <p>We grow when our partners grow — collaboration is our engine.</p>
+              </div>
+              <div>
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '10px' }}>Transparency</h4>
+                <p>Buyers know exactly what is happening — how, where, and when.</p>
+              </div>
+              <div>
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '10px' }}>Innovation</h4>
+                <p>Continuously evolving design tools, sourcing methods, and digital systems.</p>
+              </div>
+              <div>
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '10px' }}>Consistency</h4>
+                <p>Doing it right, every single time.</p>
+              </div>
+              <div>
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '10px' }}>Responsibility</h4>
+                <p>Ethical, sustainable, and fair production across our network.</p>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Navra? */}
+      <section className="about-section about-section--alt">
         <div className="container">
           <div className="about-grid">
              <div className="about-image-wrapper">
-               {/* Placeholder for about_us_page_1.png */}
-               <img src={brandStyle3} alt="Why Navra" className="about-image" style={{ borderRadius: '8px', width: '100%', height: 'auto' }} />
+               <img src={whyNavraImg} alt="Why Navra" className="about-image" style={{ borderRadius: '8px', width: '100%', height: 'auto' }} />
             </div>
             <div>
               <h2 className="about-section__title about-section__title--left">Why Navra?</h2>
@@ -164,7 +190,7 @@ const AboutUsPage: React.FC = () => {
       </section>
 
       {/* Our Capabilities */}
-      <section className="about-section about-section--alt">
+      <section className="about-section">
         <div className="container">
           <div className="about-grid">
             <div>
@@ -182,8 +208,7 @@ const AboutUsPage: React.FC = () => {
               </div>
             </div>
              <div className="about-image-wrapper">
-               {/* Placeholder for ChatGPT-Image... */}
-               <img src={brandStyle4} alt="Our Capabilities" className="about-image" style={{ borderRadius: '8px', width: '100%', height: 'auto' }} />
+               <img src={capabilitiesImg} alt="Our Capabilities" className="about-image" style={{ borderRadius: '8px', width: '100%', height: 'auto' }} />
             </div>
           </div>
         </div>

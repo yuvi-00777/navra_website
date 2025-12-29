@@ -6,7 +6,7 @@
 }
 
 /* Hero Section */
-.about-hero {
+.about-us-hero {
   position: relative;
   min-height: 50vh;
   display: flex;
@@ -19,7 +19,7 @@
   overflow: hidden;
 }
 
-.about-hero__video-container {
+.about-us-hero__video-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -28,14 +28,14 @@
   z-index: 0;
 }
 
-.about-hero__video-wrapper {
+.about-us-hero__video-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-.about-hero__video-iframe {
+.about-us-hero__video-iframe {
   width: 100vw; /* Force width to viewport width or container width */
   height: 56.25vw; /* 16:9 Aspect Ratio (100 * 9 / 16) */
   min-height: 100vh;
@@ -49,7 +49,7 @@
 
 /* Fallback/Adjustment for mobile video sizing if needed, similar to HomePage inline styles */
 @media (max-width: 768px) {
-  .about-hero__video-iframe {
+  .about-us-hero__video-iframe {
     width: 100%;
     height: 100%;
     min-width: 0;
@@ -61,7 +61,7 @@
   }
 }
 
-.about-hero__overlay {
+.about-us-hero__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -71,7 +71,7 @@
   z-index: 1;
 }
 
-.about-hero__content {
+.about-us-hero__content {
   position: relative;
   z-index: 10;
   text-align: center;
@@ -80,7 +80,7 @@
   margin: 0 auto;
 }
 
-.about-hero__title {
+.about-us-hero__title {
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.2;
@@ -88,12 +88,12 @@
   color: #fff;
 }
 
-.about-hero__highlight {
+.about-us-hero__highlight {
   font-weight: 800;
   color: #fff;
 }
 
-.about-hero__desc {
+.about-us-hero__desc {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2.5rem;
@@ -103,7 +103,7 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-.about-hero__actions {
+.about-us-hero__actions {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -229,10 +229,11 @@
 
 /* Venture Info Block */
 .venture-info {
-  background: rgba(255, 255, 255, 0.1);
+  background: #001F3F;
   padding: 2.5rem;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .venture-info h3 {

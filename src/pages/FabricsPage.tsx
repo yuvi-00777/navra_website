@@ -29,6 +29,8 @@ import viscoseImg from '../assets/fabrics/viscose.jpg';
 import woolImg from '../assets/fabrics/wool.jpg';
 
 
+import ContactCTA from '../components/ContactCTA';
+
 /**
  * FabricsPage Component
  * Replicates the fabrics page of hongyuapparel.com
@@ -189,17 +191,11 @@ const FabricsPage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="fabrics-cta-section">
-        <div className="container">
-          <div className="fabrics-cta-box">
-            <h2>Need a specific fabric not listed here?</h2>
-            <p>We can source any material for your custom clothing line.</p>
-            <Link to="/contact-us" className="fabrics-cta-btn">
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ContactCTA
+        title="Need a specific fabric not listed here?"
+        subtitle="We can source any material for your custom clothing line."
+        buttonText="Contact Us"
+      />
     </div>
   );
 };

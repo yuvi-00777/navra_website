@@ -21,7 +21,7 @@ const ContactCTA: React.FC<ContactCTAProps> = ({
       <div className="container">
         <div className="contact-cta-content">
           <h2 className="contact-cta-title">{title}</h2>
-          <p className="contact-cta-subtitle">{subtitle}</p>
+          {subtitle && <p className="contact-cta-subtitle">{subtitle}</p>}
           <Link to={link} className="contact-cta-btn">
             {buttonText}
           </Link>
