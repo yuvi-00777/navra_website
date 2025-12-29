@@ -119,6 +119,16 @@
   color: #fff;
 }
 
+/* Explicitly set heading colors in dark sections to override global styles */
+.about-section--alt h1,
+.about-section--alt h2,
+.about-section--alt h3,
+.about-section--alt h4,
+.about-section--alt h5,
+.about-section--alt h6 {
+  color: #fff;
+}
+
 .about-section--alt .about-section__title {
   color: #fff;
 }
@@ -216,20 +226,20 @@
   position: absolute;
   left: 0;
   top: 0;
-  color: #fff; /* White arrow on dark bg */
+  color: #001F3F; /* Dark arrow on white bg */
   font-weight: bold;
 }
 
 .vision-list strong {
   display: block;
-  color: #ffffff;
+  color: #001F3F;
   font-size: 1.2rem;
   margin-bottom: 0.25rem;
 }
 
 /* Venture Info Block */
 .venture-info {
-  background: #001F3F;
+  background: #000;
   padding: 2.5rem;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);

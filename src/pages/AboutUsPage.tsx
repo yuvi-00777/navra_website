@@ -3,7 +3,6 @@ import './AboutUsPage.css';
 
 // Import images
 import visionMissionImg from '/images/about/vision_mission.png';
-import whyNavraImg from '/images/about/why_navra.png';
 import capabilitiesImg from '/images/about/capabilities.png';
 /**
  * AboutUsPage Component
@@ -84,8 +83,44 @@ const AboutUsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Vision & Mission */}
+      {/* Founder's Story */}
       <section className="about-section about-section--alt">
+        <div className="container">
+            <h2 className="about-section__title about-section__title--left">Founder’s Story</h2>
+            <div className="about-text">
+              <p>
+                Navra was created to fix what apparel sourcing consistently gets wrong.
+              </p>
+              <br />
+              <p>
+                Across global trade, buyers face the same challenges—approved samples that don’t match bulk, prices that change after confirmation, high MOQs, delays, and little visibility once production begins. These issues aren’t rare. They’re structural.
+              </p>
+              <br />
+              <p>
+                Navra didn’t start as a factory network. It started as a response to these failures.
+              </p>
+              <br />
+              <p>
+                By studying where sourcing breaks down—between sample and bulk, during cost locking, inside approvals, and at shipment handover—one insight became clear: sourcing fails when systems are weak, not when capacity is missing.
+              </p>
+              <br />
+              <p>
+                That belief shaped Navra into a sourcing system, not a transactional supplier—built to reduce uncertainty before problems surface, not after.
+              </p>
+              <br />
+              <p>
+                We believe sourcing shouldn’t feel risky.
+              </p>
+              <br />
+              <p>
+                It should feel reliable—by design.
+              </p>
+            </div>
+        </div>
+      </section>
+
+      {/* Vision & Mission */}
+      <section className="about-section">
         <div className="container">
           <div className="about-grid">
              <div className="about-image-wrapper">
@@ -130,7 +165,7 @@ const AboutUsPage: React.FC = () => {
       </section>
 
       {/* What drives Us? */}
-      <section className="about-section">
+      <section className="about-section about-section--alt">
         <div className="container">
           <h2 className="about-section__title" style={{ marginBottom: '40px' }}>What drives Us?</h2>
           <div className="about-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
@@ -162,34 +197,7 @@ const AboutUsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Why Navra? */}
-      <section className="about-section about-section--alt">
-        <div className="container">
-          <div className="about-grid">
-             <div className="about-image-wrapper">
-               <img src={whyNavraImg} alt="Why Navra" className="about-image" style={{ borderRadius: '8px', width: '100%', height: 'auto' }} />
-            </div>
-            <div>
-              <h2 className="about-section__title about-section__title--left">Why Navra?</h2>
-              <div className="about-text">
-                <p><strong>Relationships over Transactions</strong>: We don’t just ship products — we help brands grow.</p>
-                <br />
-                <p><strong>Transparency over Guesswork</strong>: Track production, quality, and progress in real time.</p>
-                <br />
-                <p><strong>Systems over Chaos</strong>: Clear communication, predictable timelines, and structured processes.</p>
-                <br />
-                <p><strong>Value over Price</strong>: Design support, reliability, and trust at the core.</p>
-                <br />
-                <p><strong>Brand-First over Factory-First</strong>: Your vision leads; we build around it.</p>
-                <br />
-                <p><strong>NAVRA is not the old way — it’s the smarter way to source.</strong></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Capabilities */}
+      {/* Our Capabilities - CHANGED TO WHITE */}
       <section className="about-section">
         <div className="container">
           <div className="about-grid">
@@ -214,43 +222,12 @@ const AboutUsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Founders Section */}
-      <section className="about-section about-section--founders">
-        <div className="container">
-          <h2 className="about-section__title">Meet The Founders</h2>
-          <div className="founders-grid">
-            <div className="founder-card">
-              <div className="founder-card__image-placeholder">
-                {/* Replace with actual image */}
-                <span className="founder-card__initials">NB</span>
-              </div>
-              <h3 className="founder-card__name">Naveen Bolla</h3>
-              <p className="founder-card__role">Co-Founder & CEO</p>
-              <p className="founder-card__bio">
-                Visionary leader with a passion for transforming the apparel industry through transparency and innovation.
-              </p>
-            </div>
-            <div className="founder-card">
-              <div className="founder-card__image-placeholder">
-                {/* Replace with actual image */}
-                <span className="founder-card__initials">RD</span>
-              </div>
-              <h3 className="founder-card__name">Rajesh Dharavath</h3>
-              <p className="founder-card__role">Co-Founder & COO</p>
-              <p className="founder-card__bio">
-                Operations expert dedicated to building efficient, ethical, and scalable supply chains.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Future We are Building */}
-      <section className="about-section">
+      {/* The Future We are Building - CHANGED TO DARK */}
+      <section className="about-section about-section--alt">
         <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
           <h2 className="about-section__title">The Future We are Building</h2>
           
-          <h3 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '2rem', color: '#374151' }}>
+          <h3 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '2rem', color: '#e5e7eb' }}>
             NAVRA is on a long-term mission to transform India into the world’s most trusted apparel sourcing destination.
           </h3>
           
@@ -266,9 +243,9 @@ const AboutUsPage: React.FC = () => {
           </div>
           
           <div style={{ marginTop: '2rem' }}>
-            <p style={{ fontSize: '1.25rem', color: '#111827' }}>
+            <p style={{ fontSize: '1.25rem', color: '#e5e7eb' }}>
               NAVRA is not just a company.<br />
-              <strong style={{ fontSize: '1.5rem', color: '#001F3F' }}>It’s a movement.</strong>
+              <strong style={{ fontSize: '1.5rem', color: '#fff' }}>It’s a movement.</strong>
             </p>
           </div>
         </div>
