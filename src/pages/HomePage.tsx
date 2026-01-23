@@ -58,9 +58,8 @@ const HomePage: React.FC = () => {
       title: 'Blank Wholesale',
       subtitle: 'For Wholesaler',
       description: 'Order ready-made clothing from our product page.',
-      moq: '50 pieces mix size style Colors',
-      sampleTime: '3 days',
-      bulkPrice: 'As shown on website',
+      sampleTime: '1-2 weeks',
+      bulkPrice: 'Quote upon request',
       link: '/solutions/blank-wholesale',
     },
     {
@@ -68,8 +67,7 @@ const HomePage: React.FC = () => {
       title: 'Logo Customize',
       subtitle: 'For Brand Starter',
       description: 'Add logo on our blank clothing, printing, embroidery, or change to your private label.',
-      moq: '50 pieces mix size style Colors',
-      sampleTime: '5-8 days',
+      sampleTime: '2-3 weeks',
       bulkPrice: 'Quote upon request',
       link: '/solutions/logo-customize',
     },
@@ -78,9 +76,8 @@ const HomePage: React.FC = () => {
       title: 'Cut & Sew Customize',
       subtitle: 'For Fashion Brand Expert',
       description: 'Create your own designs and dreams from sketch.',
-      moq: '100Pcs/style/color (4 sizes)',
-      sampleTime: '8-15 days',
-      bulkPrice: 'Depends on design',
+      sampleTime: '3 weeks',
+      bulkPrice: 'Quote upon request',
       link: '/solutions/cut-and-sew',
     },
   ];
@@ -262,10 +259,6 @@ const HomePage: React.FC = () => {
                   <p className="text-sm mb-4" style={{ color: '#666' }}>
                     {solution.description}
                   </p>
-                  <div className="solution-card__detail-item">
-                    <span className="solution-card__detail-label">MOQ:</span>
-                    <span className="solution-card__detail-value">{solution.moq}</span>
-                  </div>
                   <div className="solution-card__detail-item">
                     <span className="solution-card__detail-label">Sample time:</span>
                     <span className="solution-card__detail-value">{solution.sampleTime}</span>

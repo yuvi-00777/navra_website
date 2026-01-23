@@ -28,6 +28,7 @@ import CustomerReviewsPage from './pages/CustomerReviewsPage';
 import AboutPage from './pages/AboutPage';
 import FAQPage from './pages/FAQPage';
 import TermsPrivacyPage from './pages/TermsPrivacyPage';
+import CatalogPage from './pages/CatalogPage';
 
 /**
  * Main App component with routing setup
@@ -80,6 +81,7 @@ function App() {
           <Route path="/contact-us" element={<ContactUsPage />} />
           <Route path="/our-ethics" element={<OurEthicsPage />} />
           <Route path="/customer-reviews" element={<CustomerReviewsPage />} />
+          <Route path="/catalog" element={<CatalogPage />} />
           </Routes>
         </Layout>
       </Router>

@@ -1,0 +1,197 @@
+/* Catalog Page Styles */
+.catalog-page {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #fff;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.catalog-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header */
+.catalog-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #000;
+}
+
+.catalog-logo {
+  height: 80px;
+  width: auto;
+  margin-bottom: 1rem;
+}
+
+.catalog-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  color: #000;
+}
+
+.catalog-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* Sections */
+.catalog-section {
+  margin-bottom: 4rem;
+  page-break-inside: avoid;
+}
+
+.catalog-section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.catalog-subsection-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+/* Grids */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.catalog-item {
+  border: 1px solid #eee;
+  padding: 1rem;
+  text-align: center;
+  background: #fff;
+  break-inside: avoid;
+}
+
+.catalog-item-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.catalog-item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.catalog-item-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.catalog-item-desc {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* Footer */
+.catalog-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 2px solid #000;
+  text-align: center;
+}
+
+.catalog-contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.catalog-contact-item {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Print Specific Styles */
+@media print {
+  @page {
+    margin: 1cm;
+    size: auto;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background-color: #fff;
+  }
+
+  .catalog-page {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .catalog-container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  /* Hide elements that shouldn't be printed if we were using the main layout */
+  /* Assuming this page is rendered standalone, but just in case */
+  header, footer, .back-to-top { 
+    display: none !important; 
+  }
+  
+  /* But we want OUR footer */
+  .catalog-footer {
+    display: block !important;
+  }
+
+  /* Ensure grids break nicely */
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Force 3 columns for print */
+    gap: 1rem;
+  }
+
+  .catalog-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #ddd;
+  }
+
+  .catalog-section {
+    page-break-after: always; /* Start new major sections on new page if desired, or let flow */
+    margin-bottom: 2rem;
+  }
+
+  /* Avoid breaking inside images or titles */
+  img {
+    max-width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+}
+

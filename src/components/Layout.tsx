@@ -32,6 +32,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [openMobileDropdowns, setOpenMobileDropdowns] = useState<string[]>([]);
   const location = useLocation();
 
+  // If we are on the catalog page, render only children (no header/footer)
+  if (location.pathname === '/catalog') {
+    return <>{children}</>;
+  }
+
   // Handle scroll effect for header
   useEffect(() => {
     const handleScroll = () => {
@@ -281,7 +286,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   <span className="footer__company-tagline"> - Crafted for the world</span>
                 </div>
                 <p className="footer__company-desc">
-                  Inidan-based apparel exporter delivering high-quality, sustainable men’s and women’s wear with trusted service, global standards, and a commitment to craftsmanship.
+                  Indian-based apparel exporter delivering high-quality, sustainable men’s and women’s wear with trusted service, global standards, and a commitment to craftsmanship.
                 </p>
                 <div className="footer__social">
                   <a href="https://www.facebook.com/share/17tpqwHDzs/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="footer__social-link">
@@ -317,6 +322,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     { name: 'About', path: '/about-us' },
                     { name: 'Contact', path: '/contact-us' },
                     { name: 'FAQ', path: '/faq' },
+                    { name: 'Catalog', path: '/catalog' },
                     { name: 'Terms & Privacy Policy', path: '/terms-privacy' },
                   ].map((item) => (
                     <li key={item.name}>
