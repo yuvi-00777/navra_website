@@ -1,4 +1,3 @@
-import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
 import { products, categories } from '../data/products';
 import { fabrics } from '../data/fabrics';
@@ -6,41 +5,6 @@ import { technologies } from '../data/technologies';
 import navraLogo from '../assets/navra_final_logo_crop.png';
 
 // Color mapping for swatches
-const colorMap: Record<string, string> = {
-  'Black': '#000000',
-  'White': '#FFFFFF',
-  'Navy': '#000080',
-  'Grey': '#808080',
-  'Maroon': '#800000',
-  'Red': '#CC0000',
-  'Blue': '#0000FF',
-  'Green': '#008000',
-  'Yellow': '#FFCC00',
-  'Heather Grey': '#D3D3D3', 
-  'Royal Blue': '#4169E1',
-  'Pink': '#FFC0CB',
-  'Lavender': '#E6E6FA',
-  'Teal': '#008080',
-  'Beige': '#F5F5DC',
-  'Olive': '#808000',
-  'Charcoal': '#36454F',
-  'Cream': '#FFFDD0',
-  'Sage Green': '#B2AC88',
-  'Sky Blue': '#87CEEB',
-  'Neon Green': '#39FF14',
-  'Electric Blue': '#7DF9FF',
-  'Burgundy': '#800020',
-  'Peach': '#FFE5B4',
-  'Light Grey': '#D3D3D3',
-  'Mint': '#98FF98',
-  'Grey Melange': '#BEBEBE',
-  'Khaki': '#F0E68C',
-  'Camouflage': '#556B2F',
-  'Pink/Black': '#FFC0CB',
-  'All Black': '#000000',
-  'Grey/White': '#808080',
-};
-
 const styles = StyleSheet.create({
   page: {
     padding: 30,
