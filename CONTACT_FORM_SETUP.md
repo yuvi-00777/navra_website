@@ -23,12 +23,22 @@ Redeploy the project after saving so the new variables are applied.
 
 ## 3. Local testing (optional)
 
-To test the form against the API locally:
+To test the form and API on your machine:
 
-- Run the app: `npm run dev`.
-- Run Vercel dev (so `/api/contact` works): `npx vercel dev`.
+1. **Create `.env.local`** in the project root (same folder as `package.json`) with:
+   ```
+   RESEND_API_KEY=re_your_actual_key
+   CONTACT_TO_EMAIL=your-email@example.com
+   ```
+   (Do not commit this file; it's in `.gitignore`.)
 
-Or test only on the deployed site after redeploying with the env vars set.
+2. **Run Vercel dev** (runs both the app and the `/api/contact` function locally):
+   ```bash
+   npx vercel dev
+   ```
+   If prompted, log in or link the project. Then open the URL it prints (e.g. `http://localhost:3000`).
+
+3. Open the app, go to Contact Us (or Services / About), submit the form, and check your inbox for the test email.
 
 ## Summary
 

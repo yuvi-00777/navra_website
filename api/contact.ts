@@ -1,8 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 /** Build email HTML from form data */
 function buildEmailBody(data: Record<string, string>): string {
   const rows = Object.entries(data)
@@ -19,6 +17,14 @@ function buildEmailBody(data: Record<string, string>): string {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // CORS: allow same-origin and explicit origin
+  res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') {
+    return res.status(204).end();
+  }
+
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ error: 'Method not allowed' });
@@ -45,7 +51,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const html = buildEmailBody(body as Record<string, string>);
 
-    const { data, error } = await resend.emails.send({
+    const resendClient = new Resend(apiKey);
+    const { data, error } = await resendClient.emails.send({
       from: process.env.CONTACT_FROM_NAME
         ? `${process.env.CONTACT_FROM_NAME} <${fromEmail}>`
         : `Navra Contact <${fromEmail}>`,
