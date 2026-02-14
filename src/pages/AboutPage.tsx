@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useForm, ValidationError } from '@formspree/react';
+import { useContactForm, FormError } from '../hooks/useContactForm';
 import { pushFormSubmitSuccess } from '../utils/gtm';
 import './AboutPage.css';
 
@@ -16,7 +16,7 @@ import './AboutPage.css';
  */
 const AboutPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState('about');
-  const [state, handleSubmit] = useForm("xeejylvo");
+  const { state, handleSubmit } = useContactForm();
 
   useEffect(() => {
     if (state.succeeded) {
@@ -376,7 +376,7 @@ const AboutPage: React.FC = () => {
                             placeholder="Your name" 
                             required
                           />
-                          <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-500 text-xs mt-1" />
+                          <FormError field="name" errors={state.errors} className="text-red-500 text-xs mt-1" />
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
@@ -388,7 +388,7 @@ const AboutPage: React.FC = () => {
                             placeholder="your@email.com" 
                             required
                           />
-                          <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-xs mt-1" />
+                          <FormError field="email" errors={state.errors} className="text-red-500 text-xs mt-1" />
                         </div>
                       </div>
                       <div>
@@ -404,7 +404,7 @@ const AboutPage: React.FC = () => {
                           <option value="$5,000 - $10,000">$5,000 - $10,000</option>
                           <option value="$10,000+">$10,000+</option>
                         </select>
-                        <ValidationError prefix="Budget" field="budget" errors={state.errors} className="text-red-500 text-xs mt-1" />
+                        <FormError field="budget" errors={state.errors} className="text-red-500 text-xs mt-1" />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
@@ -416,7 +416,7 @@ const AboutPage: React.FC = () => {
                           placeholder="Tell us about your project..."
                           required
                         ></textarea>
-                        <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-xs mt-1" />
+                        <FormError field="message" errors={state.errors} className="text-red-500 text-xs mt-1" />
                       </div>
                       <button 
                         type="submit" 
@@ -425,6 +425,9 @@ const AboutPage: React.FC = () => {
                       >
                         {state.submitting ? 'Sending...' : 'Send Inquiry'}
                       </button>
+                      {state.errors?.length > 0 && (
+                        <p className="text-red-500 text-sm mt-2">{state.errors[0].message}</p>
+                      )}
                     </form>
                   )}
                 </div>

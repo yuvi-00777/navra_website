@@ -1,15 +1,10 @@
 import React, { useEffect } from 'react';
-import { useForm, ValidationError } from '@formspree/react';
+import { useContactForm, FormError } from '../hooks/useContactForm';
 import { countryCodes } from '../data/countryCodes';
 import { pushFormSubmitSuccess } from '../utils/gtm';
 
-// Styles are expected to be loaded by the parent page (HomePage.css or ContactUsPage.css)
-// or we can import a shared CSS file if we extracted it. 
-// For now, relying on existing CSS classes.
-
 const ContactForm: React.FC = () => {
-  // Replace 'YOUR_FORMSPREE_ID' with your actual Formspree form ID
-  const [state, handleSubmit] = useForm("xeejylvo");
+  const { state, handleSubmit } = useContactForm();
 
   useEffect(() => {
     if (state.succeeded) {
@@ -54,12 +49,7 @@ const ContactForm: React.FC = () => {
             placeholder="Your Name"
             required
           />
-          <ValidationError 
-            prefix="Name" 
-            field="name"
-            errors={state.errors}
-            style={{ color: 'red', fontSize: '0.8rem', marginTop: '5px' }}
-          />
+          <FormError field="name" errors={state.errors} style={{ color: 'red', fontSize: '0.8rem', marginTop: '5px' }} />
         </div>
         <div className="contact__form-group">
           <label htmlFor="email">Email *</label>
@@ -71,12 +61,7 @@ const ContactForm: React.FC = () => {
             placeholder="Your Email"
             required
           />
-          <ValidationError 
-            prefix="Email" 
-            field="email"
-            errors={state.errors}
-            style={{ color: 'red', fontSize: '0.8rem', marginTop: '5px' }}
-          />
+          <FormError field="email" errors={state.errors} style={{ color: 'red', fontSize: '0.8rem', marginTop: '5px' }} />
         </div>
       </div>
 
@@ -106,12 +91,7 @@ const ContactForm: React.FC = () => {
             required
           />
         </div>
-        <ValidationError 
-          prefix="Phone" 
-          field="phone"
-          errors={state.errors}
-          style={{ color: 'red', fontSize: '0.8rem', marginTop: '5px' }}
-        />
+        <FormError field="phone" errors={state.errors} style={{ color: 'red', fontSize: '0.8rem', marginTop: '5px' }} />
       </div>
 
       <div className="contact__form-group">
@@ -122,12 +102,7 @@ const ContactForm: React.FC = () => {
           className="contact__form-textarea"
           placeholder="Tell us about your project..."
         ></textarea>
-        <ValidationError 
-          prefix="Message" 
-          field="message"
-          errors={state.errors}
-          style={{ color: 'red', fontSize: '0.8rem', marginTop: '5px' }}
-        />
+        <FormError field="message" errors={state.errors} style={{ color: 'red', fontSize: '0.8rem', marginTop: '5px' }} />
       </div>
 
       <div className="contact__form-group contact__checkbox-group" style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginTop: '15px', marginBottom: '15px' }}>
@@ -151,7 +126,7 @@ const ContactForm: React.FC = () => {
         {state.submitting ? 'Sending...' : 'Send Message'}
       </button>
 
-      {state.errors && (
+      {state.errors?.length > 0 && (
         <div style={{ color: 'red', marginTop: '10px', fontWeight: 'bold' }}>
           There was an error sending your message. Please check the fields and try again.
         </div>

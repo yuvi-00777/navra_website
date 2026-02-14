@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useForm, ValidationError } from '@formspree/react';
+import { useContactForm, FormError } from '../hooks/useContactForm';
 import { pushFormSubmitSuccess } from '../utils/gtm';
 import './ServicesPage.css';
 
@@ -10,7 +10,7 @@ import './ServicesPage.css';
  */
 const ServicesPage: React.FC = () => {
   // Replace 'YOUR_FORM_ID' with your actual Formspree Form ID
-  const [state, handleSubmit] = useForm("xeejylvo");
+  const { state, handleSubmit } = useContactForm();
 
   useEffect(() => {
     if (state.succeeded) {
@@ -185,11 +185,7 @@ const ServicesPage: React.FC = () => {
                         placeholder="Your name" 
                         required
                       />
-                      <ValidationError 
-                        prefix="Name" 
-                        field="name"
-                        errors={state.errors}
-                      />
+                      <FormError field="name" errors={state.errors} />
                     </div>
                     <div className="contact__form-group">
                       <label>Email *</label>
@@ -201,11 +197,7 @@ const ServicesPage: React.FC = () => {
                         placeholder="your@email.com" 
                         required
                       />
-                      <ValidationError 
-                        prefix="Email" 
-                        field="email"
-                        errors={state.errors}
-                      />
+                      <FormError field="email" errors={state.errors} />
                     </div>
                   </div>
                   <div className="contact__form-group">
@@ -217,11 +209,7 @@ const ServicesPage: React.FC = () => {
                       className="contact__form-input" 
                       placeholder="Your company" 
                     />
-                    <ValidationError 
-                      prefix="Company" 
-                      field="company"
-                      errors={state.errors}
-                    />
+                    <FormError field="company" errors={state.errors} />
                 </div>
                   <div className="contact__form-group">
                     <label>Message *</label>
@@ -233,15 +221,14 @@ const ServicesPage: React.FC = () => {
                       placeholder="Tell us about your project..."
                       required
                     ></textarea>
-                    <ValidationError 
-                      prefix="Message" 
-                      field="message"
-                      errors={state.errors}
-                    />
+                    <FormError field="message" errors={state.errors} />
                 </div>
                   <button type="submit" className="contact__form-submit" disabled={state.submitting}>
                     Send Inquiry
                   </button>
+                  {state.errors?.length > 0 && (
+                    <p style={{ color: 'red', marginTop: '10px', fontSize: '0.9rem' }}>{state.errors[0].message}</p>
+                  )}
                 </form>
               )}
             </div>
