@@ -128,7 +128,7 @@ const ContactForm: React.FC = () => {
 
       {state.errors?.length > 0 && (
         <div style={{ color: 'red', marginTop: '10px', fontWeight: 'bold' }}>
-          There was an error sending your message. Please check the fields and try again.
+          {state.errors[0].message}
         </div>
       )}
     </form>

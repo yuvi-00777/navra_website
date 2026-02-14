@@ -65,10 +65,12 @@ export function useContactForm(): ContactFormReturn {
       const data = await res.json().catch(() => ({}));
 
       if (!res.ok) {
+        let message = data?.error || 'Failed to send. Please try again.';
+        if (res.status === 404) message = 'Form API not found (404). Check deployment.';
         setState((s) => ({
           ...s,
           submitting: false,
-          errors: [{ field: 'form', message: data?.error || 'Failed to send. Please try again.' }],
+          errors: [{ field: 'form', message }],
         }));
         return;
       }

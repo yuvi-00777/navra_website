@@ -21,6 +21,12 @@ In the [Vercel dashboard](https://vercel.com) → your project **www.thenavra.in
 
 Redeploy the project after saving so the new variables are applied.
 
+**If the form shows an error after deploy:**
+
+- **"Server configuration error"** → `RESEND_API_KEY` or `CONTACT_TO_EMAIL` is missing in Vercel. Add them under Settings → Environment Variables, then redeploy.
+- **"Failed to send email"** → Resend rejected the send (e.g. invalid API key, or "from" address not allowed). Check [Resend dashboard](https://resend.com) and use `onboarding@resend.dev` as sender until your domain is verified.
+- **"Form API not found (404)"** → The `/api/contact` route isn’t deployed. In Vercel, check that the repo root (where the `api` folder lives) is the project root and that the latest deploy finished without errors.
+
 ## 3. Local testing (optional)
 
 To test the form and API on your machine:

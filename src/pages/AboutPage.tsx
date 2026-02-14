@@ -426,7 +426,7 @@ const AboutPage: React.FC = () => {
                         {state.submitting ? 'Sending...' : 'Send Inquiry'}
                       </button>
                       {state.errors?.length > 0 && (
-                        <p className="text-red-500 text-sm mt-2">{state.errors[0].message}</p>
+                        <p className="text-red-500 text-sm mt-2" role="alert">{state.errors[0].message}</p>
                       )}
                     </form>
                   )}
