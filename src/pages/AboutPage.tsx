@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import { pushFormSubmitSuccess } from '../utils/gtm';
 import './AboutPage.css';
 
 /**
@@ -16,6 +17,12 @@ import './AboutPage.css';
 const AboutPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState('about');
   const [state, handleSubmit] = useForm("xeejylvo");
+
+  useEffect(() => {
+    if (state.succeeded) {
+      pushFormSubmitSuccess({ formName: 'about_contact_form', formId: 'about_page', page: '/about' });
+    }
+  }, [state.succeeded]);
 
   const stats = [
     { number: '22+', label: 'Years Experience' },

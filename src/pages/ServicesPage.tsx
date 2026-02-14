@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm, ValidationError } from '@formspree/react';
+import { pushFormSubmitSuccess } from '../utils/gtm';
 import './ServicesPage.css';
 
 /**
@@ -10,6 +11,12 @@ import './ServicesPage.css';
 const ServicesPage: React.FC = () => {
   // Replace 'YOUR_FORM_ID' with your actual Formspree Form ID
   const [state, handleSubmit] = useForm("xeejylvo");
+
+  useEffect(() => {
+    if (state.succeeded) {
+      pushFormSubmitSuccess({ formName: 'services_contact_form', formId: 'services_page', page: '/services' });
+    }
+  }, [state.succeeded]);
 
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services-grid');

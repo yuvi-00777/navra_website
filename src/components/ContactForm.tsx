@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { countryCodes } from '../data/countryCodes';
+import { pushFormSubmitSuccess } from '../utils/gtm';
 
 // Styles are expected to be loaded by the parent page (HomePage.css or ContactUsPage.css)
 // or we can import a shared CSS file if we extracted it. 
@@ -9,6 +10,12 @@ import { countryCodes } from '../data/countryCodes';
 const ContactForm: React.FC = () => {
   // Replace 'YOUR_FORMSPREE_ID' with your actual Formspree form ID
   const [state, handleSubmit] = useForm("xeejylvo");
+
+  useEffect(() => {
+    if (state.succeeded) {
+      pushFormSubmitSuccess({ formName: 'contact_form', formId: 'contact_us' });
+    }
+  }, [state.succeeded]);
 
   if (state.succeeded) {
       return (
