@@ -24,7 +24,10 @@ Redeploy the project after saving so the new variables are applied.
 **If the form shows an error after deploy:**
 
 - **"Server configuration error"** → `RESEND_API_KEY` or `CONTACT_TO_EMAIL` is missing in Vercel. Add them under Settings → Environment Variables, then redeploy.
-- **"Failed to send email"** → Resend rejected the send (e.g. invalid API key, or "from" address not allowed). Check [Resend dashboard](https://resend.com) and use `onboarding@resend.dev` as sender until your domain is verified.
+- **"Failed to send email"** (or a Resend message) → Resend rejected the send. Common fixes:
+  - **Use the default sender:** In Vercel, either do **not** set `CONTACT_FROM_EMAIL`, or set it to `onboarding@resend.dev`. Do **not** use your own domain (e.g. `contact@thenavra.in`) until you have verified that domain in [Resend → Domains](https://resend.com/domains).
+  - **Invalid API key:** In [Resend → API Keys](https://resend.com/api-keys), create a new key and set it as `RESEND_API_KEY` in Vercel, then redeploy.
+  - The form may now show Resend’s exact error message; use it to fix the issue.
 - **"Form API not found (404)"** → The `/api/contact` route isn’t deployed. In Vercel, check that the repo root (where the `api` folder lives) is the project root and that the latest deploy finished without errors.
 
 ## 3. Local testing (optional)

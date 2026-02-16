@@ -1,0 +1,6 @@
+# Allow all crawlers (search engines and AI tools)
+User-agent: *
+Allow: /
+
+# Optional: point to your sitemap when you have one
+# Sitemap: https://www.thenavra.in/sitemap.xml

@@ -63,7 +63,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (error) {
       console.error('Resend error:', error);
-      return res.status(500).json({ error: 'Failed to send email' });
+      const message =
+        (error as { message?: string })?.message ||
+        (typeof error === 'object' && error !== null ? JSON.stringify(error) : 'Failed to send email');
+      return res.status(500).json({ error: message });
     }
 
     return res.status(200).json({ ok: true, id: data?.id });
