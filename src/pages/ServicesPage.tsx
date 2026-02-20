@@ -6,7 +6,7 @@ import './ServicesPage.css';
 
 /**
  * ServicesPage Component
- * Replicates the "Services" page of hongyuapparel.com
+ * Services page for Navra
  */
 const ServicesPage: React.FC = () => {
   // Replace 'YOUR_FORM_ID' with your actual Formspree Form ID

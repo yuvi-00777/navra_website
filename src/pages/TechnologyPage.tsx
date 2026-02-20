@@ -5,7 +5,7 @@ import { technologies } from '../data/technologies';
 
 /**
  * TechnologyPage Component
- * Replicates the technology page of hongyuapparel.com
+ * Technology page for Navra
  * Displays various printing and manufacturing technologies.
  */
 const TechnologyPage: React.FC = () => {

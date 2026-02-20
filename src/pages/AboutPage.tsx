@@ -5,7 +5,7 @@ import './AboutPage.css';
 
 /**
  * AboutPage Component
- * Replicates the About Us section of hongyuapparel.com
+ * About Us page for Navra
  * 
  * Sections:
  * - Company introduction

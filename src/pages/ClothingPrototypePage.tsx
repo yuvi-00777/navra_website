@@ -4,7 +4,7 @@ import './ClothingPrototypePage.css';
 
 /**
  * ClothingPrototypePage Component
- * Replicates the "Clothing Prototype" page of hongyuapparel.com
+ * Clothing Prototype page for Navra
  */
 const ClothingPrototypePage: React.FC = () => {
   const processSteps = [

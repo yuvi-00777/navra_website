@@ -3,7 +3,7 @@ import './SolutionsPage.css';
 
 /**
  * SolutionsPage Component
- * Replicates the Solutions page of hongyuapparel.com
+ * Solutions page for Navra
  * 
  * Features:
  * - Cut & Sew Customize

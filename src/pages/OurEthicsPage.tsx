@@ -3,7 +3,7 @@ import './OurEthicsPage.css';
 
 /**
  * OurEthicsPage Component
- * Replicates the "Our Ethics" page of hongyuapparel.com
+ * Our Ethics page for Navra
  */
 const OurEthicsPage: React.FC = () => {
   return (

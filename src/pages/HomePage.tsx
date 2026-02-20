@@ -26,7 +26,7 @@ import brandStyle10 from '../assets/brand-style-10.jpg';
 
 /**
  * HomePage Component
- * Replicates the main landing page of hongyuapparel.com
+ * Main landing page for Navra
  */
 const HomePage: React.FC = () => {
   // State for Why Choose Navra accordion
@@ -124,12 +124,12 @@ const HomePage: React.FC = () => {
 
   // Mock data for comparison table
   const comparisonData = [
-    { benefit: '100% Custom Products', hongyu: true, traditional: true },
-    { benefit: 'Low Minimum Order', hongyu: true, traditional: false },
-    { benefit: 'Best Value For Quality', hongyu: true, traditional: false },
-    { benefit: 'Convenient Ordering Process', hongyu: true, traditional: false },
-    { benefit: 'Custom Labels, Tags & Packaging Options', hongyu: true, traditional: true },
-    { benefit: 'Cost Effective For Large Orders', hongyu: true, traditional: true },
+    { benefit: '100% Custom Products', navra: true, traditional: true },
+    { benefit: 'Low Minimum Order', navra: true, traditional: false },
+    { benefit: 'Best Value For Quality', navra: true, traditional: false },
+    { benefit: 'Convenient Ordering Process', navra: true, traditional: false },
+    { benefit: 'Custom Labels, Tags & Packaging Options', navra: true, traditional: true },
+    { benefit: 'Cost Effective For Large Orders', navra: true, traditional: true },
   ];
 
   // Mock data for process steps
@@ -326,7 +326,7 @@ const HomePage: React.FC = () => {
               </svg>
             </h2>
             <p className="idea-reality__subtitle">
-              Hongyu Apparel is here for you along the way. We'll help keep track of all those ideas that might scatter into papers, napkins or even just brain cells so they don't get lost inside your head!
+              Navra is here for you along the way. We'll help keep track of all those ideas that might scatter into papers, napkins or even just brain cells so they don't get lost inside your head!
             </p>
             <Link to="/contact-us" className="idea-reality__btn">
               Get Started
@@ -469,7 +469,7 @@ const HomePage: React.FC = () => {
                   <tr key={row.benefit}>
                     <td>{row.benefit}</td>
                     <td>
-                      {row.hongyu ? (
+                      {row.navra ? (
                         <span className="check-icon check-icon--yes">
                           ✓
                         </span>

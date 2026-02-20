@@ -3,7 +3,7 @@ import './CustomerReviewsPage.css';
 
 /**
  * CustomerReviewsPage Component
- * Replicates the "Customer Reviews" page of hongyuapparel.com
+ * Customer Reviews page for Navra
  */
 const CustomerReviewsPage: React.FC = () => {
   const reviews = [

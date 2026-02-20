@@ -4,7 +4,7 @@ import './ApparelProductionPage.css';
 
 /**
  * ApparelProductionPage Component
- * Replicates the "Custom Apparel Production" page of hongyuapparel.com
+ * Custom Apparel Production page for Navra
  */
 const ApparelProductionPage: React.FC = () => {
   const materials = [

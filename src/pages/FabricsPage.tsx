@@ -6,7 +6,7 @@ import { fabrics } from '../data/fabrics';
 
 /**
  * FabricsPage Component
- * Replicates the fabrics page of hongyuapparel.com
+ * Fabrics page for Navra
  * Displays a grid of available fabric types with descriptions.
  */
 const FabricsPage: React.FC = () => {

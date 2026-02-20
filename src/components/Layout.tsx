@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import navraLogo from '../assets/navra_final_logo_crop.png';
+import WhatsAppButton from './WhatsAppButton';
 import './Layout.css';
 
 interface LayoutProps {
@@ -23,7 +24,7 @@ interface NavItem {
 /**
  * Layout component that wraps all pages
  * Contains the Header/Navigation and Footer
- * Replicates the navigation structure from hongyuapparel.com
+ * Navigation structure for Navra
  */
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -64,7 +65,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const isDetailPage = location.pathname.startsWith('/product') && location.pathname !== '/products';
   const shouldShowDarkHeader = isScrolled || isDetailPage || location.pathname === '/faq';
 
-  // Navigation items with dropdowns matching hongyuapparel.com
+  // Navigation items with dropdowns for Navra
   const navItems: NavItem[] = [
     { name: 'Home', path: '/' },
     {
@@ -396,6 +397,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
         </div>
       </footer>
+
+      {/* WhatsApp floating button */}
+      <WhatsAppButton />
 
       {/* Back to Top Button */}
       <button

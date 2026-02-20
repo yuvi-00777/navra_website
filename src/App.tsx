@@ -32,7 +32,7 @@ import CatalogPage from './pages/CatalogPage';
 
 /**
  * Main App component with routing setup
- * Replicates the navigation structure of hongyuapparel.com
+ * Navigation and routes for Navra
  * 
  * Routes:
  * - / : Home page with hero, solutions, products showcase

@@ -4,7 +4,7 @@ import ContactForm from '../components/ContactForm';
 
 /**
  * ContactUsPage Component
- * Replicates the "Contact Us" page of hongyuapparel.com
+ * Contact Us page for Navra
  */
 const ContactUsPage: React.FC = () => {
   return (

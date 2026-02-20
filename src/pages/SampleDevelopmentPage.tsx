@@ -4,7 +4,7 @@ import './SampleDevelopmentPage.css';
 
 /**
  * SampleDevelopmentPage Component
- * Replicates the "Sample Development" page of hongyuapparel.com
+ * Sample Development page for Navra
  */
 const SampleDevelopmentPage: React.FC = () => {
   const timetable = [

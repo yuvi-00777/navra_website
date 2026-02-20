@@ -4,7 +4,7 @@ import './LabelsTagsPackagingPage.css';
 
 /**
  * LabelsTagsPackagingPage Component
- * Replicates the "Labels / Tags / Packaging" page of hongyuapparel.com
+ * Labels / Tags / Packaging page for Navra
  */
 const LabelsTagsPackagingPage: React.FC = () => {
   const items = [

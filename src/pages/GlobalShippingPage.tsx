@@ -4,7 +4,7 @@ import './GlobalShippingPage.css';
 
 /**
  * GlobalShippingPage Component
- * Replicates the "Global Shipping" page of hongyuapparel.com
+ * Global Shipping page for Navra
  */
 const GlobalShippingPage: React.FC = () => {
   const methods = [

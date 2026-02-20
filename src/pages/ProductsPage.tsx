@@ -6,7 +6,7 @@ import { products, categories } from '../data/products';
 
 /**
  * ProductsPage Component
- * Replicates the "Products and Categories" page of hongyuapparel.com
+ * Products and Categories page for Navra
  */
 const ProductsPage: React.FC = () => {
   const location = useLocation();

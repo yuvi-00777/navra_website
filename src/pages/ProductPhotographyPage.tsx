@@ -5,7 +5,7 @@ import ContactCTA from '../components/ContactCTA';
 
 /**
  * ProductPhotographyPage Component
- * Replicates the "Product Photography" page of hongyuapparel.com
+ * Product Photography page for Navra
  */
 const ProductPhotographyPage: React.FC = () => {
   return (

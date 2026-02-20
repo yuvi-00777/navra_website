@@ -60,7 +60,7 @@ import womensTrackSuit3 from '../assets/products/womens-track-suit-3.jpg';
 
 /**
  * ProductDetailPage Component
- * Replicates the product detail page structure of hongyuapparel.com
+ * Product detail page for Navra
  */
 const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
